@@ -29,7 +29,7 @@ class App extends Component {
         user: parsedResponse.data,
         laoding: false
       })
-      
+
     } catch(err) {
       console.log(err, 'this is error from register')
     }
@@ -38,7 +38,7 @@ class App extends Component {
 
 
     render() {
-      const { register } = this.state.register
+      const { register } = this.register
         return (
           <div>
             <div>NAV BAR</div>

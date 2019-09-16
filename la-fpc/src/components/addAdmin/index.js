@@ -7,7 +7,11 @@ class addAdmin extends Component {
   state = {
     name: '',
     password: '',
-    repassword: ''
+    repassword: '',
+    error: {
+      name: '',
+      password: '',
+    }
   }
 
   onInputChange = (e) => { this.setState({ [e.target.name]: e.target.value }) 
@@ -60,19 +64,16 @@ class addAdmin extends Component {
                 <div>
                   <input type="text" placeholder="name" name="name" onChange={this.onInputChange} />
                   <div>
-                    <small></small>
+                    <small>{this.state.error.name}</small>
                   </div>
                 </div>
                 <div>
                   <input type="password" placeholder="password" name="password" onChange={this.onInputChange} />
-                  <div>
-                    <small></small>
-                  </div>
                 </div>
                 <div>
                   <input type="password" placeholder="re-password" name="re-password" onChange={this.onInputChange} />
                   <div>
-                    <small></small>
+                    <small>{this.state.error.password}</small>
                   </div>
                 </div>
                 <button>SignIn</button>
