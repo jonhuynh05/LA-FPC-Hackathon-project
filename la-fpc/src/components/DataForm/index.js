@@ -13,8 +13,7 @@ class DataForm extends Component{
     change: '',
     notes: '',
     dataStatus: '',
-    group: '',
-    error: ''
+    group: ''
   }
 
   onInputChange = (e) => { this.setState({ [e.target.name]: e.target.value }) 
