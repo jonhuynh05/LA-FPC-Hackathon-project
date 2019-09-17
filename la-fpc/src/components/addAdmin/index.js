@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import { Route, withRouter } from 'react-router-dom'
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+
 
 
 class addAdmin extends Component {
@@ -64,21 +67,48 @@ class addAdmin extends Component {
               <h1>Add Admin</h1>
               <form onSubmit={this.submit}>
                 <div>
-                  <input type="text" placeholder="name" name="name" onChange={this.onInputChange} />
+                  <TextField 
+                    label='Username'
+                    type="text" 
+                    placeholder="Username" 
+                    name="username" 
+                    onChange={this.onInputChange} 
+                    margin="normal"
+                    variant="outlined"
+                    style={{margin: "10px"}}
+                  />
                   <div>
                     <small>{this.state.error.name}</small>
                   </div>
                 </div>
                 <div>
-                  <input type="password" placeholder="password" name="password" onChange={this.onInputChange} />
+                  <TextField 
+                    label='Password'
+                    type="password" 
+                    placeholder="password" 
+                    name="password" 
+                    onChange={this.onInputChange}
+                    margin="normal"
+                    variant="outlined"
+                    style={{margin: "10px"}}
+                  />
                 </div>
                 <div>
-                  <input type="password" placeholder="repassword" name="repassword" onChange={this.onInputChange} />
+                  <TextField
+                    label='Retype Password'
+                    type="password" 
+                    placeholder="repassword" 
+                    name="repassword" 
+                    onChange={this.onInputChange}
+                    margin="normal"
+                    variant="outlined"
+                    style={{margin: "10px"}}
+                  />
                   <div>
                     <small>{this.state.error.password}</small>
                   </div>
                 </div>
-                <button>SignIn</button>
+                <Button variant="outlined" style={{margin: "10px"}}>SignIn</Button>
               </form>
           </div>
       )
