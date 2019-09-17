@@ -8,6 +8,7 @@ import Healthy from '../Healthy';
 import Fair from '../Fair';
 import Sustainable from '../Sustainable';
 import Navbar from '../Navbar';
+import AdminHome from '../AddAdmin';
 
 
 class App extends Component {
