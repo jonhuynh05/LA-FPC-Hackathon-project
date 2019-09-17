@@ -76,7 +76,7 @@ class AddAdmin extends Component {
     console.log(this.state)
       return (
           <div>
-              <h1 style={{marginLeft: "300px"}}>Add Admin</h1>
+              <h1 style={{marginLeft: "300px"}}>Register as an Admin</h1>
               <form onSubmit={this.submit}>
                 <div>
                   <TextField 
