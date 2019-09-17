@@ -9,6 +9,7 @@ import Sustainable from '../Sustainable';
 import Navbar from '../Navbar';
 import AdminHome from '../AdminHome';
 import SignIn from '../SignIn'
+import AdminButton from '../AdminButton';
 
 
 class App extends Component {
@@ -49,6 +50,7 @@ class App extends Component {
       console.log(this.props)
         return (
           <div>
+            <AdminButton />
             <Navbar />
             <Switch>
               <Route exact path='/addadmin' render={(props) =>  <AddAdmin register={this.register}  {...props} />} />

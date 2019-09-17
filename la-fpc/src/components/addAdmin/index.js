@@ -11,9 +11,11 @@ class AddAdmin extends Component {
     username: '',
     password: '',
     repassword: '',
+    keycode: '',
     error: {
       username: '',
       password: '',
+      keycode: '',
     }
   }
 
@@ -42,7 +44,15 @@ class AddAdmin extends Component {
         }
       })
         return false
-      }else{
+      }
+      if (this.state.keycode !== 'foodpolicy') {
+        this.setState({
+          error: {
+            keycode: 'enter in correct keycode'
+          }
+        })
+        return false
+      } else{
         return true
 
       }
@@ -107,6 +117,10 @@ class AddAdmin extends Component {
                     style={{margin: "10px 10px 10px 300px"}}
                   />
                   <div>
+                    <small>{this.state.error.password}</small>
+                  </div>
+                  </div>
+                  <div>
                   <TextField
                     label='Key Code'
                     type="keycode" 
@@ -117,9 +131,8 @@ class AddAdmin extends Component {
                     variant="outlined"
                     style={{margin: "10px 10px 10px 300px"}}
                   />
-                  </div>
                   <div>
-                    <small>{this.state.error.password}</small>
+                    <small>{this.state.error.keycode}</small>
                   </div>
                 </div>
                 <Button 
