@@ -160,7 +160,7 @@ class AffordableData extends Component{
               <small>{this.state.error}</small>
             </div>
           </div>
-          <Button type="submit" variant="outlined" style={{margin: "10px"}}>SignIn</Button>
+          <Button type="submit" variant="outlined" style={{margin: "10px"}}>Submit</Button>
         </form>
       </div>
     )
