@@ -7,6 +7,7 @@ import Affordable from '../Affordable';
 import Healthy from '../Healthy';
 import Fair from '../Fair';
 import Sustainable from '../Sustainable';
+import AdminHome from '../AdminHome';
 
 
 class App extends Component {
@@ -55,6 +56,7 @@ class App extends Component {
               <Route exact path='/healthy' render={() => <Healthy />}/>
               <Route exact path='/fair' render={() => <Fair />}/>
               <Route exact path='/sustainable' render={() => <Sustainable />}/>
+              <Route exact path='/admin-home' render={() => <AdminHome />}/>
             </Switch>
           </div>
         )
