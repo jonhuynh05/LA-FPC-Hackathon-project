@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Route, withRouter } from 'react-router-dom'
 
+
 import DataForm from '../DataForm'
 import AddAdmin from '../AddAdmin'
 class AdminHome extends Component{
@@ -8,7 +9,7 @@ class AdminHome extends Component{
    addData = async (data) => {
     console.log("add data hitting")
     try {
-      const addDataResponse = await fetch(`http://localhost:3030/admin/add-data`, {
+      const addDataResponse = await fetch(`http://localhost:3030/data/add-data`, {
         method: 'POST',
         credentials: 'include',
         body: JSON.stringify(data),
@@ -32,8 +33,8 @@ class AdminHome extends Component{
     return(
       <div>
         <h1>AD AdminHome</h1>
-        <AddAdmin />
-        <DataForm  addData={addData}/>
+
+        <DataForm  addData={this.addData}/>
       </div>
     )
   }
