@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Route, withRouter } from 'react-router-dom'
 
 
-import DataForm from '../DataForm'
+import AffordableForm from '../AffordableForm'
 
 class AdminHome extends Component{
 
@@ -33,7 +33,7 @@ class AdminHome extends Component{
     return(
       <div>
         <h1>AD AdminHome</h1>
-        <DataForm  addData={this.addData}/>
+        <AffordableForm  addData={this.addData}/>
       </div>
     )
   }
