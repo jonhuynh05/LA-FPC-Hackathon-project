@@ -49,7 +49,7 @@ class App extends Component {
             <div>NAV BAR</div>
             <Switch>
               <Route exact path='/' render={(props) =>  <AddAdmin register={this.register}  {...props} />} />
-              <Route exact path='/home' render={(props) =>  <Homepage {...props} />} />
+              <Route exact path='/home' render={(props) =>  <Homepage {...props} />}  />
               <Route exact path='/affordable' render={() => <Affordable />}/>
               <Route exact path='/healthy' render={() => <Healthy />}/>
               <Route exact path='/fair' render={() => <Fair />}/>
