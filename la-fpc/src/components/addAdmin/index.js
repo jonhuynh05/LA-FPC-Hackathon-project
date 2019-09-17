@@ -8,11 +8,11 @@ import TextField from '@material-ui/core/TextField';
 class addAdmin extends Component {
 
   state = {
-    name: '',
+    username: '',
     password: '',
     repassword: '',
     error: {
-      name: '',
+      username: '',
       password: '',
     }
   }
@@ -21,7 +21,7 @@ class addAdmin extends Component {
   };
 
   validate = () => {
-    if (this.state.name.length < 1) {
+    if (this.state.username.length < 1) {
       this.setState({
         error: {
           name: 'please fill out name!!!'
@@ -42,13 +42,15 @@ class addAdmin extends Component {
         }
       })
         return false
+      }else{
+        return true
+
       }
-    return true
   };
 
   submit = async (e) => {
+    console.log('hitting')
     e.preventDefault();
-
     const isValid = this.validate();
     if(isValid) {
         console.log(this.props)
@@ -108,7 +110,7 @@ class addAdmin extends Component {
                     <small>{this.state.error.password}</small>
                   </div>
                 </div>
-                <Button variant="outlined" style={{margin: "10px"}}>SignIn</Button>
+                <Button type="submit" variant="outlined" style={{margin: "10px"}}>SignIn</Button>
               </form>
           </div>
       )
