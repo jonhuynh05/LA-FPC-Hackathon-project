@@ -107,6 +107,18 @@ class AddAdmin extends Component {
                     style={{margin: "10px 10px 10px 300px"}}
                   />
                   <div>
+                  <TextField
+                    label='Key Code'
+                    type="keycode" 
+                    placeholder="keycode" 
+                    name="keycode" 
+                    onChange={this.onInputChange}
+                    margin="normal"
+                    variant="outlined"
+                    style={{margin: "10px 10px 10px 300px"}}
+                  />
+                  </div>
+                  <div>
                     <small>{this.state.error.password}</small>
                   </div>
                 </div>

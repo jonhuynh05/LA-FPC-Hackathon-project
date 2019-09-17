@@ -1,14 +1,14 @@
-import React, { Component } from 'react'
-import { Route, Switch } from 'react-router-dom'
-import Homepage from '../Homepage'
-import SignIn from '../SignIn';
-import AddAdmin from '../AddAdmin'
+import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom';
+import Homepage from '../Homepage';
+import AddAdmin from '../AddAdmin';
 import Affordable from '../Affordable';
 import Healthy from '../Healthy';
 import Fair from '../Fair';
 import Sustainable from '../Sustainable';
 import Navbar from '../Navbar';
 import AdminHome from '../AdminHome';
+import SignIn from '../SignIn'
 
 
 class App extends Component {
@@ -51,13 +51,15 @@ class App extends Component {
           <div>
             <Navbar />
             <Switch>
-              <Route exact path='/' render={(props) =>  <AddAdmin register={this.register}  {...props} />} />
+              <Route exact path='/addadmin' render={(props) =>  <AddAdmin register={this.register}  {...props} />} />
+              <Route exact path='/' render={(props) =>  <Homepage {...props} />}  />
               <Route exact path='/home' render={(props) =>  <Homepage {...props} />}  />
               <Route exact path='/affordable' render={() => <Affordable />}/>
               <Route exact path='/healthy' render={() => <Healthy />}/>
               <Route exact path='/fair' render={() => <Fair />}/>
               <Route exact path='/sustainable' render={() => <Sustainable />}/>
               <Route exact path='/admin-home' render={() => <AdminHome />}/>
+              <Route exact path='/signin' render={() => <SignIn />} />
             </Switch>
           </div>
         )
