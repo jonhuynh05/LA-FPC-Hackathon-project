@@ -9,7 +9,7 @@ class AdminHome extends Component{
    addData = async (data) => {
     console.log("add data hitting")
     try {
-      const addDataResponse = await fetch(`http://localhost:3030/admin/add-data`, {
+      const addDataResponse = await fetch(`http://localhost:3030/data/add-data`, {
         method: 'POST',
         credentials: 'include',
         body: JSON.stringify(data),
@@ -34,7 +34,7 @@ class AdminHome extends Component{
       <div>
         <h1>AD AdminHome</h1>
 
-        <DataForm  addData={addData}/>
+        <DataForm  addData={this.addData}/>
       </div>
     )
   }
