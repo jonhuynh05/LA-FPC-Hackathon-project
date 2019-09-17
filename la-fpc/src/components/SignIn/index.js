@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { Link as LinkRoute } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -15,20 +15,9 @@ class SignIn extends Component {
   };
 
   validate = () => {
-    if (this.state.username.length < 1) {
-      this.setState({
-        error: {
-          name: 'please fill out name!!!'
-        }
-      })
-      return false
-    }
     if(
-      (this.state.password !== this.state.repassword) || 
-      (this.state.password.length < 4) ||
-      (this.state.password.search(/[a-z]/) === -1) ||
-      (this.state.password.search(/[0-9]/) === -1) ||
-      (this.state.password.search(/[A-Z]/) === -1 )
+      (this.state.password.length < 1) || 
+      (this.state.username.length < 1)
       ) {
       this.setState({
         error: {
@@ -36,10 +25,9 @@ class SignIn extends Component {
         }
       })
         return false
-      }else{
+      } else {
         return true
-
-      }
+    }
   };
 
   submit = async (e) => {
@@ -47,12 +35,9 @@ class SignIn extends Component {
     e.preventDefault();
     const isValid = this.validate();
     if(isValid) {
+        const login = this.props.login(this.state)
+        login.then(() => {this.props.history.push('/admin-home')})
         console.log(this.props)
-        const registerCall = this.props.register(this.state);
-        registerCall.then((data) => {
-          console.log(data, 'this is data from register')
-          this.props.history.push('/admin-home')
-        })
     }
   }
 
@@ -110,4 +95,4 @@ class SignIn extends Component {
   }
 }
 
-export default SignIn
+export default withRouter(SignIn)
