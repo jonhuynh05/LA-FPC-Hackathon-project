@@ -2,12 +2,13 @@ import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import Homepage from '../Homepage'
 import SignIn from '../SignIn';
-import AddAdmin from '../addAdmin'
+import AddAdmin from '../AddAdmin'
 import Affordable from '../Affordable';
 import Healthy from '../Healthy';
 import Fair from '../Fair';
 import Sustainable from '../Sustainable';
 import Navbar from '../Navbar';
+import AdminHome from '../AdminHome';
 
 
 class App extends Component {

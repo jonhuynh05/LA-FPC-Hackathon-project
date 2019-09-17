@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
-import { Route, withRouter } from 'react-router-dom'
+import React, { Component } from 'react';
+import { Route, withRouter } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 
 
 
-class addAdmin extends Component {
+class AddAdmin extends Component {
 
   state = {
     username: '',
@@ -122,4 +122,4 @@ class addAdmin extends Component {
   }
 }
 
-export default withRouter(addAdmin)
+export default withRouter(AddAdmin)
