@@ -8,21 +8,23 @@ class Navbar extends Component {
     render() {
         return (
           <div>
-            <Grid item xs={12}>
-                <ButtonGroup fullWidth aria-label="full width outlined button group">
-                    <Button component={ LinkRoute } to='/sustainable' color="inherit">
-                    Sustainable
-                    </Button>
-                    <Button component={ LinkRoute } to='/healthy' color="inherit">
-                    Health
-                    </Button>
-                    <Button component={ LinkRoute } to='/affordable' color="inherit">
-                    Affordability
-                    </Button>
-                    <Button component={ LinkRoute } to='/fair' color="inherit">
-                    Fairness
-                    </Button>
-                </ButtonGroup>
+            <Grid container spacing={3}>
+                <Grid item xs={12}>
+                    <ButtonGroup fullWidth aria-label="full width outlined button group">
+                        <Button component={ LinkRoute } to='/sustainable' color="inherit">
+                            Sustainable
+                        </Button>
+                        <Button component={ LinkRoute } to='/healthy' color="inherit">
+                            Health
+                        </Button>
+                        <Button component={ LinkRoute } to='/affordable' color="inherit">
+                            Affordability
+                        </Button>
+                        <Button component={ LinkRoute } to='/fair' color="inherit">
+                            Fairness
+                        </Button>
+                    </ButtonGroup>
+                </Grid>
             </Grid>
           </div>
         )
