@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import { Route, withRouter } from 'react-router-dom'
-
-
 import DataForm from '../DataForm'
 import AddAdmin from '../AddAdmin'
 class AdminHome extends Component{
