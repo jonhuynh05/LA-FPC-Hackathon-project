@@ -18,8 +18,9 @@ class App extends Component {
   }
 
   register = async (data) => {
+    console.log("hitting")
     try {
-      const registerResponse = await fetch(`http://localhost3030/admin/register-admin`, {
+      const registerResponse = await fetch(`http://localhost:3030/admin/register-admin`, {
         method: 'POST',
         credentials: 'include',
         body: JSON.stringify(data),
