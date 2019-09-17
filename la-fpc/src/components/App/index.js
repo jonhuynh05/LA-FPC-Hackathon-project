@@ -38,12 +38,13 @@ class App extends Component {
 
 
     render() {
-      const { register } = this.register
+  
+      console.log(this.props)
         return (
           <div>
             <div>NAV BAR</div>
             <Switch>
-              <Route exact path='/' render={(props) =>  <AddAdmin register={register}  {...props} />} />
+              <Route exact path='/' render={(props) =>  <AddAdmin register={this.register}  {...props} />} />
               <Route exact path='/home' render={(props) =>  <Homepage {...props} />} />
             </Switch>
           </div>

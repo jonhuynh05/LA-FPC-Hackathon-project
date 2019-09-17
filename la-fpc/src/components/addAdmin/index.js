@@ -48,6 +48,7 @@ class addAdmin extends Component {
 
     const isValid = this.validate();
     if(isValid) {
+        console.log(this.props)
         const registerCall = this.props.register(this.state);
         registerCall.then((data) => {
           console.log(data, 'this is data from register')
@@ -57,6 +58,7 @@ class addAdmin extends Component {
   }
 
   render() {
+    console.log(this.state)
       return (
           <div>
               <h1>Add Admin</h1>
@@ -71,7 +73,7 @@ class addAdmin extends Component {
                   <input type="password" placeholder="password" name="password" onChange={this.onInputChange} />
                 </div>
                 <div>
-                  <input type="password" placeholder="re-password" name="re-password" onChange={this.onInputChange} />
+                  <input type="password" placeholder="repassword" name="repassword" onChange={this.onInputChange} />
                   <div>
                     <small>{this.state.error.password}</small>
                   </div>
