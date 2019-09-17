@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Route, withRouter } from 'react-router-dom'
 
 import DataForm from '../DataForm'
-
+import AddAdmin from '../AddAdmin'
 class AdminHome extends Component{
 
    addData = async (data) => {
@@ -32,6 +32,7 @@ class AdminHome extends Component{
     return(
       <div>
         <h1>AD AdminHome</h1>
+        <AddAdmin />
         <DataForm  addData={addData}/>
       </div>
     )
