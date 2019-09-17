@@ -66,7 +66,7 @@ class addAdmin extends Component {
     console.log(this.state)
       return (
           <div>
-              <h1>Add Admin</h1>
+              <h1 style={{marginLeft: "300px"}}>Add Admin</h1>
               <form onSubmit={this.submit}>
                 <div>
                   <TextField 
@@ -77,7 +77,7 @@ class addAdmin extends Component {
                     onChange={this.onInputChange} 
                     margin="normal"
                     variant="outlined"
-                    style={{margin: "10px"}}
+                    style={{margin: "10px 10px 10px 300px"}}
                   />
                   <div>
                     <small>{this.state.error.name}</small>
@@ -92,7 +92,7 @@ class addAdmin extends Component {
                     onChange={this.onInputChange}
                     margin="normal"
                     variant="outlined"
-                    style={{margin: "10px"}}
+                    style={{margin: "10px 10px 10px 300px"}}
                   />
                 </div>
                 <div>
@@ -104,13 +104,18 @@ class addAdmin extends Component {
                     onChange={this.onInputChange}
                     margin="normal"
                     variant="outlined"
-                    style={{margin: "10px"}}
+                    style={{margin: "10px 10px 10px 300px"}}
                   />
                   <div>
                     <small>{this.state.error.password}</small>
                   </div>
                 </div>
-                <Button type="submit" variant="outlined" style={{margin: "10px"}}>SignIn</Button>
+                <Button 
+                  type="submit" 
+                  variant="outlined" 
+                  style={{margin: "10px 10px 10px 300px"}}
+                  >SignIn
+                </Button>
               </form>
           </div>
       )

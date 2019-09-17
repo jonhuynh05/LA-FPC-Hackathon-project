@@ -7,7 +7,7 @@ import Affordable from '../Affordable';
 import Healthy from '../Healthy';
 import Fair from '../Fair';
 import Sustainable from '../Sustainable';
-import AdminHome from '../AdminHome';
+import Navbar from '../Navbar';
 
 
 class App extends Component {
@@ -48,7 +48,7 @@ class App extends Component {
       console.log(this.props)
         return (
           <div>
-            <div>NAV BAR</div>
+            <Navbar />
             <Switch>
               <Route exact path='/' render={(props) =>  <AddAdmin register={this.register}  {...props} />} />
               <Route exact path='/home' render={(props) =>  <Homepage {...props} />}  />
