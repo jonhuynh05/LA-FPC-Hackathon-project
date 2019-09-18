@@ -99,12 +99,18 @@ class App extends Component {
     }
   }
 
-  logout = () => {
-    // localStorage.clear()
-    this.setState({
-      user: null
-    })
-    this.props.history.push('/home')
+  logout = async () => {
+    try {
+      fetch(`http://localhost:3030/admin/logout-admin`)
+      .then(res => {
+        this.setState({
+          isLogged: false
+        })
+      })
+      this.props.history.push(`/`)
+    } catch(err){
+      console.log(err)
+    }
   }
 
 

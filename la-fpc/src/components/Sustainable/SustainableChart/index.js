@@ -22,11 +22,11 @@ class Donut extends Component {
     }
 
     dataHandler = (props) => {
-        const colorArray = this.colorHandler(this.props.affordableData, 1)
+        const colorArray = this.colorHandler(this.props.sustainableData, 1)
         const data = {
-            labels: props.affordableData.map(r => { return r.group }),
+            labels: props.sustainableData.map(r => { return r.group }),
             datasets: [{
-                data: props.affordableData.map(r => { return r.baseline }),
+                data: props.sustainableData.map(r => { return r.baseline }),
                 backgroundColor: colorArray,
                 hoverBackgroundColor: this.hover(colorArray)
             }]
@@ -35,11 +35,10 @@ class Donut extends Component {
     }
 
     render() {
-        console.log(this.props.affordableData[0])
         return (
             <div>
                 <div className={style.canvas}>
-                  <h3>Baseline {this.props.affordableData[0] && this.props.affordableData[0].indicator}</h3>
+                  <h3>{this.props.sustainableData[0] && this.props.sustainableData[0].indicator}</h3>
                         <Doughnut data={this.dataHandler(this.props)} />
                     </div>
             </div>

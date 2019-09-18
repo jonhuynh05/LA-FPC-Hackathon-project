@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const Container = styled.div`
   display: flex;
   width: 95%;
+  margin-bottom: 36px
 `
 
 export const Form = styled.form`
@@ -15,7 +16,7 @@ export const DivInput = styled.div`
   width: 11%;
   height: 30px;
   &:hover Input {
-    background: #f39649d1;
+    background: #aae0f4;
   }
 `
 

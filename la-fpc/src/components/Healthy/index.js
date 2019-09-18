@@ -2,6 +2,24 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import HealthyData from './HealthyData';
 import EditHealthy from './EditHealthy';
+import Donut from './HealthyChart';
+import Button from '@material-ui/core/Button';
+import EditIcon from '@material-ui/icons/Edit';
+import DeleteIcon from '@material-ui/icons/Delete';
+
+
+import {
+  Container,
+  DivDataModal,
+  ContainModal,
+  Table,
+  Row,
+  TableData,
+  TableDataHeader,
+  TableDataButton,
+  H1,
+  P
+} from './style'
 
 import {DescribSec, DescribPar} from './style'
 class Healthy extends Component {
@@ -9,6 +27,8 @@ class Healthy extends Component {
   state = {
     healthyData: [],
     showEditModal: false,
+    showDataModal: false,
+    dataModalProperty: '',
     editData: {
       _id: null,
       value:'healthy',
@@ -38,11 +58,9 @@ class Healthy extends Component {
         }
       })
       const oldData = await data.json()
-      console.log(oldData.data)
-      const healthyData = oldData.data.filter(data => data.value === 'healthy')
-      console.log(healthyData, 'this is healthy data')
+      const healthData = oldData.data.filter(data => data.value === 'healthy')
       this.setState({
-        healthyData: healthyData
+        healthyData: healthData
       })
 
     }catch (err) {
@@ -51,7 +69,6 @@ class Healthy extends Component {
   }
 
   addData = async (data) => {
-    console.log("add data hitting")
     try {
       const addDataResponse = await fetch(`http://localhost:3030/data/add-data`, {
         method: 'POST',
@@ -62,12 +79,9 @@ class Healthy extends Component {
         }
       })
       const parsedResponse = await addDataResponse.json()
-
       this.setState({
-        user: parsedResponse.data,
-        laoding: false
+        healthyData: [...this.state.healthyData, parsedResponse.data]
       })
-
     } catch(err) {
       console.log(err, 'this is error from add data')
     }
@@ -83,9 +97,7 @@ class Healthy extends Component {
   }
 
   closeAndEdit = async (e) => {
-    console.log(' add data hitting')
     e.preventDefault();
-    console.log(this.state, 'this is edit state')
         try {
           const editRequest = await fetch(`http://localhost:3030/data/${this.state.editData._id}/update-data`, {
             method: 'PUT',
@@ -99,7 +111,6 @@ class Healthy extends Component {
             throw Error('editResquest not working')
           }
           const editResponse = await editRequest.json();
-          console.log(editRequest, 'this is edit request')
           const editDataArray = this.state.healthyData.map((data) => {
             if(data._id === editResponse.data._id){
               data = editResponse.data
@@ -110,7 +121,6 @@ class Healthy extends Component {
             healthyData: editDataArray,
             showEditModal: false
           })
-          console.log(editResponse, ' editResponse');
           this.props.history.push('/healthy')
         } catch(err){
           console.log(err, ' error closeAndEdit');
@@ -125,8 +135,13 @@ class Healthy extends Component {
     })
   }
 
+  cancelEdit = () => {
+    this.setState({
+      showEditModal: false
+    })
+  }
+
   delete = async (id) => {
-    console.log(id, ' delete data ID')
     try {
       const deleteData = await fetch(`http://localhost:3030/data/${id}`, {
         method: 'DELETE',
@@ -145,10 +160,24 @@ class Healthy extends Component {
     }
   }
 
+  closeDataModal = () => {
+    this.setState({
+      showDataModal: false
+    })
+  }
+
+  showData = e => {
+    this.setState({
+      showDataModal: !this.state.showDataModal,
+      dataModalProperty: e.target.textContent
+    })
+  }
+
     render(){
-      const { healthyData, editData, showEditModal } = this.state;
+      const { healthyData, editData, showEditModal, showDataModal, dataModalProperty } = this.state;
+      const { isLogged } = this.props.isLogged
         return(
-          <div>
+          <Container>
             <DescribSec>
               <h1>Healthy</h1>
               <DescribPar>Food is integral to the health and quality of life of individuals and communities. Healthy food is nutritious, delicious and safe. Healthy food meets recommended dietary guidelines and supports the body’s ability to fight disease and heal. All people deserve access to healthy food that is affordable, conveniently availability and culturally relevant.</DescribPar>
@@ -157,61 +186,83 @@ class Healthy extends Component {
               
               <DescribPar>In this section, we explore progress towards improving the health of ALL Angelenos by evaluating disparities and change over time in the following categories: Increased healthy food access, Improved eating habits amongst adults & children, Rates of obesity, Rates of diet-related diseases.</DescribPar>
             </DescribSec>
-            <HealthyData addData={this.addData}/>
             {
               showEditModal
               ?
-              <EditHealthy  closeAndEdit={this.closeAndEdit} editData={editData} handleFormChange={this.handleFormChange}/>
+              <EditHealthy  cancelEdit={this.cancelEdit} closeAndEdit={this.closeAndEdit} editData={editData} handleFormChange={this.handleFormChange}/>
               :
               null
             }
-            <div>
+            {
+              showDataModal
+              ?
+              <DivDataModal onClick={() => this.closeDataModal()}>
+                <ContainModal>
+                  {dataModalProperty}
+                </ContainModal>
+              </DivDataModal>
+              :
+              null
+            }
+            <Table>
+              <Row>
+                <TableDataHeader>ADMIN</TableDataHeader>
+                <TableDataHeader><H1>Indicator</H1></TableDataHeader>
+                <TableDataHeader><H1>Baseline</H1></TableDataHeader>
+                <TableDataHeader><H1>Update</H1></TableDataHeader>
+                <TableDataHeader><H1>Sources</H1></TableDataHeader>
+                <TableDataHeader><H1>Change</H1></TableDataHeader>
+                <TableDataHeader><H1>Notes</H1></TableDataHeader>
+                <TableDataHeader><H1>Data Status</H1></TableDataHeader>
+                <TableDataHeader><H1>Group</H1></TableDataHeader>
+              </Row>
               {
                 healthyData.map((data, i) => {
                   return (
-                    <div key={i}>
-                      <div>
-                        <button onClick={() => this.editData(data)}>Edit</button>
-                        <button onClick={() => this.delete(data._id)}>Delete</button>
-                      </div>
-                      <div>
-                        <h1>Indicator</h1>
-                        <p>{data.indicator}</p>
-                      </div>
-                      <div>
-                        <h1>Baseline</h1>
-                        <p>{data.baseline}</p>
-                      </div>
-                      <div>
-                        <h1>update</h1>
-                        <p>{data.update}</p>
-                      </div>
-                      <div>
-                        <h1>Sources</h1>
-                        <p>{data.sources}</p>
-                      </div>
-                      <div>
-                        <h1>Change</h1>
-                        <p>{data.change}</p>
-                      </div>
-                      <div>
-                        <h1>Notes</h1>
-                        <p>{data.notes}</p>
-                      </div>
-                      <div>
-                        <h1>Data Status</h1>
-                        <p>{data.dataStatus}</p>
-                      </div>
-                      <div>
-                        <h1>Group</h1>
-                        <p>{data.group}</p>
-                      </div>
-                    </div>
+                    <Row key={i}>
+                      <TableDataButton>
+                        <Button onClick={() => this.editData(data)}><EditIcon /></Button>
+                        <Button onClick={() => this.delete(data._id)}><DeleteIcon /></Button>
+                      </TableDataButton>
+                      <TableData onClick={(e) => this.showData(e)}>
+                        <P>{data.indicator}</P>
+                      </TableData>
+                      <TableData onClick={(e) => this.showData(e)}>
+                        <P>{data.baseline}</P>
+                      </TableData>
+                      <TableData onClick={(e) => this.showData(e)}>
+                        <P>{data.update}</P>
+                      </TableData>
+                      <TableData onClick={(e) => this.showData(e)}>
+                        <P>{data.sources}</P>
+                      </TableData>
+                      <TableData onClick={(e) => this.showData(e)}>
+                        <P>{data.change}</P>
+                      </TableData>
+                      <TableData onClick={(e) => this.showData(e)}>
+                        <P>{data.notes}</P>
+                      </TableData>
+                      <TableData onClick={(e) => this.showData(e)}>
+                        <P>{data.dataStatus}</P>
+                      </TableData>
+                      <TableData onClick={(e) => this.showData(e)}>
+                        <P>{data.group}</P>
+                      </TableData>
+                    </Row>
                   )
                 })
               }
+            </Table>
+            <HealthyData addData={this.addData}/>
+            <div style={{display:'flex'}}>
+              <div>
+                toolkit placeholder
+              </div>
+              <div>
+                <Donut healthyData={this.state.healthyData} />
+              </div>
             </div>
-          </div>
+          </Container>
         )
     }
 }
