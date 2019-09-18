@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 import Homepage from '../Homepage';
 import AddAdmin from '../AddAdmin';
 import Affordable from '../Affordable';
@@ -35,6 +35,15 @@ class App extends Component {
 
   }
 
+  componentDidMount() {
+    // const user = JSON.parse(localStorage.getItem('admin'))
+    // if(user) {
+    //   this.setState({
+    //     user: user
+    //   })
+    // }
+  }
+
   register = async (data) => {
     console.log("hitting")
     try {
@@ -47,10 +56,11 @@ class App extends Component {
         }
       })
       const parsedResponse = await registerResponse.json()
-
+      // localStorage.setItem('admin', JSON.stringify(parsedResponse.data))
       this.setState({
         user: parsedResponse.data,
-        laoding: false
+        laoding: false,
+        isLogged: true
       })
 
     } catch(err) {
@@ -71,6 +81,7 @@ class App extends Component {
       })
       const parsedResponse = await loginResponse.json();
       console.log(parsedResponse, 'this is my logindata')
+      // localStorage.setItem('admin', JSON.stringify(parsedResponse.foundUser))
       this.setState(() => {
         return {
           isLogged: true,
@@ -88,6 +99,14 @@ class App extends Component {
     }
   }
 
+  logout = () => {
+    // localStorage.clear()
+    this.setState({
+      user: null
+    })
+    this.props.history.push('/home')
+  }
+
 
 
     render() {
@@ -98,21 +117,20 @@ class App extends Component {
             <AdminButton />
             <Navbar />
             <Switch>
-              {/* {
+              {
                 this.state.isLogged
                 ?
                 <Route exact path='/admin-home' render={() => <AdminHome />}/>
                 : 
                 <Route exact path='/' render={(props) =>  <Homepage {...props} />}  />
-              } */}
-              <Route exact path='/admin-home' render={() => <AdminHome />}/>
+              }
               <Route exact path='/addadmin' render={(props) =>  <AddAdmin register={this.register}  {...props} />} />
               <Route exact path='/' render={(props) =>  <Homepage {...props} />}  />
               <Route exact path='/home' render={(props) =>  <Homepage {...props} />}  />
-              <Route exact path='/affordable' render={() => <Affordable />}/>
-              <Route exact path='/healthy' render={() => <Healthy />}/>
-              <Route exact path='/fair' render={() => <Fair />}/>
-              <Route exact path='/sustainable' render={() => <Sustainable />}/>
+              <Route exact path='/affordable' render={() => <Affordable  isLogged={this.state.isLogged}/>}/>
+              <Route exact path='/healthy' render={() => <Healthy isLogged={this.state.isLogged}/>}/>
+              <Route exact path='/fair' render={() => <Fair isLogged={this.state.isLogged}/>}/>
+              <Route exact path='/sustainable' render={() => <Sustainable isLogged={this.state.isLogged}/>}/>
               <Route exact path='/signin' render={() => <SignIn login={this.login}/>} />
               <Route component={ My404 } />
             </Switch>
@@ -122,4 +140,4 @@ class App extends Component {
     }
 }
 
-export default App
+export default withRouter(App)

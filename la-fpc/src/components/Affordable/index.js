@@ -6,9 +6,13 @@ import Donut from '../AffordableChart';
 
 import {
   Container,
+  DivDataModal,
+  ContainModal,
   Table,
   Row,
   TableData,
+  TableDataHeader,
+  TableDataButton,
   Button,
   H1,
   P
@@ -19,6 +23,8 @@ class Affordable extends Component {
   state = {
     affordableData: [],
     showEditModal: false,
+    showDataModal: false,
+    dataModalProperty: '',
     editData: {
       _id: null,
       value:'affordable',
@@ -72,12 +78,10 @@ class Affordable extends Component {
         }
       })
       const parsedResponse = await addDataResponse.json()
-
       this.setState({
-        user: parsedResponse.data,
-        laoding: false
+        affordableData: [...this.state.affordableData, parsedResponse.data]
       })
-
+      console.log(this.state.affordableData, 'this is add')
     } catch(err) {
       console.log(err, 'this is error from add data')
     }
@@ -135,6 +139,12 @@ class Affordable extends Component {
     })
   }
 
+  cancelEdit = () => {
+    this.setState({
+      showEditModal: false
+    })
+  }
+
   delete = async (id) => {
     console.log(id, ' delete data ID')
     try {
@@ -155,57 +165,87 @@ class Affordable extends Component {
     }
   }
 
-    render(){
-      const { affordableData, editData, showEditModal } = this.state;
-        return(
+  closeDataModal = () => {
+    this.setState({
+      showDataModal: false
+    })
+  }
 
+  showData = e => {
+    this.setState({
+      showDataModal: !this.state.showDataModal,
+      dataModalProperty: e.target.textContent
+    })
+    console.log( e.target.textContent, 'this is current target')
+
+  }
+
+    render(){
+      const { affordableData, editData, showEditModal, showDataModal, dataModalProperty } = this.state;
+      const { isLogged } = this.props.isLogged
+      console.log(this.props.isLogged, 'this is logged')
+        return(
           <Container>
             {
               showEditModal
               ?
-              <EditAffordable closeAndEdit={this.closeAndEdit} editData={editData} handleFormChange={this.handleFormChange}/>
+              <EditAffordable  cancelEdit={this.cancelEdit} closeAndEdit={this.closeAndEdit} editData={editData} handleFormChange={this.handleFormChange}/>
+              :
+              null
+            }
+            {
+              showDataModal
+              ?
+              <DivDataModal onClick={() => this.closeDataModal()}>
+                <ContainModal>
+                  {dataModalProperty}
+                </ContainModal>
+              </DivDataModal>
               :
               null
             }
             <Table>
+              <Row>
+                <TableDataHeader>ADMIN</TableDataHeader>
+                <TableDataHeader><H1>Indicator</H1></TableDataHeader>
+                <TableDataHeader><H1>Baseline</H1></TableDataHeader>
+                <TableDataHeader><H1>Update</H1></TableDataHeader>
+                <TableDataHeader><H1>Sources</H1></TableDataHeader>
+                <TableDataHeader><H1>Change</H1></TableDataHeader>
+                <TableDataHeader><H1>Notes</H1></TableDataHeader>
+                <TableDataHeader><H1>Data Status</H1></TableDataHeader>
+                <TableDataHeader><H1>Group</H1></TableDataHeader>
+              </Row>
               {
                 affordableData.map((data, i) => {
                   return (
                     <Row key={i}>
-                      <TableData>
+                      <TableDataButton>
                         <Button onClick={() => this.editData(data)}>Edit</Button>
                         <Button onClick={() => this.delete(data._id)}>Delete</Button>
-                      </TableData>
-                      <TableData>
-                        <H1>Indicator</H1>
+                      </TableDataButton>
+                      <TableData onClick={(e) => this.showData(e)}>
                         <P>{data.indicator}</P>
                       </TableData>
-                      <TableData>
-                        <H1>Baseline</H1>
+                      <TableData onClick={(e) => this.showData(e)}>
                         <P>{data.baseline}</P>
                       </TableData>
-                      <TableData>
-                        <H1>uPdate</H1>
+                      <TableData onClick={(e) => this.showData(e)}>
                         <P>{data.update}</P>
                       </TableData>
-                      <TableData>
-                        <H1>Sources</H1>
+                      <TableData onClick={(e) => this.showData(e)}>
                         <P>{data.sources}</P>
                       </TableData>
-                      <TableData>
-                        <H1>Change</H1>
+                      <TableData onClick={(e) => this.showData(e)}>
                         <P>{data.change}</P>
                       </TableData>
-                      <TableData>
-                        <H1>Notes</H1>
+                      <TableData onClick={(e) => this.showData(e)}>
                         <P>{data.notes}</P>
                       </TableData>
-                      <TableData>
-                        <H1>Data Status</H1>
+                      <TableData onClick={(e) => this.showData(e)}>
                         <P>{data.dataStatus}</P>
                       </TableData>
-                      <TableData>
-                        <H1>Group</H1>
+                      <TableData onClick={(e) => this.showData(e)}>
                         <P>{data.group}</P>
                       </TableData>
                     </Row>

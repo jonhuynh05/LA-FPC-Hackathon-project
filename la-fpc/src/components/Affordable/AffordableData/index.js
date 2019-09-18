@@ -74,7 +74,7 @@ class AffordableData extends Component{
           <DivInput>
             <Input 
               type="text" 
-              placeholder="indicatoer" 
+              placeholder="indicator" 
               name="indicator" 
               onChange={this.onInputChange} 
             />

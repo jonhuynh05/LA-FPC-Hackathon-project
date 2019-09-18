@@ -3,14 +3,22 @@ import { Route, withRouter } from 'react-router-dom'
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 
+import {
+  Container,
+  Form,
+  H1,
+  Cancel
+} from './style'
+
 class EditAffordable extends Component{
 
   render(){
     console.log(this.props, 'this is edit props')
     return(
-      <div>
-        <h1>Edit Affordable</h1>
-        <form onSubmit={this.props.closeAndEdit}>
+      <Container onClick={this.props.cancelEdit}>
+        <Form onSubmit={this.props.closeAndEdit}>
+          <Cancel onClick={this.props.cancelEdit}>Cancel</Cancel>
+          <H1>Edit Affordable</H1>
           <div>
             <TextField 
               label='indicator'
@@ -119,8 +127,8 @@ class EditAffordable extends Component{
             </div>
           </div>
           <Button type="submit" variant="outlined" style={{margin: "10px"}}>update</Button>
-        </form>
-      </div>
+        </Form>
+      </Container>
     )
   }
 }
