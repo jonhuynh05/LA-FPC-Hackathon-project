@@ -3,6 +3,10 @@ import { withRouter } from 'react-router-dom'
 import AffordableData from './AffordableData';
 import EditAffordable from './EditAffordable';
 import Donut from '../AffordableChart';
+import Button from '@material-ui/core/Button';
+import EditIcon from '@material-ui/icons/Edit';
+import DeleteIcon from '@material-ui/icons/Delete';
+
 
 import {
   Container,
@@ -13,7 +17,6 @@ import {
   TableData,
   TableDataHeader,
   TableDataButton,
-  Button,
   H1,
   P
 } from './styled'
@@ -221,8 +224,8 @@ class Affordable extends Component {
                   return (
                     <Row key={i}>
                       <TableDataButton>
-                        <Button onClick={() => this.editData(data)}>Edit</Button>
-                        <Button onClick={() => this.delete(data._id)}>Delete</Button>
+                        <Button onClick={() => this.editData(data)}><EditIcon /></Button>
+                        <Button onClick={() => this.delete(data._id)}><DeleteIcon /></Button>
                       </TableDataButton>
                       <TableData onClick={(e) => this.showData(e)}>
                         <P>{data.indicator}</P>

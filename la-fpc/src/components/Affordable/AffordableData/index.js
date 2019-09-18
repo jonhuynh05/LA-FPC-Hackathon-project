@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Route, withRouter } from 'react-router-dom'
-// import Button from '@material-ui/core/Button';
+import Button from '@material-ui/core/Button';
+import PublishIcon from '@material-ui/icons/Publish';
 // import Input from '@material-ui/core/TextField';
 import { display } from '@material-ui/system';
 
@@ -9,7 +10,6 @@ import {
   Form,
   Input,
   DivInput,
-  Button
 } from './styled'
 
 class AffordableData extends Component{
@@ -69,7 +69,7 @@ class AffordableData extends Component{
       <Container>
         <Form onSubmit={this.submit}>
           <DivInput>
-            <Button>Submit</Button>
+            <Button><PublishIcon /></Button>
           </DivInput>
           <DivInput>
             <Input 
