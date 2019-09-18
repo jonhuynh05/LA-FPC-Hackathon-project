@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { Redirect, Switch } from 'react-router-dom'
 
 import {HomeDiv, 
         Tiles, 
@@ -30,10 +30,10 @@ class Home extends Component {
                         <p>LAFPC takes great pride at the positive changes we affect in our communities. See below for our in-depth statistics and data on how much our programs improve the loves of those around us.</p>
                     </HeaderDiv>
                     <TileDiv>
-                        <Tiles src={sus} alt={"logo"} />
-                        <Tiles src={health} alt={"logo"} />
-                        <Tiles src={afford} alt={"logo"} />
-                        <Tiles src={fair} alt={"logo"} />
+                        <a href='/sustainable'><Tiles src={sus} alt={"logo"} /></a>
+                        <a href='/healthy'><Tiles src={health} alt={"logo"} /></a>
+                        <a href='/affordable'><Tiles src={afford} alt={"logo"} /></a>
+                        <a href='/fair'><Tiles src={fair} alt={"logo"} /></a>
                     </TileDiv>
                     <DescripDiv>
                         <Descrip>
