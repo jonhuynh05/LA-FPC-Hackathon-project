@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import AffordableData from './AffordableData';
 import EditAffordable from './EditAffordable';
-import AffordableChart from '../AffordableChart';
+import Donut from '../AffordableChart';
 
 import {
   Container,
@@ -214,6 +214,14 @@ class Affordable extends Component {
               }
             </Table>
             <AffordableData addData={this.addData}/>
+            <div style={{display:'flex'}}>
+              <div>
+                toolkit placeholder
+              </div>
+              <div>
+                <Donut affordableData={this.state.affordableData} />
+              </div>
+            </div>
           </Container>
         )
     }
