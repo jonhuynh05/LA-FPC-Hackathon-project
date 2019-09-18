@@ -35,7 +35,6 @@ class Donut extends Component {
     }
 
     render() {
-        console.log(this.props.affordableData[0])
         return (
             <div>
                 <div className={style.canvas}>
