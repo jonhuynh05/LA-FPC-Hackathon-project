@@ -11,6 +11,7 @@ import AdminHome from '../AdminHome';
 import SignIn from '../SignIn'
 import AdminButton from '../AdminButton';
 import Container from '@material-ui/core/Container';
+import Footer from '../Footer'
 
 
 const My404 = () => {
@@ -115,6 +116,7 @@ class App extends Component {
               <Route exact path='/signin' render={() => <SignIn login={this.login}/>} />
               <Route component={ My404 } />
             </Switch>
+            <Footer/>
           </div>
         )
     }

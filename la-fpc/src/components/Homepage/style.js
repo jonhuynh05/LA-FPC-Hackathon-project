@@ -33,3 +33,22 @@ export const Descrip = styled.div`
     text-align: center;
     padding: 3%;
 `
+
+export const UserImgDiv = styled.div`
+    margin-top: 3%;
+    display: flex;
+    justify-content: center;
+    padding: 3%;
+    margin: 0 10% 0 10%;
+`
+
+export const UserImg = styled.img`
+    padding: 9px;
+    height: 40vh;
+    width: 40vh;
+    border-radius: 10%;
+    &:hover {
+        background-color: black;
+        opacity: .9;
+    }
+`

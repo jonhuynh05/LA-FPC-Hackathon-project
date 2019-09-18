@@ -1,15 +1,23 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
+
 import {HomeDiv, 
         Tiles, 
         TileDiv,
         HeaderDiv,
         DescripDiv,
-        Descrip} from './style'
+        Descrip,
+        UserImg,
+        UserImgDiv} from './style'
+
 import afford from "./img/Afford.png"
 import fair from "./img/Fair.png"
 import health from "./img/Health.png"
 import sus from "./img/Sus.png"
+
+import city from "./img/city.jpg"
+import compost from "./img/compost.jpg"
+import plants from "./img/plants.JPG"
 
 
 class Home extends Component {
@@ -41,6 +49,12 @@ class Home extends Component {
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
                         </Descrip>
                     </DescripDiv>
+                        <h1>Case Studies</h1>
+                    <UserImgDiv>
+                        <UserImg src={city}/>
+                        <UserImg src={compost}/>
+                        <UserImg src={plants}/>
+                    </UserImgDiv>
                 </HomeDiv>
         )
     }
