@@ -2,84 +2,23 @@ import React, { Component } from 'react'
 import { Route, withRouter } from 'react-router-dom'
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import { display } from '@material-ui/system';
 
-class SustainableData extends Component{
-
-  state = {
-    value: 'sustainable',
-    indicator: '',
-    baseline: '',
-    update: '',
-    sources: '',
-    change: '',
-    notes: '',
-    dataStatus: '',
-    group: '',
-    error: ''
-  }
-
-  onInputChange = (e) => { this.setState({ [e.target.name]: e.target.value }) 
-  };
-
-  validate = () => {
-    if(
-      (this.state.indicator.length < 1) ||
-      (this.state.baseline.length < 1) ||
-      (this.state.update.length < 1) ||
-      (this.state.sources.length < 1) ||
-      (this.state.change.length < 1) ||
-      (this.state.notes.length < 1) ||
-      (this.state.dataStatus.length < 1) ||
-      (this.state.group.length < 1) 
-      ) {
-      this.setState({
-        error: 'must fill out form, put N/A in empty spaces'
-      })
-        return false
-      } else {
-        return true
-      }
-  };
-
-  submit = async (e) => {
-    console.log(' add data hitting')
-    e.preventDefault();
-    const isValid = this.validate();
-    if(isValid) {
-        console.log(this.props)
-        const dataCall = this.props.addData(this.state);
-        this.setState({
-          indicator: '',
-          baseline: '',
-          update: '',
-          sources: '',
-          change: '',
-          notes: '',
-          dataStatus: '',
-          group: '',
-          error: ''
-        })
-        console.log(this.state, 'this is state')
-        dataCall.then((data) => {
-          console.log(data, 'this is data from register')
-          this.props.history.push('/sustainable')
-        })
-    }
-  }
+class EditFair extends Component{
 
   render(){
+    console.log(this.props, 'this is edit props')
     return(
       <div>
-        <h1>Sustainable form</h1>
-        <form onSubmit={this.submit}>
+        <h1>Edit Fair</h1>
+        <form onSubmit={this.props.closeAndEdit}>
           <div>
             <TextField 
               label='indicator'
               type="text" 
               placeholder="indicatoer" 
               name="indicator" 
-              onChange={this.onInputChange} 
+              value={this.props.editData.indicator}
+              onChange={this.props.handleFormChange} 
               margin="normal"
               variant="outlined"
               style={{margin: "10px"}}
@@ -90,8 +29,9 @@ class SustainableData extends Component{
               label='baseline'
               type="text" 
               placeholder="baseline" 
-              name="baseline" 
-              onChange={this.onInputChange}
+              name="baseline"
+              value={this.props.editData.baseline}
+              onChange={this.props.handleFormChange}
               margin="normal"
               variant="outlined"
               style={{margin: "10px"}}
@@ -103,7 +43,8 @@ class SustainableData extends Component{
               type="text" 
               placeholder="update" 
               name="update" 
-              onChange={this.onInputChange}
+              value={this.props.editData.update[0]}
+              onChange={this.props.handleFormChange}
               margin="normal"
               variant="outlined"
               style={{margin: "10px"}}
@@ -114,8 +55,9 @@ class SustainableData extends Component{
               label='sources'
               type="text" 
               placeholder="sources" 
-              name="sources" 
-              onChange={this.onInputChange} 
+              name="sources"
+              value={this.props.editData.sources} 
+              onChange={this.props.handleFormChange} 
               margin="normal"
               variant="outlined"
               style={{margin: "10px"}}
@@ -127,7 +69,8 @@ class SustainableData extends Component{
               type="text" 
               placeholder="change" 
               name="change" 
-              onChange={this.onInputChange} 
+              value={this.props.editData.change}
+              onChange={this.props.handleFormChange}
               margin="normal"
               variant="outlined"
               style={{margin: "10px"}}
@@ -139,7 +82,8 @@ class SustainableData extends Component{
               type="text" 
               placeholder="notes" 
               name="notes" 
-              onChange={this.onInputChange} 
+              value={this.props.editData.notes}
+              onChange={this.props.handleFormChange} 
               margin="normal"
               variant="outlined"
               style={{margin: "10px"}}
@@ -151,7 +95,8 @@ class SustainableData extends Component{
               type="text" 
               placeholder="data status" 
               name="dataStatus" 
-              onChange={this.onInputChange} 
+              value={this.props.editData.dataStatus}
+              onChange={this.props.handleFormChange} 
               margin="normal"
               variant="outlined"
               style={{margin: "10px"}}
@@ -162,21 +107,22 @@ class SustainableData extends Component{
               label='group'
               type="text" 
               placeholder="group" 
-              name="group" 
-              onChange={this.onInputChange} 
+              name="group"
+              value={this.props.editData.group} 
+              onChange={this.props.handleFormChange} 
               margin="normal"
               variant="outlined"
               style={{margin: "10px"}}
             />
           </div>
-              <small>{this.state.error}</small>
+              <small>{this.props.error}</small>
             </div>
           </div>
-          <Button type="submit" variant="outlined" style={{margin: "10px"}}>Submit</Button>
+          <Button type="submit" variant="outlined" style={{margin: "10px"}}>update</Button>
         </form>
       </div>
     )
   }
 }
 
-export default withRouter(SustainableData);
+export default withRouter(EditFair);
