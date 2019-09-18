@@ -50,7 +50,7 @@ class FairData extends Component{
         const dataCall = this.props.addData(this.state);
         dataCall.then((data) => {
           console.log(data, 'this is data from register')
-          this.props.history.push('/fair')
+          this.props.history.push('/admin-home')
         })
     }
   }
