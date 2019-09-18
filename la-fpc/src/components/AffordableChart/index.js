@@ -35,10 +35,11 @@ class Donut extends Component {
     }
 
     render() {
+        console.log(this.props.affordableData[0])
         return (
             <div>
                 <div className={style.canvas}>
-                  <h3>{this.props.affordableData[0] && this.props.affordableData[0].indicator}</h3>
+                  <h3>Baseline {this.props.affordableData[0] && this.props.affordableData[0].indicator}</h3>
                         <Doughnut data={this.dataHandler(this.props)} />
                     </div>
             </div>

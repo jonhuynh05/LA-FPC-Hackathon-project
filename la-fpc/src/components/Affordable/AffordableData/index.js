@@ -67,9 +67,9 @@ class AffordableData extends Component{
   render(){
     return(
       <Container>
-        <Form onSubmit={this.submit}>
+        <Form>
           <DivInput>
-            <Button><PublishIcon /></Button>
+            <Button onClick={this.submit}><PublishIcon /></Button>
           </DivInput>
           <DivInput>
             <Input 
