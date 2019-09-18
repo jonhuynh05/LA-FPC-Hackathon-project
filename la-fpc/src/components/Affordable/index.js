@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import AffordableData from './AffordableData';
 import EditAffordable from './EditAffordable';
+import AffordableChart from '../AffordableChart';
 
 import {
   Container,
@@ -157,6 +158,7 @@ class Affordable extends Component {
     render(){
       const { affordableData, editData, showEditModal } = this.state;
         return(
+
           <Container>
             {
               showEditModal

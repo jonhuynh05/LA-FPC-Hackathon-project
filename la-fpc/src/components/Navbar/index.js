@@ -16,7 +16,7 @@ class Navbar extends Component {
                             className='nav-button'
                             component={ LinkRoute } 
                             to='/sustainable'
-                            style={{backgroundColor:'#787745', color:'white', fontWeight:'bold', borderColor:'#787745'}}
+                            style={{backgroundColor:'#8BC147', color:'white', fontWeight:'bold', borderColor:'#8BC147'}}
                         >
                             Sustainability
                         </Button>
@@ -32,7 +32,7 @@ class Navbar extends Component {
                             className='nav-button' 
                             component={ LinkRoute } 
                             to='/affordable' 
-                            style={{backgroundColor:'#8BC147', color:'white', fontWeight:'bold', borderColor:'#8BC147'}}
+                            style={{backgroundColor:'#F4934D', color:'white', fontWeight:'bold', borderColor:'#F4934D'}}
                         >
                             Affordability
                         </Button>
