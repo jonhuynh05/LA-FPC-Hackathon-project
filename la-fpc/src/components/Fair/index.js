@@ -39,7 +39,7 @@ class Fair extends Component {
       const oldData = await data.json()
       console.log(oldData.data)
       const fairData = oldData.data.filter(data => data.value === 'fair')
-      console.log(fairData, 'this is sustain data')
+      console.log(fairData, 'this is fair data')
       this.setState({
         fairData: fairData
       })
@@ -145,9 +145,6 @@ class Fair extends Component {
   }
 
     render(){
-      const { addData } = this.addData;
-      const { handleFormChange } = this.handleFormChange;
-      const { closeAndEdit } = this.closeAndEdit;
       const { fairData, editData, showEditModal } = this.state;
         return(
           <div>

@@ -2,6 +2,17 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import AffordableData from './AffordableData';
 import EditAffordable from './EditAffordable';
+import AffordableChart from '../AffordableChart';
+
+import {
+  Container,
+  Table,
+  Row,
+  TableData,
+  Button,
+  H1,
+  P
+} from './styled'
 
 class Affordable extends Component {
 
@@ -145,13 +156,10 @@ class Affordable extends Component {
   }
 
     render(){
-      const { addData } = this.addData;
-      const { handleFormChange } = this.handleFormChange;
-      const { closeAndEdit } = this.closeAndEdit;
       const { affordableData, editData, showEditModal } = this.state;
         return(
-          <div>
-            <AffordableData addData={this.addData}/>
+
+          <Container>
             {
               showEditModal
               ?
@@ -159,53 +167,54 @@ class Affordable extends Component {
               :
               null
             }
-            <div>
+            <Table>
               {
                 affordableData.map((data, i) => {
                   return (
-                    <div key={i}>
-                      <div>
-                        <button onClick={() => this.editData(data)}>Edit</button>
-                        <button onClick={() => this.delete(data._id)}>Delete</button>
-                      </div>
-                      <div>
-                        <h1>Indicator</h1>
-                        <p>{data.indicator}</p>
-                      </div>
-                      <div>
-                        <h1>Baseline</h1>
-                        <p>{data.baseline}</p>
-                      </div>
-                      <div>
-                        <h1>update</h1>
-                        <p>{data.update}</p>
-                      </div>
-                      <div>
-                        <h1>Sources</h1>
-                        <p>{data.sources}</p>
-                      </div>
-                      <div>
-                        <h1>Change</h1>
-                        <p>{data.change}</p>
-                      </div>
-                      <div>
-                        <h1>Notes</h1>
-                        <p>{data.notes}</p>
-                      </div>
-                      <div>
-                        <h1>Data Status</h1>
-                        <p>{data.dataStatus}</p>
-                      </div>
-                      <div>
-                        <h1>Group</h1>
-                        <p>{data.group}</p>
-                      </div>
-                    </div>
+                    <Row key={i}>
+                      <TableData>
+                        <Button onClick={() => this.editData(data)}>Edit</Button>
+                        <Button onClick={() => this.delete(data._id)}>Delete</Button>
+                      </TableData>
+                      <TableData>
+                        <H1>Indicator</H1>
+                        <P>{data.indicator}</P>
+                      </TableData>
+                      <TableData>
+                        <H1>Baseline</H1>
+                        <P>{data.baseline}</P>
+                      </TableData>
+                      <TableData>
+                        <H1>uPdate</H1>
+                        <P>{data.update}</P>
+                      </TableData>
+                      <TableData>
+                        <H1>Sources</H1>
+                        <P>{data.sources}</P>
+                      </TableData>
+                      <TableData>
+                        <H1>Change</H1>
+                        <P>{data.change}</P>
+                      </TableData>
+                      <TableData>
+                        <H1>Notes</H1>
+                        <P>{data.notes}</P>
+                      </TableData>
+                      <TableData>
+                        <H1>Data Status</H1>
+                        <P>{data.dataStatus}</P>
+                      </TableData>
+                      <TableData>
+                        <H1>Group</H1>
+                        <P>{data.group}</P>
+                      </TableData>
+                    </Row>
                   )
                 })
               }
-            </div>
-          </div>
+            </Table>
+            <AffordableData addData={this.addData}/>
+          </Container>
         )
     }
 }
