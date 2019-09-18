@@ -10,17 +10,23 @@ class AdminButton extends Component {
 
   render() {
       return (
-          <div>
+          <div style={{marginLeft: '30px', marginRight: '30px'}}>
             <Grid container spacing={3} style={{alignItems:'center'}}>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs>
                 <div style={{display:'flex'}}>
-                  <img src={logo} width={100} height={100} alt={"logo"}/> 
-                  <div style={{display: 'inline-flex', alignItems: 'center'}}>
-                    LAFPC Food System Dashboard
+                  <a href='https://www.goodfoodla.org/'><img src={logo} width={100} height={100} alt={"logo"} /></a> 
+                </div>
+              </Grid>
+              <Grid item xs>
+                <div>
+                  <div style={{textAlign:'center', alignItems: 'center'}}>
+                    <Button size='large' component={ LinkRoute } to='/home'>
+                      LAFPC Food System Dashboard
+                    </Button>
                   </div>
                 </div>
               </Grid>
-              <Grid item xs={12} sm={6} style={{textAlign:"right"}}>
+              <Grid item xs style={{textAlign:"right"}}>
                 <Button 
                 component={ LinkRoute } 
                 to='/SignIn' 
