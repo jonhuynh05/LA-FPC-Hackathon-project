@@ -34,6 +34,10 @@ export const Descrip = styled.div`
     padding: 3%;
 `
 
+export const Text = styled.p`
+    text-align: left
+`
+
 export const UserImgDiv = styled.div`
     margin-top: 3%;
     display: flex;
@@ -43,12 +47,11 @@ export const UserImgDiv = styled.div`
 `
 
 export const UserImg = styled.img`
-    padding: 9px;
+    padding: 30px;
     height: 40vh;
     width: 40vh;
     border-radius: 10%;
     &:hover {
-        background-color: black;
-        opacity: .9;
+       opacity: .8;
     }
 `
