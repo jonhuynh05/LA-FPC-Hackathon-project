@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import AffordableData from './AffordableData';
 import EditAffordable from './EditAffordable';
-import Donut from '../AffordableChart';
+import Donut from '../Chart';
 import Button from '@material-ui/core/Button';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -19,7 +19,7 @@ import {
   TableDataButton,
   H1,
   P
-} from './styled'
+} from './style'
 
 class Affordable extends Component {
 
@@ -57,9 +57,7 @@ class Affordable extends Component {
         }
       })
       const oldData = await data.json()
-      console.log(oldData.data)
       const affordData = oldData.data.filter(data => data.value === 'affordable')
-      console.log(affordData, 'this is affordable data')
       this.setState({
         affordableData: affordData
       })
@@ -70,7 +68,6 @@ class Affordable extends Component {
   }
 
   addData = async (data) => {
-    console.log("add data hitting")
     try {
       const addDataResponse = await fetch(`http://localhost:3030/data/add-data`, {
         method: 'POST',
@@ -84,7 +81,6 @@ class Affordable extends Component {
       this.setState({
         affordableData: [...this.state.affordableData, parsedResponse.data]
       })
-      console.log(this.state.affordableData, 'this is add')
     } catch(err) {
       console.log(err, 'this is error from add data')
     }
@@ -100,9 +96,7 @@ class Affordable extends Component {
   }
 
   closeAndEdit = async (e) => {
-    console.log(' add data hitting')
     e.preventDefault();
-    console.log(this.state, 'this is edit state')
         try {
           const editRequest = await fetch(`http://localhost:3030/data/${this.state.editData._id}/update-data`, {
             method: 'PUT',
@@ -116,7 +110,6 @@ class Affordable extends Component {
             throw Error('editResquest not working')
           }
           const editResponse = await editRequest.json();
-          console.log(editRequest, 'this is edit request')
           const editDataArray = this.state.affordableData.map((data) => {
             if(data._id === editResponse.data._id){
               data = editResponse.data
@@ -127,7 +120,6 @@ class Affordable extends Component {
             affordableData: editDataArray,
             showEditModal: false
           })
-          console.log(editResponse, ' editResponse');
           this.props.history.push('/affordable')
         } catch(err){
           console.log(err, ' error closeAndEdit');
@@ -149,7 +141,6 @@ class Affordable extends Component {
   }
 
   delete = async (id) => {
-    console.log(id, ' delete data ID')
     try {
       const deleteData = await fetch(`http://localhost:3030/data/${id}`, {
         method: 'DELETE',
@@ -179,14 +170,11 @@ class Affordable extends Component {
       showDataModal: !this.state.showDataModal,
       dataModalProperty: e.target.textContent
     })
-    console.log( e.target.textContent, 'this is current target')
-
   }
 
     render(){
       const { affordableData, editData, showEditModal, showDataModal, dataModalProperty } = this.state;
       const { isLogged } = this.props.isLogged
-      console.log(this.props.isLogged, 'this is logged')
         return(
           <Container>
             {

@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Route, withRouter } from 'react-router-dom'
 import Button from '@material-ui/core/Button';
 import PublishIcon from '@material-ui/icons/Publish';
-// import Input from '@material-ui/core/TextField';
 import { display } from '@material-ui/system';
 
 import {
@@ -10,7 +9,7 @@ import {
   Form,
   Input,
   DivInput,
-} from './styled'
+} from './style'
 
 class AffordableData extends Component{
 
@@ -51,14 +50,12 @@ class AffordableData extends Component{
   };
 
   submit = async (e) => {
-    console.log(' add data hitting')
     e.preventDefault();
     const isValid = this.validate();
     if(isValid) {
         console.log(this.props)
         const dataCall = this.props.addData(this.state);
         dataCall.then((data) => {
-          console.log(data, 'this is data from register')
           this.props.history.push('/affordable')
         })
     }
@@ -67,9 +64,9 @@ class AffordableData extends Component{
   render(){
     return(
       <Container>
-        <Form onSubmit={this.submit}>
+        <Form>
           <DivInput>
-            <Button><PublishIcon /></Button>
+            <Button onClick={this.submit} style={{width: '100%'}}><PublishIcon /></Button>
           </DivInput>
           <DivInput>
             <Input 
