@@ -145,9 +145,6 @@ class Sustainable extends Component {
   }
 
     render(){
-      const { addData } = this.addData;
-      const { handleFormChange } = this.handleFormChange;
-      const { closeAndEdit } = this.closeAndEdit;
       const { sustainableData, editData, showEditModal } = this.state;
         return(
           <div>
