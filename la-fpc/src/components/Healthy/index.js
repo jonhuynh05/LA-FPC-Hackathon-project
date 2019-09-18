@@ -145,9 +145,6 @@ class Healthy extends Component {
   }
 
     render(){
-      const { addData } = this.addData;
-      const { handleFormChange } = this.handleFormChange;
-      const { closeAndEdit } = this.closeAndEdit;
       const { healthyData, editData, showEditModal } = this.state;
         return(
           <div>
