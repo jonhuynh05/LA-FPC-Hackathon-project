@@ -9,18 +9,39 @@ class Navbar extends Component {
         return (
           <div>
             <Grid container spacing={3}>
-                <Grid item xs={12}>
+                <Grid item xs={12} style={{marginLeft: '30px', marginRight: '30px'}}>
                     <ButtonGroup fullWidth aria-label="full width outlined button group">
-                        <Button component={ LinkRoute } to='/sustainable' color="inherit">
-                            Sustainable
+                        <Button
+                            size='large'
+                            className='nav-button'
+                            component={ LinkRoute } 
+                            to='/sustainable'
+                            style={{backgroundColor:'#787745', color:'white', fontWeight:'bold', borderColor:'#787745'}}
+                        >
+                            Sustainability
                         </Button>
-                        <Button component={ LinkRoute } to='/healthy' color="inherit">
+                        <Button 
+                            className='nav-button'
+                            component={ LinkRoute } 
+                            to='/healthy' 
+                            style={{backgroundColor:'#AAE0F4', color:'white', fontWeight:'bold', borderColor:'#AAE0F4'}}
+                        >
                             Health
                         </Button>
-                        <Button component={ LinkRoute } to='/affordable' color="inherit">
+                        <Button
+                            className='nav-button' 
+                            component={ LinkRoute } 
+                            to='/affordable' 
+                            style={{backgroundColor:'#8BC147', color:'white', fontWeight:'bold', borderColor:'#8BC147'}}
+                        >
                             Affordability
                         </Button>
-                        <Button component={ LinkRoute } to='/fair' color="inherit">
+                        <Button
+                            className='nav-button' 
+                            component={ LinkRoute } 
+                            to='/fair' 
+                            style={{backgroundColor:'#D6D7AD', color:'white', fontWeight:'bold', borderColor:'#D6D7AD'}}
+                        >
                             Fairness
                         </Button>
                     </ButtonGroup>
