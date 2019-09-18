@@ -2,15 +2,22 @@ import React, { Component } from 'react'
 import { Route, withRouter } from 'react-router-dom'
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import CancelIcon from '@material-ui/icons/Cancel';
+
+import {
+  Container,
+  Form,
+  H1,
+  Cancel
+} from './style'
 
 class EditHealthy extends Component{
-
   render(){
-    console.log(this.props, 'this is edit props')
     return(
-      <div>
-        <h1>Edit Healthy</h1>
-        <form onSubmit={this.props.closeAndEdit}>
+      <Container>
+        <Form onSubmit={this.props.closeAndEdit}>
+          <Cancel onClick={this.props.cancelEdit}><CancelIcon /></Cancel>
+          <H1>Edit Healthy</H1>
           <div>
             <TextField 
               label='indicator'
@@ -119,8 +126,8 @@ class EditHealthy extends Component{
             </div>
           </div>
           <Button type="submit" variant="outlined" style={{margin: "10px"}}>update</Button>
-        </form>
-      </div>
+        </Form>
+      </Container>
     )
   }
 }

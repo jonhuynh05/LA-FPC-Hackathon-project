@@ -1,8 +1,15 @@
 import React, { Component } from 'react'
 import { Route, withRouter } from 'react-router-dom'
 import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
+import PublishIcon from '@material-ui/icons/Publish';
 import { display } from '@material-ui/system';
+
+import {
+  Container,
+  Form,
+  Input,
+  DivInput,
+} from './style'
 
 class SustainableData extends Component{
 
@@ -43,26 +50,12 @@ class SustainableData extends Component{
   };
 
   submit = async (e) => {
-    console.log(' add data hitting')
     e.preventDefault();
     const isValid = this.validate();
     if(isValid) {
         console.log(this.props)
         const dataCall = this.props.addData(this.state);
-        this.setState({
-          indicator: '',
-          baseline: '',
-          update: '',
-          sources: '',
-          change: '',
-          notes: '',
-          dataStatus: '',
-          group: '',
-          error: ''
-        })
-        console.log(this.state, 'this is state')
         dataCall.then((data) => {
-          console.log(data, 'this is data from register')
           this.props.history.push('/sustainable')
         })
     }
@@ -70,111 +63,77 @@ class SustainableData extends Component{
 
   render(){
     return(
-      <div>
-        <h1>Sustainable form</h1>
-        <form onSubmit={this.submit}>
-          <div>
-            <TextField 
-              label='indicator'
+      <Container>
+        <Form>
+          <DivInput>
+            <Button onClick={this.submit} style={{width: '100%'}}><PublishIcon /></Button>
+          </DivInput>
+          <DivInput>
+            <Input 
               type="text" 
-              placeholder="indicatoer" 
+              placeholder="indicator" 
               name="indicator" 
               onChange={this.onInputChange} 
-              margin="normal"
-              variant="outlined"
-              style={{margin: "10px"}}
             />
-          </div>
-          <div>
-            <TextField 
-              label='baseline'
+          </DivInput>
+          <DivInput>
+            <Input 
               type="text" 
               placeholder="baseline" 
               name="baseline" 
               onChange={this.onInputChange}
-              margin="normal"
-              variant="outlined"
-              style={{margin: "10px"}}
             />
-          </div>
-          <div>
-            <TextField
-              label='update'
+          </DivInput>
+          <DivInput>
+            <Input
               type="text" 
               placeholder="update" 
               name="update" 
               onChange={this.onInputChange}
-              margin="normal"
-              variant="outlined"
-              style={{margin: "10px"}}
             />
-            <div>
-            <div>
-            <TextField 
-              label='sources'
+          </DivInput>
+          <DivInput>
+            <Input
               type="text" 
               placeholder="sources" 
               name="sources" 
               onChange={this.onInputChange} 
-              margin="normal"
-              variant="outlined"
-              style={{margin: "10px"}}
             />
-          </div>
-          <div>
-            <TextField 
-              label='change'
+          </DivInput>
+          <DivInput>
+            <Input 
               type="text" 
               placeholder="change" 
               name="change" 
               onChange={this.onInputChange} 
-              margin="normal"
-              variant="outlined"
-              style={{margin: "10px"}}
             />
-          </div>
-          <div>
-            <TextField 
-              label='notes'
+          </DivInput>
+          <DivInput>
+            <Input 
               type="text" 
               placeholder="notes" 
               name="notes" 
               onChange={this.onInputChange} 
-              margin="normal"
-              variant="outlined"
-              style={{margin: "10px"}}
             />
-          </div>
-          <div>
-            <TextField 
-              label='data status'
+          </DivInput>
+          <DivInput>
+            <Input 
               type="text" 
               placeholder="data status" 
               name="dataStatus" 
               onChange={this.onInputChange} 
-              margin="normal"
-              variant="outlined"
-              style={{margin: "10px"}}
             />
-          </div>
-          <div>
-            <TextField 
-              label='group'
+          </DivInput>
+          <DivInput>
+            <Input 
               type="text" 
               placeholder="group" 
               name="group" 
               onChange={this.onInputChange} 
-              margin="normal"
-              variant="outlined"
-              style={{margin: "10px"}}
             />
-          </div>
-              <small>{this.state.error}</small>
-            </div>
-          </div>
-          <Button type="submit" variant="outlined" style={{margin: "10px"}}>Submit</Button>
-        </form>
-      </div>
+          </DivInput>
+        </Form>
+      </Container>
     )
   }
 }

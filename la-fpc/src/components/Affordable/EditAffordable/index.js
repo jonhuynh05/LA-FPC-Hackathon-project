@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Route, withRouter } from 'react-router-dom'
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import CancelIcon from '@material-ui/icons/Cancel';
 
 import {
   Container,
@@ -11,13 +12,11 @@ import {
 } from './style'
 
 class EditAffordable extends Component{
-
   render(){
-    console.log(this.props, 'this is edit props')
     return(
-      <Container onClick={this.props.cancelEdit}>
+      <Container>
         <Form onSubmit={this.props.closeAndEdit}>
-          <Cancel onClick={this.props.cancelEdit}>Cancel</Cancel>
+          <Cancel onClick={this.props.cancelEdit}><CancelIcon /></Cancel>
           <H1>Edit Affordable</H1>
           <div>
             <TextField 
