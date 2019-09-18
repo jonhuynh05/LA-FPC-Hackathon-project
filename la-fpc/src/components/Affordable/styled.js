@@ -5,6 +5,24 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
 `
+
+export const DivDataModal = styled.div`
+  z-index: 100;
+  position: absolute;
+  width: 100%;
+  height: 60%;
+  background: #f39649d1;
+  display: flex;
+  justify-content: center;
+`
+
+export const ContainModal = styled.div`
+  width: 50%;
+  background: white;
+  text-align: center;
+`
+
+
 export const Table = styled.div`
   display: flex;
   flex-direction: column;
@@ -17,12 +35,30 @@ export const Row = styled.div`
   justify-content: space-evenly;
 `
 export const TableData = styled.div`
-  border: 1px solid black;
+  margin: 1px;
+  width: 11%;
+  height: 50px;
+  text-align: center;
+  &:hover {
+    background: #f39649d1;
+    opacity: .8;
+  }
+`
+
+export const TableDataHeader = styled.div`
+  margin: 1px;
+  width: 11%;
+  height: 30px;
+  text-align: center;
+`
+
+export const TableDataButton = styled.div`
   margin: 1px;
   width: 11%;
   height: 50px;
   text-align: center;
 `
+
 export const Button = styled.button`
   width: 100%;
   padding: 3px;
@@ -30,7 +66,8 @@ export const Button = styled.button`
 `
 export const H1 = styled.h1`
   font-size: 1em;
-  background: #f39649d1;
+  font-weight: normal;
+  background: rgb(244, 147, 77);
   margin: 0px;
   margin-bottom: 2px;
   color: white;
