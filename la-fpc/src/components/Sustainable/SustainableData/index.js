@@ -4,10 +4,10 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { display } from '@material-ui/system';
 
-class FairData extends Component{
+class SustainableData extends Component{
 
   state = {
-    value: 'fair',
+    value: 'sustainable',
     indicator: '',
     baseline: '',
     update: '',
@@ -15,7 +15,8 @@ class FairData extends Component{
     change: '',
     notes: '',
     dataStatus: '',
-    group: ''
+    group: '',
+    error: ''
   }
 
   onInputChange = (e) => { this.setState({ [e.target.name]: e.target.value }) 
@@ -58,7 +59,7 @@ class FairData extends Component{
   render(){
     return(
       <div>
-        <h1>Fair form</h1>
+        <h1>Sustainable form</h1>
         <form onSubmit={this.submit}>
           <div>
             <TextField 
@@ -166,4 +167,4 @@ class FairData extends Component{
   }
 }
 
-export default withRouter(FairData);
+export default withRouter(SustainableData);
