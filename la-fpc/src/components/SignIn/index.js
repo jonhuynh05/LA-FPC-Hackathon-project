@@ -44,8 +44,8 @@ class SignIn extends Component {
   render() {
       return (
           <div>
-              <h1 style={{marginLeft: "300px"}}>SignIn</h1>
-              <form onSubmit={this.submit}>
+              <h1 style={{textAlign:'center'}}>SignIn</h1>
+              <form onSubmit={this.submit} style={{display:'flex', alignItems:'center', flexDirection:'column'}}>
                 <div>
                   <TextField
                     label='Username' 
@@ -55,7 +55,6 @@ class SignIn extends Component {
                     onChange={this.onInputChange}
                     margin="normal"
                     variant="outlined"
-                    style={{margin: "10px 10px 10px 300px"}}
                   />
                   <div>
                     <small></small>
@@ -69,7 +68,6 @@ class SignIn extends Component {
                     onChange={this.onInputChange}
                     margin="normal"
                     variant="outlined"
-                    style={{margin: "10px 10px 10px 300px"}} 
                   />
                   <div>
                     <small></small>
@@ -77,19 +75,20 @@ class SignIn extends Component {
                 </div>
                 <Button
                   type="submit" 
+                  color="inherit"
                   variant="outlined" 
-                  style={{margin: "10px 10px 10px 300px"}}>
+                  style={{margin:'5px'}} >
                     SignIn
                   </Button>
+                <Button 
+                  component={ LinkRoute } 
+                  to='/AddAdmin' 
+                  color="inherit"
+                  variant="outlined"
+                  style={{margin:'10px'}} >
+                    SignUp
+                </Button>
               </form>
-              <Button 
-              component={ LinkRoute } 
-              to='/AddAdmin' 
-              color="inherit"
-              variant="outlined" 
-              style={{margin: "10px 10px 10px 300px"}}>
-                SignUp
-              </Button>
           </div>
       )
   }
