@@ -18,7 +18,9 @@ import {
   TableDataHeader,
   TableDataButton,
   H1,
-  P
+  P,
+  ChartDiv,
+  ToolKit
 } from './style'
 
 import {
@@ -258,14 +260,18 @@ class Sustainable extends Component {
               }
             </Table>
             <SustainableData addData={this.addData}/>
-            <div style={{display:'flex'}}>
-              <div>
-                toolkit placeholder
-              </div>
-              <div>
+            <ChartDiv>
+              <ToolKit>
+                  <Button style={{backgroundColor:'#8BC147', marginTop:"10px"}} fullWidth>Number of Properties</Button>
+                  <Button style={{backgroundColor:'#8BC147', marginTop:"10px"}} fullWidth>Grocery Stores</Button>
+                  <Button style={{backgroundColor:'#8BC147', marginTop:"10px"}} fullWidth>Food Consumption</Button>
+                  <Button style={{backgroundColor:'#8BC147', marginTop:"10px"}} fullWidth>Obesity Percentage</Button>
+                  <Button style={{backgroundColor:'#8BC147', marginTop:"10px"}} fullWidth>Health Diagnosis Percentage</Button>
+              </ToolKit>
+              <ToolKit>
                 <Donut sustainableData={this.state.sustainableData} />
-              </div>
-            </div>
+              </ToolKit>
+            </ChartDiv>
           </Container>
         )
     }

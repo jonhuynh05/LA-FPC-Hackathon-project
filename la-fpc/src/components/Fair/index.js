@@ -23,7 +23,9 @@ import {
 
 import {
   DescribSec,
-  DescribPar
+  DescribPar,
+  ChartDiv,
+  ToolKit
 } from './style'
 
 class Fair extends Component {
@@ -259,14 +261,19 @@ class Fair extends Component {
               }
             </Table>
             <FairData addData={this.addData}/>
-            <div style={{display:'flex'}}>
-              <div>
-                toolkit placeholder
-              </div>
-              <div>
+            <ChartDiv>
+              <ToolKit>
+                  <Button style={{backgroundColor:'#D6D7AD', marginTop:"10px"}} fullWidth>Number of Properties</Button>
+                  <Button style={{backgroundColor:'#D6D7AD', marginTop:"10px"}} fullWidth>Grocery Stores</Button>
+                  <Button style={{backgroundColor:'#D6D7AD', marginTop:"10px"}} fullWidth>Food Consumption</Button>
+                  <Button style={{backgroundColor:'#D6D7AD', marginTop:"10px"}} fullWidth>Obesity Percentage</Button>
+                  <Button style={{backgroundColor:'#D6D7AD', marginTop:"10px"}} fullWidth>Health Diagnosis Percentage</Button>
+              </ToolKit>
+              <ToolKit>
                 <Donut fairData={this.state.fairData} />
-              </div>
-            </div>
+              </ToolKit>
+            </ChartDiv>
+            
           </Container>
         )
     }

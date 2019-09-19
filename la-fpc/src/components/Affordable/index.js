@@ -260,11 +260,11 @@ class Affordable extends Component {
             <AffordableData addData={this.addData}/>
             <ChartDiv>
               <ToolKit>
-                  <Button style={{backgroundColor:'orange', marginTop:"10px"}} fullWidth>Number of Properties</Button>
-                  <Button style={{backgroundColor:'orange', marginTop:"10px"}} fullWidth>Grocery Stores</Button>
-                  <Button style={{backgroundColor:'orange', marginTop:"10px"}} fullWidth>Food Consumption</Button>
-                  <Button style={{backgroundColor:'orange', marginTop:"10px"}} fullWidth>Obesity Percentage</Button>
-                  <Button style={{backgroundColor:'orange', marginTop:"10px"}} fullWidth>Health Diagnosis Percentage</Button>
+                  <Button style={{backgroundColor:'#F4934D', marginTop:"10px"}} fullWidth>Number of Properties</Button>
+                  <Button style={{backgroundColor:'#F4934D', marginTop:"10px"}} fullWidth>Grocery Stores</Button>
+                  <Button style={{backgroundColor:'#F4934D', marginTop:"10px"}} fullWidth>Food Consumption</Button>
+                  <Button style={{backgroundColor:'#F4934D', marginTop:"10px"}} fullWidth>Obesity Percentage</Button>
+                  <Button style={{backgroundColor:'#F4934D', marginTop:"10px"}} fullWidth>Health Diagnosis Percentage</Button>
               </ToolKit>
               <div>
                 <Donut affordableData={this.state.affordableData} />

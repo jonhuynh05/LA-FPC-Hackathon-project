@@ -84,3 +84,15 @@ export const DescribPar = styled.p`
  text-align: left;
  margin: 2% 0 2% 0;
  `
+
+ export const ChartDiv = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  margin: 6%;
+`
+
+export const ToolKit = styled.div`
+  flex-direction: column;
+  margin: 3%;
+`
