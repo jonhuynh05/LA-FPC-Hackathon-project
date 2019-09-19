@@ -76,8 +76,8 @@ class AddAdmin extends Component {
     console.log(this.state)
       return (
           <div>
-              <h1 style={{marginLeft: "300px"}}>Register as an Admin</h1>
-              <form onSubmit={this.submit}>
+              <h1 style={{textAlign:'center'}}>Register as an Admin</h1>
+              <form onSubmit={this.submit} style={{display:'flex', alignItems:'center', flexDirection:'column'}}>
                 <div>
                   <TextField 
                     label='Username'
@@ -87,7 +87,6 @@ class AddAdmin extends Component {
                     onChange={this.onInputChange} 
                     margin="normal"
                     variant="outlined"
-                    style={{margin: "10px 10px 10px 300px"}}
                   />
                   <div>
                     <small>{this.state.error.name}</small>
@@ -102,7 +101,6 @@ class AddAdmin extends Component {
                     onChange={this.onInputChange}
                     margin="normal"
                     variant="outlined"
-                    style={{margin: "10px 10px 10px 300px"}}
                   />
                 </div>
                 <div>
@@ -114,7 +112,6 @@ class AddAdmin extends Component {
                     onChange={this.onInputChange}
                     margin="normal"
                     variant="outlined"
-                    style={{margin: "10px 10px 10px 300px"}}
                   />
                   <div>
                     <small>{this.state.error.password}</small>
@@ -129,7 +126,6 @@ class AddAdmin extends Component {
                     onChange={this.onInputChange}
                     margin="normal"
                     variant="outlined"
-                    style={{margin: "10px 10px 10px 300px"}}
                   />
                   <div>
                     <small>{this.state.error.keycode}</small>
@@ -138,8 +134,8 @@ class AddAdmin extends Component {
                 <Button 
                   type="submit" 
                   variant="outlined" 
-                  style={{margin: "10px 10px 10px 300px"}}
-                  >SignIn
+                  style={{margin: "10px"}}
+                  >Sign Up
                 </Button>
               </form>
           </div>

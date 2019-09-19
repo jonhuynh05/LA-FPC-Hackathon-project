@@ -33,12 +33,14 @@ export const Row = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-evenly;
+  margin-bottom: 9px;
 `
 export const TableData = styled.div`
   margin: 1px;
   width: 11%;
   height: 50px;
   text-align: center;
+  overflow: hidden;
   &:hover {
     background: #8bc147;
     opacity: .8;
