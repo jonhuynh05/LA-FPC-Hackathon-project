@@ -177,6 +177,7 @@ class Affordable extends Component {
     render(){
       const { affordableData, editData, showEditModal, showDataModal, dataModalProperty } = this.state;
       const { isLogged } = this.props.isLogged
+      console.log(this.props.isLogged, 'this is logged')
         return(
           <Container>
             {
@@ -207,7 +208,13 @@ class Affordable extends Component {
             </DescribSec>
             <Table>
               <Row>
-                <TableDataHeader>ADMIN</TableDataHeader>
+                {
+                  this.props.isLogged
+                  ?
+                  <TableDataHeader>ADMIN</TableDataHeader>
+                  :
+                  null
+                }
                 <TableDataHeader><H1>Indicator</H1></TableDataHeader>
                 <TableDataHeader><H1>Baseline</H1></TableDataHeader>
                 <TableDataHeader><H1>Update</H1></TableDataHeader>
@@ -221,10 +228,16 @@ class Affordable extends Component {
                 affordableData.map((data, i) => {
                   return (
                     <Row key={i}>
-                      <TableDataButton>
-                        <Button onClick={() => this.editData(data)}><EditIcon /></Button>
-                        <Button onClick={() => this.delete(data._id)}><DeleteIcon /></Button>
-                      </TableDataButton>
+                      {
+                        this.props.isLogged
+                        ?
+                          <TableDataButton>
+                            <Button onClick={() => this.editData(data)}><EditIcon /></Button>
+                            <Button onClick={() => this.delete(data._id)}><DeleteIcon /></Button>
+                          </TableDataButton>
+                        :
+                          null
+                      }
                       <TableData onClick={(e) => this.showData(e)}>
                         <P>{data.indicator}</P>
                       </TableData>
@@ -254,7 +267,13 @@ class Affordable extends Component {
                 })
               }
             </Table>
-            <AffordableData addData={this.addData}/>
+            {
+              this.props.isLogged
+              ?
+                <AffordableData addData={this.addData}/>
+              :
+                null
+            }
             <div style={{display:'flex'}}>
               <div>
                 toolkit placeholder

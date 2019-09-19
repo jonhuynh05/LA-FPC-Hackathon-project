@@ -211,7 +211,13 @@ class Fair extends Component {
             }
             <Table>
               <Row>
-                <TableDataHeader>ADMIN</TableDataHeader>
+                {
+                  this.props.isLogged
+                  ?
+                  <TableDataHeader>ADMIN</TableDataHeader>
+                  :
+                  null
+                }
                 <TableDataHeader><H1>Indicator</H1></TableDataHeader>
                 <TableDataHeader><H1>Baseline</H1></TableDataHeader>
                 <TableDataHeader><H1>Update</H1></TableDataHeader>
@@ -225,10 +231,16 @@ class Fair extends Component {
                 fairData.map((data, i) => {
                   return (
                     <Row key={i}>
+                      {
+                        this.props.isLogged
+                      ?
                       <TableDataButton>
                         <Button onClick={() => this.editData(data)}><EditIcon /></Button>
                         <Button onClick={() => this.delete(data._id)}><DeleteIcon /></Button>
                       </TableDataButton>
+                      :
+                      null
+                      }
                       <TableData onClick={(e) => this.showData(e)}>
                         <P>{data.indicator}</P>
                       </TableData>
@@ -258,7 +270,13 @@ class Fair extends Component {
                 })
               }
             </Table>
-            <FairData addData={this.addData}/>
+            {
+                  this.props.isLogged
+                  ?
+                  <FairData addData={this.addData}/>
+                  :
+                  null
+              }
             <div style={{display:'flex'}}>
               <div>
                 toolkit placeholder
