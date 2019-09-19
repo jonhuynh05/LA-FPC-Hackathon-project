@@ -4,6 +4,7 @@ import AffordableData from './AffordableData';
 import EditAffordable from './EditAffordable';
 import Donut from './AffordChart';
 import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 
@@ -20,7 +21,9 @@ import {
   H1,
   P,
   DescribSec,
-  DescribPar
+  DescribPar,
+  ChartDiv,
+  ToolKit
 } from './style'
 
 class Affordable extends Component {
@@ -274,14 +277,18 @@ class Affordable extends Component {
               :
                 null
             }
-            <div style={{display:'flex'}}>
-              <div>
-                toolkit placeholder
-              </div>
-              <div>
-                <Donut affordableData={this.state.affordableData} />
-              </div>
-            </div>
+            <ChartDiv>
+              <ToolKit>
+                  <Button style={{backgroundColor:'#F4934D', marginTop:"10px"}} fullWidth>Number of Properties</Button>
+                  <Button style={{backgroundColor:'#F4934D', marginTop:"10px"}} fullWidth>Grocery Stores</Button>
+                  <Button style={{backgroundColor:'#F4934D', marginTop:"10px"}} fullWidth>Food Consumption</Button>
+                  <Button style={{backgroundColor:'#F4934D', marginTop:"10px"}} fullWidth>Obesity Percentage</Button>
+                  <Button style={{backgroundColor:'#F4934D', marginTop:"10px"}} fullWidth>Health Diagnosis Percentage</Button>
+              </ToolKit>
+              <ToolKit>
+                    <Donut affordableData={this.state.affordableData} />
+              </ToolKit>
+            </ChartDiv>
           </Container>
         )
     }

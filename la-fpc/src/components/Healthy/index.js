@@ -18,7 +18,9 @@ import {
   TableDataHeader,
   TableDataButton,
   H1,
-  P
+  P,
+  ChartDiv,
+  ToolKit
 } from './style'
 
 import {DescribSec, DescribPar} from './style'
@@ -265,21 +267,25 @@ class Healthy extends Component {
                 })
               }
             </Table>
-            {
+              {
                   this.props.isLogged
                   ?
                   <HealthyData addData={this.addData}/>
                   :
                   null
                 }
-            <div style={{display:'flex'}}>
-              <div>
-                toolkit placeholder
-              </div>
-              <div>
+             <ChartDiv>
+              <ToolKit>
+                  <Button style={{backgroundColor:'#AAE0F4', marginTop:"10px"}} fullWidth>Number of Properties</Button>
+                  <Button style={{backgroundColor:'#AAE0F4', marginTop:"10px"}} fullWidth>Grocery Stores</Button>
+                  <Button style={{backgroundColor:'#AAE0F4', marginTop:"10px"}} fullWidth>Food Consumption</Button>
+                  <Button style={{backgroundColor:'#AAE0F4', marginTop:"10px"}} fullWidth>Obesity Percentage</Button>
+                  <Button style={{backgroundColor:'#AAE0F4', marginTop:"10px"}} fullWidth>Health Diagnosis Percentage</Button>
+              </ToolKit>
+              <ToolKit>
                 <Donut healthyData={this.state.healthyData} />
-              </div>
-            </div>
+              </ToolKit>
+            </ChartDiv>
           </Container>
         )
     }
