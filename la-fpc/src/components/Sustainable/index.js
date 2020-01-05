@@ -237,7 +237,8 @@ class Sustainable extends Component {
                     ?
                       <TableDataButton>
                         <Button onClick={() => this.editData(data)}><EditIcon /></Button>
-                        <Button onClick={() => this.delete(data._id)}><DeleteIcon /></Button>
+                        <Button onClick={() =>
+                        this.delete(data._id)}><DeleteIcon /></Button>
                       </TableDataButton>
                     :
                     null

@@ -13,7 +13,6 @@ import AdminButton from '../AdminButton';
 import Container from '@material-ui/core/Container';
 import Footer from '../Footer'
 
-
 const My404 = () => {
   return (
     <div>
@@ -31,8 +30,6 @@ class App extends Component {
     isLogged: false,
     data: [],
     affordable: [],
-    affordable: [],
-
   }
 
   componentDidMount() {
@@ -56,7 +53,10 @@ class App extends Component {
         }
       })
       const parsedResponse = await registerResponse.json()
-      // localStorage.setItem('admin', JSON.stringify(parsedResponse.data))
+      console.log(parsedResponse, 'this is register response')
+      localStorage.setItem('admin', parsedResponse.data.username)
+      localStorage.setItem('loggedIn', true)
+      console.log(localStorage, 'this is local storage')
       this.setState({
         user: parsedResponse.data,
         laoding: false,
@@ -80,8 +80,10 @@ class App extends Component {
         }
       })
       const parsedResponse = await loginResponse.json();
-      console.log(parsedResponse, 'this is my logindata')
-      // localStorage.setItem('admin', JSON.stringify(parsedResponse.foundUser))
+      console.log(parsedResponse, 'this is register response')
+      localStorage.setItem('admin', JSON.stringify(parsedResponse.foundAdmin.username));
+      localStorage.setItem('loggedIn', true);
+      console.log(localStorage, 'this is local storage')
       this.setState(() => {
         return {
           isLogged: true,
@@ -107,6 +109,8 @@ class App extends Component {
           isLogged: false
         })
       })
+      localStorage.removeItem('admin');
+      localStorage.removeItem('loggedIn');
       this.props.history.push(`/`)
     } catch(err){
       console.log(err)
@@ -121,7 +125,7 @@ class App extends Component {
         return (
           <div>
             <AdminButton />
-            <Navbar />
+            <Navbar logout={this.logout}/>
             <Switch>
               {
                 this.state.isLogged

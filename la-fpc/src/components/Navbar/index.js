@@ -28,6 +28,7 @@ class Navbar extends Component {
                         >
                             Health
                         </Button>
+                
                         <Button
                             className='nav-button' 
                             component={ LinkRoute } 
