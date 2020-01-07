@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {MainDiv, LeftDiv, RightDiv, SecondDiv} from './style'
+import {Link} from "react-router-dom"
 import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import TwitterIcon from '@material-ui/icons/Twitter';
@@ -12,13 +13,42 @@ class Footer extends Component{
             <MainDiv>
                 <LeftDiv>
                     <h3>STAY CONNECTED</h3>
-                    <FacebookIcon style={{margin:'10px'}}/>
-                    <InstagramIcon style={{margin:'10px'}}/>
-                    <TwitterIcon style={{margin:'10px'}}/>
+                        <a style={{
+                            color: "white"
+                        }}
+                            target="_blank" href="https://www.facebook.com/LosAngelesFoodPolicyCouncil/">
+                            <FacebookIcon style={{
+                                margin:'10px',
+                                cursor: "pointer"
+                            }}/>
+                        </a>
+                        <a style={{
+                            color: "white"
+                        }}
+                        target="_blank" href="https://www.instagram.com/lagoodfood/?hl=en">
+                            <InstagramIcon style={{
+                                margin:'10px',
+                                cursor: "pointer"
+                            }}/>
+                        </a>
+                        <a style={{
+                            color: "white"
+                        }}
+                        target="_blank" href="https://twitter.com/goodfoodla?lang=en">
+                            <TwitterIcon style={{
+                                margin:'10px',
+                                cursor: "pointer"
+                            }}/>
+                        </a>
                 </LeftDiv>
                 <RightDiv>
                     <h3>GET INVOLVED</h3>
-                    <Button variant="contained" style={{backgroundColor:'orange'}}>DONATE</Button>
+                    <a style={{
+                        textDecoration: "none"
+                    }}
+                        target="_blank" href="https://www.goodfoodla.org/donate">
+                        <Button variant="contained" style={{backgroundColor:'orange'}}>DONATE</Button>
+                    </a>
                 </RightDiv>
             </MainDiv>
             <SecondDiv>
