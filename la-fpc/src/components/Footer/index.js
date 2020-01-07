@@ -43,7 +43,12 @@ class Footer extends Component{
                 </LeftDiv>
                 <RightDiv>
                     <h3>GET INVOLVED</h3>
-                    <Button variant="contained" style={{backgroundColor:'orange'}}>DONATE</Button>
+                    <a style={{
+                        textDecoration: "none"
+                    }}
+                        target="_blank" href="https://www.goodfoodla.org/donate">
+                        <Button variant="contained" style={{backgroundColor:'orange'}}>DONATE</Button>
+                    </a>
                 </RightDiv>
             </MainDiv>
             <SecondDiv>
