@@ -1,0 +1,20 @@
+{
+  "name": "la-fpc-hackathon-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Asingerdev/LA-FPC-Hackathon-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Asingerdev/LA-FPC-Hackathon-project/issues"
+  },
+  "homepage": "https://github.com/Asingerdev/LA-FPC-Hackathon-project#readme"
+}
