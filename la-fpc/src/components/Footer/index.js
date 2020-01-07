@@ -13,21 +13,32 @@ class Footer extends Component{
             <MainDiv>
                 <LeftDiv>
                     <h3>STAY CONNECTED</h3>
-                        <a target="_blank" href="https://www.facebook.com/LosAngelesFoodPolicyCouncil/">
+                        <a style={{
+                            color: "white"
+                        }}
+                            target="_blank" href="https://www.facebook.com/LosAngelesFoodPolicyCouncil/">
                             <FacebookIcon style={{
                                 margin:'10px',
                                 cursor: "pointer"
-                                }}/>
+                            }}/>
                         </a>
-                        <a target="_blank" href="https://www.instagram.com/lagoodfood/?hl=en">
+                        <a style={{
+                            color: "white"
+                        }}
+                        target="_blank" href="https://www.instagram.com/lagoodfood/?hl=en">
                             <InstagramIcon style={{
                                 margin:'10px',
-                                cursor: "pointer"                 }}/>
+                                cursor: "pointer"
+                            }}/>
                         </a>
-                        <a target="_blank" href="https://twitter.com/goodfoodla?lang=en">
+                        <a style={{
+                            color: "white"
+                        }}
+                        target="_blank" href="https://twitter.com/goodfoodla?lang=en">
                             <TwitterIcon style={{
                                 margin:'10px',
-                                cursor: "pointer"                 }}/>
+                                cursor: "pointer"
+                            }}/>
                         </a>
                 </LeftDiv>
                 <RightDiv>
