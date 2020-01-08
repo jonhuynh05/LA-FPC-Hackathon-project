@@ -45,7 +45,7 @@ class SignIn extends Component {
   render() {
     return (
       <div>
-        <h1 style={{ textAlign: 'center' }}>SignIn</h1>
+        <h1 style={{ textAlign: 'center' }}>Sign In</h1>
         <form onSubmit={this.submit} style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
           <div>
             <TextField
@@ -79,7 +79,7 @@ class SignIn extends Component {
             color="inherit"
             variant="outlined"
             style={{ margin: '5px' }} >
-            SignIn
+            Sign In
                   </Button>
           <Button
             component={LinkRoute}
@@ -87,7 +87,7 @@ class SignIn extends Component {
             color="inherit"
             variant="outlined"
             style={{ margin: '10px' }} >
-            SignUp
+            New Admin
                 </Button>
         </form>
       </div>
