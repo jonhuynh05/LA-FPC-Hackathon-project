@@ -45,6 +45,14 @@ class Navbar extends Component {
                         >
                             Fairness
                         </Button>
+                        <Button
+                            className='nav-button' 
+                            component={ LinkRoute } 
+                            to='/faq' 
+                            style={{backgroundColor:'#5DBCD2', color:'white', fontWeight:'bold', borderColor:'#D6D7AD'}}
+                        >
+                            FAQ
+                        </Button>
                     </ButtonGroup>
                 </Grid>
             </Grid>
