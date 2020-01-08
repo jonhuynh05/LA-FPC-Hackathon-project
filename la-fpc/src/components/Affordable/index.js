@@ -46,6 +46,7 @@ class Affordable extends Component {
       group: '',
       error: ''
     },
+    filter: ""
   }
 
   componentDidMount = () => {
@@ -63,6 +64,7 @@ class Affordable extends Component {
       })
       const oldData = await data.json()
       const affordData = oldData.data.filter(data => data.value === 'affordable')
+      console.log(affordData, "this is afford data")
       this.setState({
         affordableData: affordData
       })
@@ -279,11 +281,10 @@ class Affordable extends Component {
             }
             <ChartDiv>
               <ToolKit>
-                  <Button style={{backgroundColor:'#F4934D', marginTop:"10px"}} fullWidth>Number of Properties</Button>
-                  <Button style={{backgroundColor:'#F4934D', marginTop:"10px"}} fullWidth>Grocery Stores</Button>
-                  <Button style={{backgroundColor:'#F4934D', marginTop:"10px"}} fullWidth>Food Consumption</Button>
-                  <Button style={{backgroundColor:'#F4934D', marginTop:"10px"}} fullWidth>Obesity Percentage</Button>
-                  <Button style={{backgroundColor:'#F4934D', marginTop:"10px"}} fullWidth>Health Diagnosis Percentage</Button>
+                  <Button style={{backgroundColor:'#F4934D', marginTop:"10px"}} fullWidth>Food Security</Button>
+                  <Button style={{backgroundColor:'#F4934D', marginTop:"10px"}} fullWidth>Fruit and vegetable accessibility</Button>
+                  <Button style={{backgroundColor:'#F4934D', marginTop:"10px"}} fullWidth>Fruit and vegetable affordability</Button>
+                  <Button style={{backgroundColor:'#F4934D', marginTop:"10px"}} fullWidth>Fruit and vegetable consumption</Button>
               </ToolKit>
               <ToolKit>
                     <Donut affordableData={this.state.affordableData} />

@@ -28,7 +28,7 @@ class App extends Component {
   state = {
     user: null,
     laoding: true,
-    isLogged: false,
+    isLogged: true,
     data: [],
     affordable: [],
   }
