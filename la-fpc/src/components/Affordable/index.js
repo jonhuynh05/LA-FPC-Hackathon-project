@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
-
+import Data from "../test.js"
 
 import {
   Container,
@@ -46,14 +46,32 @@ class Affordable extends Component {
       group: '',
       error: ''
     },
+    filter: "",
+    buttons: []
   }
 
   componentDidMount = () => {
     this.getData()
   }
 
+  getButtons = () => {
+    let filterButtons = []
+    // for (let i = 0; i < this.state.affordableData.length; i++){
+    //   filterButtons.push(this.state.affordableData[i].indicator)
+    // }
+    this.state.affordableData.forEach(data => filterButtons.push(data.indicator))
+    this.setState({
+      buttons: filterButtons
+    })
+  }
+
+
   getData = async () => {
     try { 
+      // const testData = await fetch("../test.json").then(res => res.json()).then(data => {
+        console.log(Data)
+      // })
+      // console.log(parsedData, "This is test data")
       const data = await fetch(`http://localhost:3030/data/get-data`, {
         method: 'GET',
         credentials: 'include',
@@ -62,10 +80,13 @@ class Affordable extends Component {
         }
       })
       const oldData = await data.json()
-      const affordData = oldData.data.filter(data => data.value === 'affordable')
+      console.log(oldData, "this is old data")
+      const affordData = oldData.data.filter(data => data.category === 'affordable')
+      console.log(affordData, "this is afford data")
       this.setState({
         affordableData: affordData
       })
+      this.getButtons()
 
     }catch (err) {
       console.log(err)
@@ -91,6 +112,38 @@ class Affordable extends Component {
     }
   }
   
+  handleFilter = async (e) => {
+    this.setState({
+      filter: e.currentTarget.value
+    })
+    try { 
+      const data = await fetch(`http://localhost:3030/data/get-data`, {
+        method: 'GET',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      const oldData = await data.json()
+      const affordData = oldData.data.filter(data => data.category === 'affordable')
+      const filteredData = affordData.filter(data => data.indicator === this.state.filter)
+      console.log(filteredData, "this is filtered afford data")
+      if(this.state.filter !== ""){
+        this.setState({
+          affordableData: filteredData
+        })
+      }
+      else{
+        this.setState({
+          affordableData: affordData
+        })
+      }
+    }
+    catch (err) {
+      console.log(err)
+    }
+  }
+
   handleFormChange = (e) => {
     this.setState({
       editData: {
@@ -219,13 +272,10 @@ class Affordable extends Component {
                   null
                 }
                 <TableDataHeader><H1>Indicator</H1></TableDataHeader>
-                <TableDataHeader><H1>Baseline</H1></TableDataHeader>
-                <TableDataHeader><H1>Update</H1></TableDataHeader>
                 <TableDataHeader><H1>Sources</H1></TableDataHeader>
-                <TableDataHeader><H1>Change</H1></TableDataHeader>
-                <TableDataHeader><H1>Notes</H1></TableDataHeader>
-                <TableDataHeader><H1>Data Status</H1></TableDataHeader>
                 <TableDataHeader><H1>Group</H1></TableDataHeader>
+                <TableDataHeader><H1>Year</H1></TableDataHeader>
+                <TableDataHeader><H1>Value</H1></TableDataHeader>
               </Row>
               {
                 affordableData.map((data, i) => {
@@ -245,25 +295,16 @@ class Affordable extends Component {
                         <P>{data.indicator}</P>
                       </TableData>
                       <TableData onClick={(e) => this.showData(e)}>
-                        <P>{data.baseline}</P>
-                      </TableData>
-                      <TableData onClick={(e) => this.showData(e)}>
-                        <P>{data.update}</P>
-                      </TableData>
-                      <TableData onClick={(e) => this.showData(e)}>
                         <P>{data.sources}</P>
                       </TableData>
                       <TableData onClick={(e) => this.showData(e)}>
-                        <P>{data.change}</P>
-                      </TableData>
-                      <TableData onClick={(e) => this.showData(e)}>
-                        <P>{data.notes}</P>
-                      </TableData>
-                      <TableData onClick={(e) => this.showData(e)}>
-                        <P>{data.dataStatus}</P>
-                      </TableData>
-                      <TableData onClick={(e) => this.showData(e)}>
                         <P>{data.group}</P>
+                      </TableData>
+                      <TableData onClick={(e) => this.showData(e)}>
+                        <P>{data.year}</P>
+                      </TableData>
+                      <TableData onClick={(e) => this.showData(e)}>
+                        <P>{data.value}</P>
                       </TableData>
                     </Row>
                   )
@@ -279,16 +320,34 @@ class Affordable extends Component {
             }
             <ChartDiv>
               <ToolKit>
-                  <Button style={{backgroundColor:'#F4934D', marginTop:"10px"}} fullWidth>Number of Properties</Button>
-                  <Button style={{backgroundColor:'#F4934D', marginTop:"10px"}} fullWidth>Grocery Stores</Button>
-                  <Button style={{backgroundColor:'#F4934D', marginTop:"10px"}} fullWidth>Food Consumption</Button>
-                  <Button style={{backgroundColor:'#F4934D', marginTop:"10px"}} fullWidth>Obesity Percentage</Button>
-                  <Button style={{backgroundColor:'#F4934D', marginTop:"10px"}} fullWidth>Health Diagnosis Percentage</Button>
+                  {
+                    this.state.buttons.map((indicator, i) => {
+                      return (
+                    <Button key={i} value={indicator} onClick={this.handleFilter} style={{backgroundColor:'#F4934D', marginTop:"10px"}} fullWidth>
+                      {indicator}
+                    </Button>
+                      )})
+                    }
+                    <Button value="" onClick={this.handleFilter} style={{backgroundColor:'#F4934D', marginTop:"10px"}} fullWidth>
+                      Reset Filter
+                    </Button>
               </ToolKit>
               <ToolKit>
                     <Donut affordableData={this.state.affordableData} />
               </ToolKit>
             </ChartDiv>
+            <div>
+              THIS IS THE AFFORDABLE DATA
+              {
+                this.state.affordableData.map((data, i) => {
+                  return(
+                    <div key={i}>
+                      {data.value}
+                    </div>
+                  )
+                })
+              }
+            </div>
           </Container>
         )
     }

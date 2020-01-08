@@ -10,6 +10,7 @@ import Navbar from '../Navbar';
 import AdminHome from '../AdminHome';
 import SignIn from '../SignIn'
 import AdminButton from '../AdminButton';
+import Faq from "../Faq"
 import Container from '@material-ui/core/Container';
 import Footer from '../Footer'
 
@@ -27,7 +28,7 @@ class App extends Component {
   state = {
     user: null,
     laoding: true,
-    isLogged: false,
+    isLogged: true,
     data: [],
     affordable: [],
   }
@@ -141,6 +142,7 @@ class App extends Component {
               <Route exact path='/healthy' render={() => <Healthy isLogged={this.state.isLogged}/>}/>
               <Route exact path='/fair' render={() => <Fair isLogged={this.state.isLogged}/>}/>
               <Route exact path='/sustainable' render={() => <Sustainable isLogged={this.state.isLogged}/>}/>
+              <Route exact path="/faq" render={() => <Faq />}/>
               <Route exact path='/signin' render={() => <SignIn login={this.login}/>} />
               <Route component={ My404 } />
             </Switch>

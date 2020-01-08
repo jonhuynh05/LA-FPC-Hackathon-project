@@ -14,15 +14,17 @@ import {
 class AffordableData extends Component{
 
   state = {
-    value: 'affordable',
+    value: '',
     indicator: '',
-    baseline: '',
-    update: '',
+    // baseline: '',
+    // update: '',
     sources: '',
-    change: '',
-    notes: '',
-    dataStatus: '',
+    // change: '',
+    // notes: '',
+    // dataStatus: '',
     group: '',
+    year: "",
+    category: "affordable",
     error: ''
   }
 
@@ -32,13 +34,15 @@ class AffordableData extends Component{
   validate = () => {
     if(
       (this.state.indicator.length < 1) ||
-      (this.state.baseline.length < 1) ||
-      (this.state.update.length < 1) ||
+      // (this.state.baseline.length < 1) ||
+      // (this.state.update.length < 1) ||
       (this.state.sources.length < 1) ||
-      (this.state.change.length < 1) ||
-      (this.state.notes.length < 1) ||
-      (this.state.dataStatus.length < 1) ||
-      (this.state.group.length < 1) 
+      // (this.state.change.length < 1) ||
+      // (this.state.notes.length < 1) ||
+      // (this.state.dataStatus.length < 1) ||
+      (this.state.group.length < 1) ||
+      (this.state.value.length < 1) ||
+      (this.state.year.length < 1)
       ) {
       this.setState({
         error: 'must fill out form, put N/A in empty spaces'
@@ -77,22 +81,6 @@ class AffordableData extends Component{
             />
           </DivInput>
           <DivInput>
-            <Input 
-              type="text" 
-              placeholder="baseline" 
-              name="baseline" 
-              onChange={this.onInputChange}
-            />
-          </DivInput>
-          <DivInput>
-            <Input
-              type="text" 
-              placeholder="update" 
-              name="update" 
-              onChange={this.onInputChange}
-            />
-          </DivInput>
-          <DivInput>
             <Input
               type="text" 
               placeholder="sources" 
@@ -103,32 +91,24 @@ class AffordableData extends Component{
           <DivInput>
             <Input 
               type="text" 
-              placeholder="change" 
-              name="change" 
-              onChange={this.onInputChange} 
-            />
-          </DivInput>
-          <DivInput>
-            <Input 
-              type="text" 
-              placeholder="notes" 
-              name="notes" 
-              onChange={this.onInputChange} 
-            />
-          </DivInput>
-          <DivInput>
-            <Input 
-              type="text" 
-              placeholder="data status" 
-              name="dataStatus" 
-              onChange={this.onInputChange} 
-            />
-          </DivInput>
-          <DivInput>
-            <Input 
-              type="text" 
               placeholder="group" 
               name="group" 
+              onChange={this.onInputChange} 
+            />
+          </DivInput>
+          <DivInput>
+            <Input 
+              type="text" 
+              placeholder="year" 
+              name="year" 
+              onChange={this.onInputChange} 
+            />
+          </DivInput>
+          <DivInput>
+            <Input 
+              type="text" 
+              placeholder="value" 
+              name="value" 
               onChange={this.onInputChange} 
             />
           </DivInput>
