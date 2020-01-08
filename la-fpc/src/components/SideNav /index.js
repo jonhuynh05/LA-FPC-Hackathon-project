@@ -146,104 +146,112 @@ export default function SideNav() {
         </div>
         <Divider />
         <List>
-            <ListItem button onClick={handleOpenSettings}>
-                <ListItemIcon>
-                    <EcoIcon /> 
-                </ListItemIcon> 
-                <ListItemText primary="Sustainability" />
-                {open ? <ExpandLess /> : <ExpandMore />}
-            </ListItem>
-            <Collapse in={openCollapse} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                    <ListItem button className={classes.nested}>
-                        <ListItemText primary="Increased household food security"/>
-                    </ListItem>
-                    <ListItem button className={classes.nested}>
-                        <ListItemText primary="Increased healthy food access and consumption among low-income populations"/>
-                    </ListItem>
-                    <ListItem button className={classes.nested}>
-                        <ListItemText primary="Improved participation rate by eligible residents in food assistance programs"/>
-                    </ListItem>
-                    <ListItem button className={classes.nested}>
-                        <ListItemText primary="Improved participation rate by eligible students in school meal programs"/>
-                    </ListItem>
-                    <ListItem button className={classes.nested}>
-                        <ListItemText primary="Increased healthy food retailers accepting food assistance programs"/>
-                    </ListItem>
-                    <ListItem button className={classes.nested}>
-                        <ListItemText primary="Decreased racial and ethnic disparities in food security"/>
-                    </ListItem>
-                    <ListItem button className={classes.nested}>
-                        <ListItemText primary="Decreased racial and ethnic disparities in food security"/>
-                    </ListItem>
-                    <ListItem button className={classes.nested}>
-                        <ListItemText primary="Decreased generational disparities in food security and health outcomes"/>
-                    </ListItem>
-                    <ListItem button className={classes.nested}>
-                        <ListItemText primary="Reduced overweight, obesity and nutrition-related disease among low-income populations"/>
-                    </ListItem>
-                </List>
-            </Collapse>
+          <ListItem button onClick={handleOpenSettings}>
+            <ListItemIcon>
+              <EcoIcon />
+            </ListItemIcon>
+            <LinkRoute to="/sustainable">
+              <ListItemText primary="Sustainability" />
+              {open ? <ExpandLess /> : <ExpandMore />}
+            </LinkRoute>
+          </ListItem>
+          <Collapse in={openCollapse} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              <ListItem button className={classes.nested}>
+                <ListItemText primary="Increased household food security" />
+              </ListItem>
+              <ListItem button className={classes.nested}>
+                <ListItemText primary="Increased healthy food access and consumption among low-income populations" />
+              </ListItem>
+              <ListItem button className={classes.nested}>
+                <ListItemText primary="Improved participation rate by eligible residents in food assistance programs" />
+              </ListItem>
+              <ListItem button className={classes.nested}>
+                <ListItemText primary="Improved participation rate by eligible students in school meal programs" />
+              </ListItem>
+              <ListItem button className={classes.nested}>
+                <ListItemText primary="Increased healthy food retailers accepting food assistance programs" />
+              </ListItem>
+              <ListItem button className={classes.nested}>
+                <ListItemText primary="Decreased racial and ethnic disparities in food security" />
+              </ListItem>
+              <ListItem button className={classes.nested}>
+                <ListItemText primary="Decreased racial and ethnic disparities in food security" />
+              </ListItem>
+              <ListItem button className={classes.nested}>
+                <ListItemText primary="Decreased generational disparities in food security and health outcomes" />
+              </ListItem>
+              <ListItem button className={classes.nested}>
+                <ListItemText primary="Reduced overweight, obesity and nutrition-related disease among low-income populations" />
+              </ListItem>
+            </List>
+          </Collapse>
 
-            <ListItem button onClick={handleOpenSettings}>
-                <ListItemIcon>
-                    <LocalHospitalIcon /> 
-                </ListItemIcon> 
-                <ListItemText primary="Health" />
-                {open ? <ExpandLess /> : <ExpandMore />}
-            </ListItem>
-            <Collapse in={openCollapse} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                    <ListItem button className={classes.nested}>
-                        <ListItemText primary="Increased household food security"/>
-                    </ListItem>
-                    <ListItem button className={classes.nested}>
-                        <ListItemText primary="Increased healthy food access and consumption among low-income populations"/>
-                    </ListItem>
-                    <ListItem button className={classes.nested}>
-                        <ListItemText primary="Improved participation rate by eligible residents in food assistance programs"/>
-                    </ListItem>
-                    <ListItem button className={classes.nested}>
-                        <ListItemText primary="Improved participation rate by eligible students in school meal programs"/>
-                    </ListItem>
-                    <ListItem button className={classes.nested}>
-                        <ListItemText primary="Increased healthy food retailers accepting food assistance programs"/>
-                    </ListItem>
-                    <ListItem button className={classes.nested}>
-                        <ListItemText primary="Decreased racial and ethnic disparities in food security"/>
-                    </ListItem>
-                    <ListItem button className={classes.nested}>
-                        <ListItemText primary="Decreased racial and ethnic disparities in food security"/>
-                    </ListItem>
-                    <ListItem button className={classes.nested}>
-                        <ListItemText primary="Decreased generational disparities in food security and health outcomes"/>
-                    </ListItem>
-                    <ListItem button className={classes.nested}>
-                        <ListItemText primary="Reduced overweight, obesity and nutrition-related disease among low-income populations"/>
-                    </ListItem>
-                </List>
-            </Collapse>
-            
-            <ListItem button onClick={handleOpenSettings}>
-                <ListItemIcon>
-                    <MonetizationOnIcon/> 
-                </ListItemIcon> 
-                <ListItemText primary="Affordability" />
-                {open ? <ExpandLess /> : <ExpandMore />}
-            </ListItem>
-            <ListItem button onClick={handleOpenSettings}>
-                <ListItemIcon>
-                    <GavelIcon/> 
-                </ListItemIcon> 
-                <ListItemText primary="Fairness" />
-                {open ? <ExpandLess /> : <ExpandMore />}
-            </ListItem>
+          <ListItem button onClick={handleOpenSettings}>
+            <ListItemIcon>
+              <LocalHospitalIcon />
+            </ListItemIcon>
+            <LinkRoute to="/healthy">
+              <ListItemText primary="Health" />
+              {open ? <ExpandLess /> : <ExpandMore />}
+            </LinkRoute>
+          </ListItem>
+          <Collapse in={openCollapse} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              <ListItem button className={classes.nested}>
+                <ListItemText primary="Increased household food security" />
+              </ListItem>
+              <ListItem button className={classes.nested}>
+                <ListItemText primary="Increased healthy food access and consumption among low-income populations" />
+              </ListItem>
+              <ListItem button className={classes.nested}>
+                <ListItemText primary="Improved participation rate by eligible residents in food assistance programs" />
+              </ListItem>
+              <ListItem button className={classes.nested}>
+                <ListItemText primary="Improved participation rate by eligible students in school meal programs" />
+              </ListItem>
+              <ListItem button className={classes.nested}>
+                <ListItemText primary="Increased healthy food retailers accepting food assistance programs" />
+              </ListItem>
+              <ListItem button className={classes.nested}>
+                <ListItemText primary="Decreased racial and ethnic disparities in food security" />
+              </ListItem>
+              <ListItem button className={classes.nested}>
+                <ListItemText primary="Decreased racial and ethnic disparities in food security" />
+              </ListItem>
+              <ListItem button className={classes.nested}>
+                <ListItemText primary="Decreased generational disparities in food security and health outcomes" />
+              </ListItem>
+              <ListItem button className={classes.nested}>
+                <ListItemText primary="Reduced overweight, obesity and nutrition-related disease among low-income populations" />
+              </ListItem>
+            </List>
+          </Collapse>
+
+          <ListItem button onClick={handleOpenSettings}>
+            <ListItemIcon>
+              <MonetizationOnIcon />
+            </ListItemIcon>
+            <LinkRoute to="/affordable">
+              <ListItemText primary="Affordability" />
+              {open ? <ExpandLess /> : <ExpandMore />}
+            </LinkRoute>
+          </ListItem>
+          <ListItem button onClick={handleOpenSettings}>
+            <ListItemIcon>
+              <GavelIcon />
+            </ListItemIcon>
+            <LinkRoute to="/fair">
+              <ListItemText primary="Fairness" />
+              {open ? <ExpandLess /> : <ExpandMore />}
+            </LinkRoute>
+          </ListItem>
         </List>
-                     
-                        
 
 
-          {/* {['Sustainability', 'Health', 'Affordability', 'Fairness'].map((text, index) => (
+
+
+        {/* {['Sustainability', 'Health', 'Affordability', 'Fairness'].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>{<EcoIcon />  <LocalHospitalIcon/> : <MonetizationOnIcon/>}</ListItemIcon>
               <ListItemText primary={text} />
@@ -292,4 +300,3 @@ export default function SideNav() {
     </div>
   );
 }
-
