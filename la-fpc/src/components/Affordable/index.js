@@ -63,6 +63,7 @@ class Affordable extends Component {
         }
       })
       const oldData = await data.json()
+      console.log(oldData, "this is old data")
       const affordData = oldData.data.filter(data => data.category === 'affordable')
       console.log(affordData, "this is afford data")
       this.setState({
@@ -93,10 +94,30 @@ class Affordable extends Component {
     }
   }
   
-  handleFilter = (e) => {
+  handleFilter = async (e) => {
     this.setState({
       filter: e.currentTarget.value
     })
+    try { 
+      const data = await fetch(`http://localhost:3030/data/get-data`, {
+        method: 'GET',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      const oldData = await data.json()
+      const affordData = oldData.data.filter(data => data.category === 'affordable')
+      const filteredData = affordData.filter(data => data.indicator === this.state.filter)
+      console.log(filteredData, "this is filtered afford data")
+      this.setState({
+        affordableData: filteredData
+      })
+
+    }
+    catch (err) {
+      console.log(err)
+    }
   }
 
   handleFormChange = (e) => {
@@ -291,6 +312,18 @@ class Affordable extends Component {
                     <Donut affordableData={this.state.affordableData} />
               </ToolKit>
             </ChartDiv>
+            <div>
+              THIS IS THE AFFORDABLE DATA
+              {
+                this.state.affordableData.map((data, i) => {
+                  return(
+                    <div key={i}>
+                      {data.value}
+                    </div>
+                  )
+                })
+              }
+            </div>
           </Container>
         )
     }
