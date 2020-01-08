@@ -52,7 +52,12 @@ class Home extends Component {
                     </DescripDiv>
                         <h1>Case Studies</h1>
                     <UserImgDiv>
-                        <UserImg src={Food}/>
+                        <a style={{
+                            textDecoration: "none"
+                        }}
+                            target="_blank" href={require("./caseStudies/Case Study_Affordable_EBT at FMs.docx")}>
+                            <UserImg src={Food}/>
+                        </a>
                         <UserImg src={Compost}/>
                         <UserImg src={Plant}/>
                     </UserImgDiv>
