@@ -12,6 +12,7 @@ export const SecondDiv = styled.div`
     color: #fff;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 `
 export const LeftDiv = styled.div`
     text-align: center;

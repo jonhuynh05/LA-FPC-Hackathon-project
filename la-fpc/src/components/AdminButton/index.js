@@ -11,46 +11,38 @@ import HomeIcon from '@material-ui/icons/Home';
 class AdminButton extends Component {
 
   render() {
-      return (
-        <div style={{backgroundImage:`url(${Banner})`, backgroundPosition:'center', backgroundSize:'cover'}}>
-          <div style={{marginLeft: '30px', marginRight: '30px'}}>
-            <Grid container spacing={3} style={{alignItems:'center'}}>
-              <Grid item xs>
-                <div style={{display:'flex'}}>
-                  <a href='https://www.goodfoodla.org/'><img src={logo} width={100} height={100} alt={"logo"} /></a> 
-                </div>
-              </Grid>
-              <Grid item xs>
-                <div>
-                  <div style={{textAlign:'center', alignItems: 'center'}}>
-                    <Button size='large' component={ LinkRoute } to='/home' style={{color:'white', fontWeight: 'bold'}}>
-                      LAFPC Food System Dashboard
-                    </Button>
-                  </div>
-                </div>
-              </Grid>
-              <Grid item xs style={{textAlign:"right"}}>
-                <Button
-                  component={ LinkRoute } 
-                  to='/'
-                  color="inherit"
-                  style={{margin:'0', color:'white', fontWeight:'bold'}}
-                >
-                  <HomeIcon />
-                </Button>
-                <Button 
-                component={ LinkRoute } 
-                to='/SignIn' 
-                color="inherit"
-                style={{margin:'20px', color:'white', fontWeight:'bold'}}
-                >
-                  Admin
-                </Button>
-              </Grid>
+    return (
+      <div style={{ backgroundImage: `url(${Banner})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
+        <div style={{ marginLeft: '30px', marginRight: '30px' }}>
+          <Grid container spacing={3} style={{ alignItems: 'center' }}>
+            <Grid item xs>
+              <div style={{ display: 'flex' }}>
+                <a href='https://www.goodfoodla.org/'><img src={logo} width={100} height={100} alt={"logo"} /></a>
+              </div>
             </Grid>
-          </div>
+            <Grid item xs>
+              <div>
+                <div style={{ textAlign: 'center', alignItems: 'center' }}>
+                  <Button size='large' component={LinkRoute} to='/home' style={{ color: 'white', fontWeight: 'bold' }}>
+                    LAFPC Food System Dashboard
+                    </Button>
+                </div>
+              </div>
+            </Grid>
+            <Grid item xs style={{ textAlign: "right" }}>
+              <Button
+                component={LinkRoute}
+                to='/'
+                color="inherit"
+                style={{ margin: '0', color: 'white', fontWeight: 'bold' }}
+              >
+                <HomeIcon />
+              </Button>
+            </Grid>
+          </Grid>
         </div>
-      )
+      </div>
+    )
   }
 }
 
