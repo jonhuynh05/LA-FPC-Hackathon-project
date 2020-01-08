@@ -269,10 +269,14 @@ class Affordable extends Component {
             }
             <ChartDiv>
               <ToolKit>
-                  <Button style={{backgroundColor:'#F4934D', marginTop:"10px"}} fullWidth>Food Insecurity</Button>
-                  <Button style={{backgroundColor:'#F4934D', marginTop:"10px"}} fullWidth>Fruit and vegetable accessibility</Button>
-                  <Button style={{backgroundColor:'#F4934D', marginTop:"10px"}} fullWidth>Fruit and vegetable affordability</Button>
-                  <Button style={{backgroundColor:'#F4934D', marginTop:"10px"}} fullWidth>Fruit and vegetable consumption</Button>
+                  {
+                    affordableData.map((data, i) => {
+                      return (
+                    <Button key={i} style={{backgroundColor:'#F4934D', marginTop:"10px"}} fullWidth>
+                      {data.indicator}
+                    </Button>
+                      )})
+                    }
               </ToolKit>
               <ToolKit>
                     <Donut affordableData={this.state.affordableData} />
