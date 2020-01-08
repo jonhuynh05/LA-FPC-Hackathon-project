@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
-
+import Data from "../test.js"
 
 import {
   Container,
@@ -68,6 +68,10 @@ class Affordable extends Component {
 
   getData = async () => {
     try { 
+      // const testData = await fetch("../test.json").then(res => res.json()).then(data => {
+        console.log(Data)
+      // })
+      // console.log(parsedData, "This is test data")
       const data = await fetch(`http://localhost:3030/data/get-data`, {
         method: 'GET',
         credentials: 'include',
