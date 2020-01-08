@@ -93,6 +93,12 @@ class Affordable extends Component {
     }
   }
   
+  handleFilter = (e) => {
+    this.setState({
+      filter: e.currentTarget.value
+    })
+  }
+
   handleFormChange = (e) => {
     this.setState({
       editData: {
@@ -272,11 +278,14 @@ class Affordable extends Component {
                   {
                     affordableData.map((data, i) => {
                       return (
-                    <Button key={i} style={{backgroundColor:'#F4934D', marginTop:"10px"}} fullWidth>
+                    <Button key={i} value={data.indicator} onClick={this.handleFilter} style={{backgroundColor:'#F4934D', marginTop:"10px"}} fullWidth>
                       {data.indicator}
                     </Button>
                       )})
                     }
+                    <Button value="" onClick={this.handleFilter} style={{backgroundColor:'#F4934D', marginTop:"10px"}} fullWidth>
+                      Reset Filter
+                    </Button>
               </ToolKit>
               <ToolKit>
                     <Donut affordableData={this.state.affordableData} />
