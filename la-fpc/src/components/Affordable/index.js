@@ -46,12 +46,25 @@ class Affordable extends Component {
       group: '',
       error: ''
     },
-    filter: ""
+    filter: "",
+    buttons: []
   }
 
   componentDidMount = () => {
     this.getData()
   }
+
+  getButtons = () => {
+    let filterButtons = []
+    // for (let i = 0; i < this.state.affordableData.length; i++){
+    //   filterButtons.push(this.state.affordableData[i].indicator)
+    // }
+    this.state.affordableData.forEach(data => filterButtons.push(data.indicator))
+    this.setState({
+      buttons: filterButtons
+    })
+  }
+
 
   getData = async () => {
     try { 
@@ -69,6 +82,7 @@ class Affordable extends Component {
       this.setState({
         affordableData: affordData
       })
+      this.getButtons()
 
     }catch (err) {
       console.log(err)
@@ -110,10 +124,16 @@ class Affordable extends Component {
       const affordData = oldData.data.filter(data => data.category === 'affordable')
       const filteredData = affordData.filter(data => data.indicator === this.state.filter)
       console.log(filteredData, "this is filtered afford data")
-      this.setState({
-        affordableData: filteredData
-      })
-
+      if(this.state.filter !== ""){
+        this.setState({
+          affordableData: filteredData
+        })
+      }
+      else{
+        this.setState({
+          affordableData: affordData
+        })
+      }
     }
     catch (err) {
       console.log(err)
@@ -297,10 +317,10 @@ class Affordable extends Component {
             <ChartDiv>
               <ToolKit>
                   {
-                    affordableData.map((data, i) => {
+                    this.state.buttons.map((indicator, i) => {
                       return (
-                    <Button key={i} value={data.indicator} onClick={this.handleFilter} style={{backgroundColor:'#F4934D', marginTop:"10px"}} fullWidth>
-                      {data.indicator}
+                    <Button key={i} value={indicator} onClick={this.handleFilter} style={{backgroundColor:'#F4934D', marginTop:"10px"}} fullWidth>
+                      {indicator}
                     </Button>
                       )})
                     }
