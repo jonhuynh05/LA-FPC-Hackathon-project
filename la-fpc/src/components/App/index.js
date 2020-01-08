@@ -7,6 +7,7 @@ import Healthy from '../Healthy';
 import Fair from '../Fair';
 import Sustainable from '../Sustainable';
 import Navbar from '../Navbar';
+import SideNav from '../SideNav '
 import AdminHome from '../AdminHome';
 import SignIn from '../SignIn'
 import AdminButton from '../AdminButton';
@@ -126,6 +127,7 @@ class App extends Component {
         return (
           <div>
             <AdminButton />
+            <SideNav logout={this.logout}/>
             <Navbar logout={this.logout}/>
             <Switch>
               {
