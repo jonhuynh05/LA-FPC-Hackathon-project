@@ -63,7 +63,7 @@ class Affordable extends Component {
         }
       })
       const oldData = await data.json()
-      const affordData = oldData.data.filter(data => data.value === 'affordable')
+      const affordData = oldData.data.filter(data => data.category === 'affordable')
       console.log(affordData, "this is afford data")
       this.setState({
         affordableData: affordData
@@ -221,13 +221,10 @@ class Affordable extends Component {
                   null
                 }
                 <TableDataHeader><H1>Indicator</H1></TableDataHeader>
-                <TableDataHeader><H1>Baseline</H1></TableDataHeader>
-                <TableDataHeader><H1>Update</H1></TableDataHeader>
                 <TableDataHeader><H1>Sources</H1></TableDataHeader>
-                <TableDataHeader><H1>Change</H1></TableDataHeader>
-                <TableDataHeader><H1>Notes</H1></TableDataHeader>
-                <TableDataHeader><H1>Data Status</H1></TableDataHeader>
                 <TableDataHeader><H1>Group</H1></TableDataHeader>
+                <TableDataHeader><H1>Year</H1></TableDataHeader>
+                <TableDataHeader><H1>Value</H1></TableDataHeader>
               </Row>
               {
                 affordableData.map((data, i) => {
@@ -247,25 +244,16 @@ class Affordable extends Component {
                         <P>{data.indicator}</P>
                       </TableData>
                       <TableData onClick={(e) => this.showData(e)}>
-                        <P>{data.baseline}</P>
-                      </TableData>
-                      <TableData onClick={(e) => this.showData(e)}>
-                        <P>{data.update}</P>
-                      </TableData>
-                      <TableData onClick={(e) => this.showData(e)}>
                         <P>{data.sources}</P>
                       </TableData>
                       <TableData onClick={(e) => this.showData(e)}>
-                        <P>{data.change}</P>
-                      </TableData>
-                      <TableData onClick={(e) => this.showData(e)}>
-                        <P>{data.notes}</P>
-                      </TableData>
-                      <TableData onClick={(e) => this.showData(e)}>
-                        <P>{data.dataStatus}</P>
-                      </TableData>
-                      <TableData onClick={(e) => this.showData(e)}>
                         <P>{data.group}</P>
+                      </TableData>
+                      <TableData onClick={(e) => this.showData(e)}>
+                        <P>{data.year}</P>
+                      </TableData>
+                      <TableData onClick={(e) => this.showData(e)}>
+                        <P>{data.value}</P>
                       </TableData>
                     </Row>
                   )
@@ -281,7 +269,7 @@ class Affordable extends Component {
             }
             <ChartDiv>
               <ToolKit>
-                  <Button style={{backgroundColor:'#F4934D', marginTop:"10px"}} fullWidth>Food Security</Button>
+                  <Button style={{backgroundColor:'#F4934D', marginTop:"10px"}} fullWidth>Food Insecurity</Button>
                   <Button style={{backgroundColor:'#F4934D', marginTop:"10px"}} fullWidth>Fruit and vegetable accessibility</Button>
                   <Button style={{backgroundColor:'#F4934D', marginTop:"10px"}} fullWidth>Fruit and vegetable affordability</Button>
                   <Button style={{backgroundColor:'#F4934D', marginTop:"10px"}} fullWidth>Fruit and vegetable consumption</Button>
