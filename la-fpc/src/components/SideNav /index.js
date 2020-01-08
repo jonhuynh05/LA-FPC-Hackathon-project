@@ -152,16 +152,16 @@ export default function SideNav() {
             </ListItemIcon>
             <LinkRoute to="/sustainable">
               <ListItemText primary="Sustainability" />
-              {open ? <ExpandLess /> : <ExpandMore />}
             </LinkRoute>
+              {open ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
           <Collapse in={openCollapse} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
               <ListItem button className={classes.nested}>
-                <ListItemText primary="Increased household food security" />
+                <ListItemText primary="Household Food security" />
               </ListItem>
               <ListItem button className={classes.nested}>
-                <ListItemText primary="Increased healthy food access and consumption among low-income populations" />
+                <ListItemText primary="Healthy Food Access (low income)" />
               </ListItem>
               <ListItem button className={classes.nested}>
                 <ListItemText primary="Improved participation rate by eligible residents in food assistance programs" />
@@ -193,8 +193,8 @@ export default function SideNav() {
             </ListItemIcon>
             <LinkRoute to="/healthy">
               <ListItemText primary="Health" />
-              {open ? <ExpandLess /> : <ExpandMore />}
             </LinkRoute>
+              {open ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
           <Collapse in={openCollapse} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
@@ -234,8 +234,8 @@ export default function SideNav() {
             </ListItemIcon>
             <LinkRoute to="/affordable">
               <ListItemText primary="Affordability" />
-              {open ? <ExpandLess /> : <ExpandMore />}
             </LinkRoute>
+              {open ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
           <ListItem button onClick={handleOpenSettings}>
             <ListItemIcon>
@@ -243,8 +243,8 @@ export default function SideNav() {
             </ListItemIcon>
             <LinkRoute to="/fair">
               <ListItemText primary="Fairness" />
-              {open ? <ExpandLess /> : <ExpandMore />}
             </LinkRoute>
+              {open ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
         </List>
 
