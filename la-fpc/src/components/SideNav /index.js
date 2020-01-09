@@ -167,7 +167,7 @@ export default function SideNav(props) {
             <ListItemIcon>
               <EcoIcon />
             </ListItemIcon>
-            <LinkRoute to="/sustainable">
+            <LinkRoute to="/sustainable" onClick={props.handleDataReset}>
               <ListItemText primary="Sustainability" />
             </LinkRoute>
             {open ? <ExpandLess /> : <ExpandMore />}

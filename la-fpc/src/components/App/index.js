@@ -60,6 +60,12 @@ class App extends Component {
     })
   }
 
+  handleDataReset = () => {
+    this.setState({
+      groupFilter: ""
+    })
+  }
+
   getData = async () => {
     try {
       const data = await fetch(`http://localhost:3030/data/get-data`, {
@@ -226,7 +232,7 @@ class App extends Component {
         return (
           <div>
             <AdminButton />
-            <SideNav logout={this.logout} state={this.state} handleDataFilter={this.handleDataFilter}/>
+            <SideNav logout={this.logout} state={this.state} handleDataFilter={this.handleDataFilter} handleDataReset={this.handleDataReset}/>
             <Navbar logout={this.logout}/>
             <Switch>
               {
