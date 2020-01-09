@@ -120,13 +120,13 @@ export default function SideNav(props) {
     setOpenFairnessCollapse(!openFairnessCollapse);
   };
 
-  const affordGroups = props.state.affordable.map((afford, i) => {
-    return(
-      <ListItem key={i} button onClick={props.handleDataFilter} value={afford.group} className={classes.nested}>
-        <ListItemText value={afford.group} primary={afford.group} />
-      </ListItem>
-    )
-  })
+  // const affordGroups = props.state.affordable.map((afford, i) => {
+  //   return(
+  //     <ListItem key={i} button onClick={props.handleDataFilter} value={afford.group} className={classes.nested}>
+  //       <ListItemText value={afford.group} primary={afford.group} />
+  //     </ListItem>
+  //   )
+  // })
 
   const fairGroups = props.state.fairness.map((fair, i) => {
     return(
@@ -240,7 +240,20 @@ export default function SideNav(props) {
 
             <Collapse in={openAffordableCollapse} timeout="auto" unmountOnExit>
               <List component="div" disablePadding>
-                {affordGroups}
+                {/* {affordGroups} */}
+                {
+                  props.state.affordableGroup.length > 0
+                  ?
+                  props.state.affordableGroup.map((data, i) => {
+                    return(
+                      <ListItem key={i} button onClick={props.handleDataFilter} value={data} className={classes.nested}>
+                        <ListItemText value={data} primary={data} /> 
+                      </ListItem>
+                    )
+                  })
+                  :
+                  null
+                }
               </List>
             </Collapse>
 

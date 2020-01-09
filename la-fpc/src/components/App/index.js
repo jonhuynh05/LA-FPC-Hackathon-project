@@ -69,6 +69,36 @@ class App extends Component {
     })
   }
 
+  handleUpdateAffordNav = async () => {
+    try{
+      const data = await fetch(`http://localhost:3030/data/get-data`, {
+        method: 'GET',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      const oldData = await data.json()
+      const affordData = oldData.data.filter(data => data.category === 'affordable')
+      let affordableGroup = []
+      let affordableSubgroup = []
+      let affordIndicators = []
+      affordData.forEach(data => {
+        affordableGroup.push(data.group)
+        affordableSubgroup.push(data.subgroup)
+        affordIndicators.push(data.indicator)
+      })
+      this.setState({
+        affordableGroup: affordableGroup,
+        affordableSubgroup: affordableSubgroup,
+        affordableIndicators: affordIndicators,
+      })
+    }
+    catch(err){
+      console.log(err)
+    }
+  }
+
   getData = async () => {
     try {
       const data = await fetch(`http://localhost:3030/data/get-data`, {
@@ -251,7 +281,7 @@ class App extends Component {
               <Route exact path='/addadmin' render={(props) =>  <AddAdmin register={this.register}  {...props} />} />
               <Route exact path='/' render={(props) =>  <Homepage {...props} />}  />
               <Route exact path='/home' render={(props) =>  <Homepage {...props} />}  />
-              <Route exact path='/affordable' render={() => <Affordable  isLogged={this.state.isLogged} groupFilter={this.state.groupFilter}/>}/>
+              <Route exact path='/affordable' render={() => <Affordable  isLogged={this.state.isLogged} groupFilter={this.state.groupFilter} handleUpdateAffordNav={this.handleUpdateAffordNav}/>}/>
               <Route exact path='/healthy' render={() => <Healthy isLogged={this.state.isLogged} groupFilter={this.state.groupFilter}/>}/>
               <Route exact path='/fair' render={() => <Fair isLogged={this.state.isLogged} groupFilter={this.state.groupFilter}/>}/>
               <Route exact path='/sustainable' render={() => <Sustainable isLogged={this.state.isLogged} groupFilter={this.state.groupFilter}/>}/>

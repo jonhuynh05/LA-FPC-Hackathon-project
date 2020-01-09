@@ -109,6 +109,7 @@ class Affordable extends Component {
       this.setState({
         affordableData: [...this.state.affordableData, parsedResponse.data]
       })
+      this.props.handleUpdateAffordNav()
     } catch (err) {
       console.log(err, 'this is error from add data')
     }
