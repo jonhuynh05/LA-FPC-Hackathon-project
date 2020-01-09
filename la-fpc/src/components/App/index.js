@@ -252,9 +252,9 @@ class App extends Component {
               <Route exact path='/' render={(props) =>  <Homepage {...props} />}  />
               <Route exact path='/home' render={(props) =>  <Homepage {...props} />}  />
               <Route exact path='/affordable' render={() => <Affordable  isLogged={this.state.isLogged} groupFilter={this.state.groupFilter}/>}/>
-              <Route exact path='/healthy' render={() => <Healthy isLogged={this.state.isLogged}/>}/>
-              <Route exact path='/fair' render={() => <Fair isLogged={this.state.isLogged}/>}/>
-              <Route exact path='/sustainable' render={() => <Sustainable isLogged={this.state.isLogged}/>}/>
+              <Route exact path='/healthy' render={() => <Healthy isLogged={this.state.isLogged} groupFilter={this.state.groupFilter}/>}/>
+              <Route exact path='/fair' render={() => <Fair isLogged={this.state.isLogged} groupFilter={this.state.groupFilter}/>}/>
+              <Route exact path='/sustainable' render={() => <Sustainable isLogged={this.state.isLogged} groupFilter={this.state.groupFilter}/>}/>
               <Route exact path="/faq" render={() => <Faq />}/>
               <Route exact path='/signin' render={() => <SignIn login={this.login}/>} />
               <Route component={ My404 } />
