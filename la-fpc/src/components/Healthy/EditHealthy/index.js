@@ -20,11 +20,11 @@ class EditHealthy extends Component{
           <H1>Edit Healthy</H1>
           <div>
             <TextField 
-              label='indicator'
+              label='Group'
               type="text" 
-              placeholder="indicatoer" 
-              name="indicator" 
-              value={this.props.editData.indicator}
+              placeholder="Group" 
+              name="group" 
+              value={this.props.editData.group}
               onChange={this.props.handleFormChange} 
               margin="normal"
               variant="outlined"
@@ -33,11 +33,11 @@ class EditHealthy extends Component{
           </div>
           <div>
             <TextField 
-              label='baseline'
+              label='subgroup'
               type="text" 
-              placeholder="baseline" 
-              name="baseline"
-              value={this.props.editData.baseline}
+              placeholder="subgroup" 
+              name="subgroup"
+              value={this.props.editData.subgroup}
               onChange={this.props.handleFormChange}
               margin="normal"
               variant="outlined"
@@ -46,11 +46,11 @@ class EditHealthy extends Component{
           </div>
           <div>
             <TextField
-              label='update'
+              label='indicator'
               type="text" 
-              placeholder="update" 
-              name="update" 
-              value={this.props.editData.update[0]}
+              placeholder="indicator" 
+              name="indicator" 
+              value={this.props.editData.indicator}
               onChange={this.props.handleFormChange}
               margin="normal"
               variant="outlined"
@@ -72,12 +72,38 @@ class EditHealthy extends Component{
           </div>
           <div>
             <TextField 
-              label='change'
+              label='2013'
               type="text" 
-              placeholder="change" 
-              name="change" 
-              value={this.props.editData.change}
+              placeholder="2013" 
+              name="baseline" 
+              value={this.props.editData.baseline}
               onChange={this.props.handleFormChange}
+              margin="normal"
+              variant="outlined"
+              style={{margin: "10px"}}
+            />
+          </div>
+          <div>
+            <TextField 
+              label='2017'
+              type="text" 
+              placeholder="2017" 
+              name="firstUpdate" 
+              value={this.props.editData.firstUpdate}
+              onChange={this.props.handleFormChange}
+              margin="normal"
+              variant="outlined"
+              style={{margin: "10px"}}
+            />
+          </div>
+          <div>
+            <TextField 
+              label='2020'
+              type="text" 
+              placeholder="2020" 
+              name="secondUpdate" 
+              value={this.props.editData.secondUpdate}
+              onChange={this.props.handleFormChange} 
               margin="normal"
               variant="outlined"
               style={{margin: "10px"}}
@@ -98,24 +124,11 @@ class EditHealthy extends Component{
           </div>
           <div>
             <TextField 
-              label='data status'
+              label='trend'
               type="text" 
-              placeholder="data status" 
-              name="dataStatus" 
-              value={this.props.editData.dataStatus}
-              onChange={this.props.handleFormChange} 
-              margin="normal"
-              variant="outlined"
-              style={{margin: "10px"}}
-            />
-          </div>
-          <div>
-            <TextField 
-              label='group'
-              type="text" 
-              placeholder="group" 
-              name="group"
-              value={this.props.editData.group} 
+              placeholder="trend" 
+              name="trend"
+              value={this.props.editData.trend} 
               onChange={this.props.handleFormChange} 
               margin="normal"
               variant="outlined"
