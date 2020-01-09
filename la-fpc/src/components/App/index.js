@@ -131,12 +131,6 @@ class App extends Component {
 
 
   componentDidMount() {
-    // const user = JSON.parse(localStorage.getItem('admin'))
-    // if(user) {
-    //   this.setState({
-    //     user: user
-    //   })
-    // }
     this.getData()
   }
 
