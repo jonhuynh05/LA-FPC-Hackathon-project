@@ -11,105 +11,124 @@ import {
   DivInput,
 } from './style'
 
-class AffordableData extends Component{
+class AffordableData extends Component {
 
   state = {
-    value: '',
-    indicator: '',
-    // baseline: '',
-    // update: '',
-    sources: '',
-    // change: '',
-    // notes: '',
-    // dataStatus: '',
+    category: 'affordable',
     group: '',
-    year: "",
-    category: "affordable",
+    subgroup: '',
+    indicator: '',
+    sources: '',
+    baseline: '',
+    firstUpdate: '',
+    secondUpdate: '',
+    trend: '',
+    notes: '',
     error: ''
   }
 
-  onInputChange = (e) => { this.setState({ [e.target.name]: e.target.value }) 
+  onInputChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value })
   };
 
   validate = () => {
-    if(
+    if (
       (this.state.indicator.length < 1) ||
-      // (this.state.baseline.length < 1) ||
-      // (this.state.update.length < 1) ||
-      (this.state.sources.length < 1) ||
-      // (this.state.change.length < 1) ||
-      // (this.state.notes.length < 1) ||
-      // (this.state.dataStatus.length < 1) ||
-      (this.state.group.length < 1) ||
-      (this.state.value.length < 1) ||
-      (this.state.year.length < 1)
-      ) {
+      (this.state.baseline.length < 1) ||
+      (this.state.firstUpdate.length < 1) ||
+      (this.state.secondUpdate.length < 1) ||
+      (this.state.trend.length < 1)
+    ) {
       this.setState({
         error: 'must fill out form, put N/A in empty spaces'
       })
-        return false
-      } else {
-        return true
-      }
+      return false
+    } else {
+      return true
+    }
   };
 
   submit = async (e) => {
     e.preventDefault();
     const isValid = this.validate();
-    if(isValid) {
-        console.log(this.props)
-        const dataCall = this.props.addData(this.state);
-        dataCall.then((data) => {
-          this.props.history.push('/affordable')
-        })
+    if (isValid) {
+      console.log(this.props)
+      const dataCall = this.props.addData(this.state);
+      dataCall.then((data) => {
+        this.props.history.push('/affordable')
+      })
     }
   }
 
-  render(){
-    return(
+  render() {
+    return (
       <Container>
         <Form>
           <DivInput>
-            <Button onClick={this.submit} style={{width: '100%'}}><PublishIcon /></Button>
+            <Button onClick={this.submit} style={{ width: '100%' }}><PublishIcon /></Button>
           </DivInput>
           <DivInput>
-            <Input 
-              type="text" 
-              placeholder="indicator" 
-              name="indicator" 
-              onChange={this.onInputChange} 
+            <Input
+              type="text"
+              placeholder="group"
+              name="group"
+              onChange={this.onInputChange}
             />
           </DivInput>
           <DivInput>
             <Input
-              type="text" 
-              placeholder="sources" 
-              name="sources" 
-              onChange={this.onInputChange} 
+              type="text"
+              placeholder="subgroup"
+              name="subgroup"
+              onChange={this.onInputChange}
             />
           </DivInput>
           <DivInput>
-            <Input 
-              type="text" 
-              placeholder="group" 
-              name="group" 
-              onChange={this.onInputChange} 
+            <Input
+              type="text"
+              placeholder="indicator"
+              name="indicator"
+              onChange={this.onInputChange}
             />
           </DivInput>
           <DivInput>
-            <Input 
-              type="text" 
-              placeholder="year" 
-              name="year" 
-              onChange={this.onInputChange} 
+            <Input
+              type="text"
+              placeholder="sources"
+              name="sources"
+              onChange={this.onInputChange}
             />
           </DivInput>
           <DivInput>
-            <Input 
-              type="text" 
-              placeholder="value" 
-              name="value" 
-              onChange={this.onInputChange} 
+            <Input
+              type="text"
+              placeholder="2013 value"
+              name="baseline"
+              onChange={this.onInputChange}
+            />
+          </DivInput>
+          <DivInput>
+            <Input
+              type="text"
+              placeholder="2017 value"
+              name="firstUpdate"
+              onChange={this.onInputChange}
+            />
+          </DivInput>
+          <DivInput>
+            <Input
+              type="text"
+              placeholder="2020 value"
+              name="secondUpdate"
+              onChange={this.onInputChange}
+            />
+          </DivInput>
+          <DivInput>
+            <Input
+              type="text"
+              placeholder="trend"
+              name="trend"
+              onChange={this.onInputChange}
             />
           </DivInput>
         </Form>

@@ -90,7 +90,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function SideNav() {
+export default function SideNav(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -118,6 +118,22 @@ export default function SideNav() {
   const handleOpenFairnessSettings = () => {
     setOpenFairnessCollapse(!openFairnessCollapse);
   };
+
+  const affordGroups = props.state.affordable.map((afford, i) => {
+    console.log(afford.group, "this is group")
+    return(
+    <Collapse in={openCollapse} timeout="auto" unmountOnExit>
+      <List component="div" disablePadding>
+        <ListItem key={i} button onClick={props.handleDataFilter} value={afford.group} className={classes.nested}>
+          <ListItemText value={afford.group} primary={afford.group} />
+        </ListItem>
+      </List>
+    </Collapse>
+    )
+  })
+
+  console.log(props)
+
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -165,7 +181,7 @@ export default function SideNav() {
             <ListItemIcon>
               <EcoIcon />
             </ListItemIcon>
-            <LinkRoute to="/sustainable">
+            <LinkRoute to="/sustainable" onClick={props.handleDataReset}>
               <ListItemText primary="Sustainability" />
             </LinkRoute>
             {open ? <ExpandLess /> : <ExpandMore />}
@@ -193,8 +209,11 @@ export default function SideNav() {
             </List>
           </Collapse>
 
+          {affordGroups}
+
           <ListItem button onClick={handleOpenHealthSettings}>
-            <ListItemIcon>
+
+              <ListItemIcon>
               <LocalHospitalIcon />
             </ListItemIcon>
             <LinkRoute to="/healthy">
