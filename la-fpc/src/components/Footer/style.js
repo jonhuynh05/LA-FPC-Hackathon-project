@@ -17,11 +17,35 @@ export const SecondDiv = styled.div`
 export const LeftDiv = styled.div`
     text-align: center;
     border-right: .5px solid #fff;
-    width: 50%;
+    width: 33%;
+`
+
+export const MiddleDiv = styled.div`
+    text-align: center;
+    border-right: .5px solid #fff;
+    width: 33%;
+    
+    a {
+        color: white;
+    }
 `
 
 export const RightDiv = styled.div`
     text-align: center;
-    border-left: .5px solid #fff;
-    width: 50%;
+    width: 33%;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+
+    h3 {
+        padding-top: 10px;
+    }
+
+    a {
+        vertical-align: middle;
+    }
+
+    span {
+        padding: 0 5px;
+    }
 `

@@ -21,10 +21,15 @@ export const MainDiv = styled.div`
 `
 
 export const TileDiv = styled.div`
-    margin-top: 3%;
+    margin-top: 0 10% 0 10%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     padding-bottom: 3%;
+`
+
+export const TileWrapper = styled.div`
+    text-align: center;
+    padding: 3%;
 `
 
 export const BannerDiv = styled.div`

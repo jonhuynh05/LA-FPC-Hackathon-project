@@ -37,21 +37,24 @@ class Home extends Component {
                 <MainDiv>
                     <h1>Pillars</h1>
                     <TileDiv>
-
-                        <a href='/sustainable'><Tiles src={sus} alt={"logo"} green /></a>
-                        {/* <p>Food system is environmentally responsible, equitable, and economically viable</p> */}
-
-                        <a href='/healthy'><Tiles src={health} alt={"logo"} orange /></a>
-                        {/* <p>Food is integral to the health and quality of life of individuals and communities</p> */}
-
-                        <a href='/affordable'><Tiles src={afford} alt={"logo"} yellow /></a>
-                        {/* <p>All Angelenos, regardless of their income level, should have the ability to access Good Food</p> */}
-
-                        <a href='/fair'><Tiles src={fair} alt={"logo"} blue /></a>
-                        {/* <p>Food is produced, manufactured, distributed, sold and recycled through fair labor practices and humane tratemnt of animals</p> */}
+                        <TileWrapper>
+                            <a href='/sustainable'><Tiles src={sus} alt={"logo"} green /></a>
+                            <p>Food system is environmentally responsible, equitable, and economically viable</p>
+                        </TileWrapper>
+                        <TileWrapper>
+                            <a href='/healthy'><Tiles src={health} alt={"logo"} orange /></a>
+                            <p>Food is integral to the health and quality of life of individuals and communities</p>
+                        </TileWrapper>
+                        <TileWrapper>
+                            <a href='/affordable'><Tiles src={afford} alt={"logo"} yellow /></a>
+                            <p>All Angelenos, regardless of their income level, should have the ability to access Good Food</p>
+                        </TileWrapper>
+                        <TileWrapper>
+                            <a href='/fair'><Tiles src={fair} alt={"logo"} blue /></a>
+                            <p>Food is produced, manufactured, distributed, sold and recycled through fair labor practices and humane tratemnt of animals</p>
+                        </TileWrapper>
                     </TileDiv>
                 </MainDiv>
-
             </HomeDiv>
         )
     }
