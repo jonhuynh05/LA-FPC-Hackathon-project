@@ -13,3 +13,16 @@ export const LinkRoute = styled(Link)`
 
 
 `
+
+export const HeaderName = styled.header`
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+
+    a, icon {
+        text-decoration: none;
+    }
+
+
+`

@@ -15,7 +15,7 @@ import Collapse from '@material-ui/core/Collapse';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 
-import { LinkRoute } from './style';
+import { LinkRoute, HeaderName} from './style';
 
 import HomeIcon from '@material-ui/icons/Home';
 import EcoIcon from '@material-ui/icons/Eco';
@@ -29,6 +29,10 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+
+import "./style.css"
+import logo from "./img/Logo 2_hi res.png"
+
 
 
 const drawerWidth = 300;
@@ -178,31 +182,29 @@ export default function SideNav(props) {
           [classes.appBarShift]: open,
         })}
       >
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            className={clsx(classes.menuButton, open && classes.hide)}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography 
-          variant="h4" 
-          font="arial"
-
-          noWrap>
+        <div id="header-container">
+          <div id="hamburger-container">
+            <Toolbar>
+              <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                onClick={handleDrawerOpen}
+                edge="start"
+                className={clsx(classes.menuButton, open && classes.hide)}
+              >
+                <MenuIcon />
+              </IconButton>
+            </Toolbar>
+          </div>
+          <div id="center-header-container">
             <LinkRoute to="/" onClick={props.handleDataReset}>
-                <IconButton
-                    color="white"
-                  colorPrimary="white"
-                >
-                    LAFPC DashBoard
-                </IconButton>
+                <img id="logo" src={logo}/>
+                <HeaderName>
+                    LAFPC Dashboard
+                </HeaderName>
             </LinkRoute>
-          </Typography>
-        </Toolbar>
+          </div>
+        </div>
       </AppBar>
       <Drawer
         className={classes.drawer}

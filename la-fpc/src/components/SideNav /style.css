@@ -1,0 +1,19 @@
+#header-container{
+    display: flex;
+    justify-content: center;
+}
+
+#hamburger-container{
+    position: absolute;
+    left: 0px;
+    top: 25px
+}
+
+#logo{
+    margin-top: 5px;
+    width: 70px;
+}
+
+#center-header-container{
+    text-align: center;
+}
