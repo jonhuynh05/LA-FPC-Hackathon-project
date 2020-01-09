@@ -401,13 +401,13 @@ class Affordable extends Component {
                 )
               })
             }
-            <Button value="" onClick={this.handleFilter} style={{ backgroundColor: '#F4934D', marginTop: "10px" }} fullWidth>
+            {/* <Button value="" onClick={this.handleFilter} style={{ backgroundColor: '#F4934D', marginTop: "10px" }} fullWidth>
               Reset Filter
-                    </Button>
+            </Button> */}
           </ToolKit>
-          <ToolKit>
+          {/* <ToolKit>
             <Donut affordableData={this.state.affordableData} />
-          </ToolKit>
+          </ToolKit> */}
         </ChartDiv>
       </Container>
     )
