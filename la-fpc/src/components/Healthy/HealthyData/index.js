@@ -123,7 +123,7 @@ class HealthyData extends Component{
           </DivInput>
           <DivInput>
             <select name="trend" onChange={this.onInputChange}>
-                <option value="Increase">
+                <option value="Increase" selected>
                   Increase
                 </option>
                 <option value="Decrease">
