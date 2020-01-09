@@ -6,6 +6,9 @@ import Donut from './HealthyChart';
 import Button from '@material-ui/core/Button';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
+import TrendingDownIcon from '@material-ui/icons/TrendingDown';
+import TrendingFlatIcon from '@material-ui/icons/TrendingFlat';
+import TrendingUpIcon from '@material-ui/icons/TrendingUp';
 
 
 import {
@@ -321,7 +324,53 @@ class Healthy extends Component {
                           <P>{data.secondUpdate}</P>
                         </TableData>
                         <TableData onClick={(e) => this.showData(e)}>
-                          <P>{data.trend}</P>
+                          <P>
+                          {
+                            data.trend.toLowerCase() === "increase"
+                            ?
+                            <select name="trend">
+                              <option value="Increase" selected>
+                                Increase
+                              </option>
+                              <option value="Decrease">
+                                Decrease
+                              </option>
+                              <option value="No Change">
+                                No Change
+                              </option>
+                            </select>
+                            :
+                            data.trend.toLowerCase() === "decrease"
+                            ?
+                            <select name="trend">
+                              <option value="Increase">
+                                Increase
+                              </option>
+                              <option value="Decrease" selected>
+                                Decrease
+                              </option>
+                              <option value="No Change">
+                                No Change
+                              </option>
+                            </select>
+                            :
+                            data.trend.toLowerCase() === "no change"
+                            ?
+                            <select name="trend">
+                              <option value="Increase">
+                                Increase
+                              </option>
+                              <option value="Decrease">
+                                Decrease
+                              </option>
+                              <option value="No Change" selected>
+                                No Change
+                              </option>
+                            </select>
+                            :
+                            null
+                          }
+                          </P>
                         </TableData>
                       </React.Fragment>
                       :
@@ -341,7 +390,23 @@ class Healthy extends Component {
                           <P>{data.secondUpdate}</P>
                         </TableData>
                         <TableData onClick={(e) => this.showData(e)}>
-                          <P>{data.trend}</P>
+                          <P>
+                          {
+                            data.trend.toLowerCase() === "increase"
+                            ?
+                            <TrendingUpIcon />
+                            :
+                            data.trend.toLowerCase() === "decrease"
+                            ?
+                            <TrendingDownIcon />
+                            :
+                            data.trend.toLowerCase() === "no change"
+                            ?
+                            <TrendingFlatIcon />
+                            :
+                            null
+                          }
+                          </P>
                         </TableData>
                       </React.Fragment>
                       :
@@ -361,7 +426,23 @@ class Healthy extends Component {
                         <P>{data.secondUpdate}</P>
                       </TableData>
                       <TableData onClick={(e) => this.showData(e)}>
-                        <P>{data.trend}</P>
+                        <P>
+                        {
+                            data.trend.toLowerCase() === "increase"
+                            ?
+                            <TrendingUpIcon />
+                            :
+                            data.trend.toLowerCase() === "decrease"
+                            ?
+                            <TrendingDownIcon />
+                            :
+                            data.trend.toLowerCase() === "no change"
+                            ?
+                            <TrendingFlatIcon />
+                            :
+                            null
+                          }
+                        </P>
                       </TableData>
                     </React.Fragment>
                     :
