@@ -61,7 +61,12 @@ class Affordable extends Component {
     // for (let i = 0; i < this.state.affordableData.length; i++){
     //   filterButtons.push(this.state.affordableData[i].indicator)
     // }
-    this.state.affordableData.forEach(data => filterButtons.push(data.indicator))
+    // this.state.affordableData.forEach(data => filterButtons.push(data.indicator))
+    // this.setState({
+    //   buttons: filterButtons
+    // })
+    console.log(this.props.groupFilter, "THIS IS GROUPFILTER")
+    this.props.groupFilter.forEach(data => filterButtons.push(data))
     this.setState({
       buttons: filterButtons
     })
@@ -388,11 +393,26 @@ class Affordable extends Component {
           THIS IS THE AFFORDABLE DATA
               {
             this.state.affordableData.map((data, i) => {
-              return (
-                <div key={i}>
-                  {data.value}
-                </div>
-              )
+
+              if(this.props.groupFilter === ""){
+                return(
+                  <div key={i}>
+                    {data.baseline}
+                  </div>
+                )
+              }
+              else{
+                if(data.group === this.props.groupFilter){
+                  return(
+                    <div key={i}>
+                      {data.baseline}
+                    </div>
+                  )
+                }
+                else{
+                  return null
+                }
+              }
             })
           }
         </div>
