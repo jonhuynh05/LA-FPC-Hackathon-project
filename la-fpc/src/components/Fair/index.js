@@ -6,10 +6,20 @@ import Donut from './FairChart';
 import Button from '@material-ui/core/Button';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
+import TrendingDownIcon from '@material-ui/icons/TrendingDown';
+import TrendingFlatIcon from '@material-ui/icons/TrendingFlat';
+import TrendingUpIcon from '@material-ui/icons/TrendingUp';
+
 
 
 import {
+  MainDiv,
+  TileDiv, 
+  TileWrapper,
+  Tiles, 
   Container,
+  BannerDiv,
+  BannerText,
   DivDataModal,
   ContainModal,
   Table,
@@ -19,15 +29,13 @@ import {
   TableDataHeader,
   TableDataButton,
   H1,
-  P
-} from './style'
-
-import {
+  P,
   DescribSec,
   DescribPar,
   ChartDiv,
   ToolKit
 } from './style'
+
 
 class Fair extends Component {
 
@@ -207,23 +215,39 @@ class Fair extends Component {
               :
               null
             }
-            <DescribSec>
-                <h1>FAIRNESS</h1>
-              <DescribPar>Fair food consists of food produced, manufactured, distributed, sold and recycled through fair
-                        labor practices and humane treatment of animals. At every point in the food supply chain,
-                        workers should receive fair compensation, treatment and be free from exploitation. Promoting
-                        fair food ensures that food workers compliant with relevant food safety standards, such as the
+            <BannerDiv>
+                    <BannerText>
+                      <DescribSec>
+                        <h1>FAIRNESS</h1>
+                      </DescribSec> 
+                                  <p>Fair food consists of food produced, manufactured, distributed, sold and recycled through fair
+                        labor practices and humane treatment of animals. <br/>At every point in the food supply chain,
+                        workers should receive fair compensation, treatment and be free from exploitation. <br/> Promoting
+                        fair food ensures that food workers compliant with relevant food safety standards, <br/>such as the
                         hundreds of mobile food vendors throughout the City of Los Angeles, are free from legal
-                        penalties or fines for bringing food to communities that need it most. Lastly, fair food honors and
-                        respects the lives of all species involved in food provision.
-                        </DescribPar>
-            </DescribSec>
-            <DescribSec>
-              <h1>FAST FACTS</h1>
-              <DescribPar>
-                
-              </DescribPar>
-            </DescribSec>
+                        penalties or fines for bringing food to communities that need it most.</p>
+                    </BannerText>
+          </BannerDiv>
+        <DescribSec>
+          <h1>FAST FACTS</h1>
+        </DescribSec> 
+        <MainDiv>
+          <TileDiv>
+            <TileWrapper>
+              <Tiles />
+            </TileWrapper> 
+            <TileWrapper>
+              <Tiles />
+            </TileWrapper>
+            <TileWrapper>
+              <Tiles />
+            </TileWrapper>
+            <TileWrapper>
+              <Tiles />
+            </TileWrapper>
+          </TileDiv>
+        </MainDiv>
+            
             <Table>
               {/* <Row>
                 {
@@ -307,7 +331,53 @@ class Fair extends Component {
                           <P>{data.secondUpdate}</P>
                         </TableData>
                         <TableData onClick={(e) => this.showData(e)}>
-                          <P>{data.trend}</P>
+                          <P>
+                          {
+                            data.trend.toLowerCase() === "increase"
+                            ?
+                            <select name="trend">
+                              <option value="Increase" selected>
+                                Increase
+                              </option>
+                              <option value="Decrease">
+                                Decrease
+                              </option>
+                              <option value="No Change">
+                                No Change
+                              </option>
+                            </select>
+                            :
+                            data.trend.toLowerCase() === "decrease"
+                            ?
+                            <select name="trend">
+                              <option value="Increase">
+                                Increase
+                              </option>
+                              <option value="Decrease" selected>
+                                Decrease
+                              </option>
+                              <option value="No Change">
+                                No Change
+                              </option>
+                            </select>
+                            :
+                            data.trend.toLowerCase() === "no change"
+                            ?
+                            <select name="trend">
+                              <option value="Increase">
+                                Increase
+                              </option>
+                              <option value="Decrease">
+                                Decrease
+                              </option>
+                              <option value="No Change" selected>
+                                No Change
+                              </option>
+                            </select>
+                            :
+                            null
+                          }
+                          </P>
                         </TableData>
                       </React.Fragment>
                       :
@@ -327,7 +397,23 @@ class Fair extends Component {
                           <P>{data.secondUpdate}</P>
                         </TableData>
                         <TableData onClick={(e) => this.showData(e)}>
-                          <P>{data.trend}</P>
+                          <P>
+                          {
+                            data.trend.toLowerCase() === "increase"
+                            ?
+                            <TrendingUpIcon />
+                            :
+                            data.trend.toLowerCase() === "decrease"
+                            ?
+                            <TrendingDownIcon />
+                            :
+                            data.trend.toLowerCase() === "no change"
+                            ?
+                            <TrendingFlatIcon />
+                            :
+                            null
+                          }
+                          </P>
                         </TableData>
                       </React.Fragment>
                       :
@@ -347,7 +433,23 @@ class Fair extends Component {
                         <P>{data.secondUpdate}</P>
                       </TableData>
                       <TableData onClick={(e) => this.showData(e)}>
-                        <P>{data.trend}</P>
+                        <P>
+                        {
+                            data.trend.toLowerCase() === "increase"
+                            ?
+                            <TrendingUpIcon />
+                            :
+                            data.trend.toLowerCase() === "decrease"
+                            ?
+                            <TrendingDownIcon />
+                            :
+                            data.trend.toLowerCase() === "no change"
+                            ?
+                            <TrendingFlatIcon />
+                            :
+                            null
+                          }
+                        </P>
                       </TableData>
                     </React.Fragment>
                     :

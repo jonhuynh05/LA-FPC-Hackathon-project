@@ -36,8 +36,7 @@ class SustainableData extends Component{
       (this.state.indicator.length < 1) ||
       (this.state.baseline.length < 1) ||
       (this.state.firstUpdate.length < 1) ||
-      (this.state.secondUpdate.length < 1) ||
-      (this.state.trend.length < 1)
+      (this.state.secondUpdate.length < 1)
       ) {
       this.setState({
         error: 'must fill out form, put N/A in empty spaces'
@@ -124,12 +123,17 @@ class SustainableData extends Component{
             />
           </DivInput>
           <DivInput>
-            <Input
-              type="text"
-              placeholder="trend"
-              name="trend"
-              onChange={this.onInputChange}
-            />
+            <select name="trend" onChange={this.onInputChange}>
+                  <option value="Increase">
+                    Increase
+                  </option>
+                  <option value="Decrease">
+                    Decrease
+                  </option>
+                  <option value="No Change">
+                    No Change
+                  </option>
+                </select>
           </DivInput>
         </Form>
       </Container>

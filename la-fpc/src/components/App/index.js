@@ -87,6 +87,9 @@ class App extends Component {
         affordableSubgroup.push(data.subgroup)
         affordIndicators.push(data.indicator)
       })
+      const noDupAffordGroupObj = new Set(affordableGroup)
+      let noDupesAfford = []
+      noDupAffordGroupObj.forEach((data) => noDupesAfford.push(data))
 
       const healthData = oldData.data.filter(data => data.category === 'healthy')
       let healthyGroup = []
@@ -97,6 +100,9 @@ class App extends Component {
         healthySubgroup.push(data.subgroup)
         healthyIndicators.push(data.indicator)
       })
+      const noDupHealthGroupObj = new Set(healthyGroup)
+      let noDupesHealth = []
+      noDupHealthGroupObj.forEach((data) => noDupesHealth.push(data))
 
       const sustainData = oldData.data.filter(data => data.category === 'sustainable')
       let sustainableGroup = []
@@ -107,6 +113,9 @@ class App extends Component {
         sustainableSubgroup.push(data.subgroup)
         sustainableIndicators.push(data.indicator)
       })
+      const noDupSustainGroupObj = new Set(sustainableGroup)
+      let noDupesSustain = []
+      noDupSustainGroupObj.forEach((data) => noDupesSustain.push(data))
 
       const fairData = oldData.data.filter(data => data.category === 'fairness')
       let fairnessGroup = []
@@ -117,18 +126,25 @@ class App extends Component {
         fairnessSubgroup.push(data.subgroup)
         fairnessIndicators.push(data.indicator)
       })
+      const noDupFairGroupObj = new Set(fairnessGroup)
+      let noDupesFair = []
+      noDupFairGroupObj.forEach((data) => noDupesFair.push(data))
 
       this.setState({
-        affordableGroup: affordableGroup,
+        affordable: affordData,
+        affordableGroup: noDupesAfford,
         affordableSubgroup: affordableSubgroup,
         affordableIndicators: affordIndicators,
-        healthyGroup: healthyGroup,
+        healthy: healthData,
+        healthyGroup: noDupesHealth,
         healthySubgroup: healthySubgroup,
         healthyIndicators: healthyIndicators,
-        sustainableGroup: sustainableGroup,
+        sustainability: sustainData,
+        sustainableGroup: noDupesSustain,
         sustainableSubgroup: sustainableSubgroup,
         sustainableIndicators: sustainableIndicators,
-        fairnessGroup: fairnessGroup,
+        fairness: fairData,
+        fairnessGroup: noDupesFair,
         fairnessSubgroup: fairnessSubgroup,
         fairnessIndicators: fairnessIndicators,
       })
@@ -149,10 +165,8 @@ class App extends Component {
         }
       })
       const oldData = await data.json()
-      console.log(oldData, "this is old data - app")
 
       const affordData = oldData.data.filter(data => data.category === 'affordable')
-      console.log(affordData, "this is afford data - app")
       let affordableGroup = []
       let affordableSubgroup = []
       let affordIndicators = []
@@ -161,9 +175,11 @@ class App extends Component {
         affordableSubgroup.push(data.subgroup)
         affordIndicators.push(data.indicator)
       })
+      const noDupAffordGroupObj = new Set(affordableGroup)
+      let noDupesAfford = []
+      noDupAffordGroupObj.forEach((data) => noDupesAfford.push(data))
 
       const healthData = oldData.data.filter(data => data.category === 'healthy')
-      console.log(healthData, "this is healthy data - app")
       let healthyGroup = []
       let healthySubgroup = []
       let healthyIndicators = []
@@ -172,9 +188,11 @@ class App extends Component {
         healthySubgroup.push(data.subgroup)
         healthyIndicators.push(data.indicator)
       })
+      const noDupHealthGroupObj = new Set(healthyGroup)
+      let noDupesHealth = []
+      noDupHealthGroupObj.forEach((data) => noDupesHealth.push(data))
 
       const sustainData = oldData.data.filter(data => data.category === 'sustainable')
-      console.log(sustainData, "this is sustainable data - app")
       let sustainableGroup = []
       let sustainableSubgroup = []
       let sustainableIndicators = []
@@ -183,9 +201,11 @@ class App extends Component {
         sustainableSubgroup.push(data.subgroup)
         sustainableIndicators.push(data.indicator)
       })
+      const noDupSustainGroupObj = new Set(sustainableGroup)
+      let noDupesSustain = []
+      noDupSustainGroupObj.forEach((data) => noDupesSustain.push(data))
 
       const fairData = oldData.data.filter(data => data.category === 'fairness')
-      console.log(fairData, "this is afford data - app")
       let fairnessGroup = []
       let fairnessSubgroup = []
       let fairnessIndicators = []
@@ -194,22 +214,25 @@ class App extends Component {
         fairnessSubgroup.push(data.subgroup)
         fairnessIndicators.push(data.indicator)
       })
+      const noDupFairGroupObj = new Set(fairnessGroup)
+      let noDupesFair = []
+      noDupFairGroupObj.forEach((data) => noDupesFair.push(data))
 
       this.setState({
         affordable: affordData,
-        affordableGroup: affordableGroup,
+        affordableGroup: noDupesAfford,
         affordableSubgroup: affordableSubgroup,
         affordableIndicators: affordIndicators,
         healthy: healthData,
-        healthyGroup: healthyGroup,
+        healthyGroup: noDupesHealth,
         healthySubgroup: healthySubgroup,
         healthyIndicators: healthyIndicators,
         sustainability: sustainData,
-        sustainableGroup: sustainableGroup,
+        sustainableGroup: noDupesSustain,
         sustainableSubgroup: sustainableSubgroup,
         sustainableIndicators: sustainableIndicators,
         fairness: fairData,
-        fairnessGroup: fairnessGroup,
+        fairnessGroup: noDupesFair,
         fairnessSubgroup: fairnessSubgroup,
         fairnessIndicators: fairnessIndicators,
       })

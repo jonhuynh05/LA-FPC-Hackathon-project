@@ -240,9 +240,11 @@ export default function SideNav(props) {
                   ?
                   props.state.sustainableGroup.map((data, i) => {
                     return(
-                      <ListItem key={i} button onClick={props.handleDataFilter} value={data} className={classes.nested}>
-                        <ListItemText value={data} primary={data} />
-                      </ListItem>
+                      <LinkRoute to="/sustainable">
+                        <ListItem key={i} button onClick={props.handleDataFilter} value={data} className={classes.nested}>
+                          <ListItemText value={data} primary={data} />
+                        </ListItem>
+                      </LinkRoute>
                     )
                   })
                   :
@@ -250,7 +252,6 @@ export default function SideNav(props) {
                 }
             </List>
           </Collapse>
-
           <ListItem button onClick={handleOpenHealthSettings}>
             <ListItemIcon>
               <LocalHospitalIcon />
@@ -269,9 +270,11 @@ export default function SideNav(props) {
                   ?
                   props.state.healthyGroup.map((data, i) => {
                     return(
-                      <ListItem key={i} button onClick={props.handleDataFilter} value={data} className={classes.nested}>
-                        <ListItemText value={data} primary={data} />
-                      </ListItem>
+                      <LinkRoute to="/healthy">
+                        <ListItem key={i} button onClick={props.handleDataFilter} value={data} className={classes.nested}>
+                          <ListItemText value={data} primary={data} />
+                        </ListItem>
+                      </LinkRoute>
                     )
                   })
                   :
@@ -298,9 +301,11 @@ export default function SideNav(props) {
                   ?
                   props.state.affordableGroup.map((data, i) => {
                     return(
-                      <ListItem key={i} button onClick={props.handleDataFilter} value={data} className={classes.nested}>
-                        <ListItemText value={data} primary={data} /> 
-                      </ListItem>
+                      <LinkRoute to="/affordable">
+                        <ListItem key={i} button onClick={props.handleDataFilter} value={data} className={classes.nested}>
+                          <ListItemText value={data} primary={data} /> 
+                        </ListItem>
+                      </LinkRoute>
                     )
                   })
                   :
@@ -327,9 +332,11 @@ export default function SideNav(props) {
                   ?
                   props.state.fairnessGroup.map((data, i) => {
                     return(
-                      <ListItem key={i} button onClick={props.handleDataFilter} value={data} className={classes.nested}>
-                        <ListItemText value={data} primary={data} />
-                      </ListItem>
+                      <LinkRoute to="/fair">
+                        <ListItem key={i} button onClick={props.handleDataFilter} value={data} className={classes.nested}>
+                          <ListItemText value={data} primary={data} />
+                        </ListItem>
+                      </LinkRoute>
                     )
                   })
                   :
