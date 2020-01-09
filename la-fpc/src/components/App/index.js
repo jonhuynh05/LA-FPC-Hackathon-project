@@ -309,6 +309,7 @@ class App extends Component {
 
   logout = async () => {
     try {
+      console.log('hitting')
       fetch(`http://localhost:3030/admin/logout-admin`)
         .then(res => {
           this.setState({
@@ -350,7 +351,7 @@ class App extends Component {
           <Route exact path='/signin' render={() => <SignIn login={this.login} />} />
           <Route component={My404} />
         </Switch>
-        <Footer isLogged={this.state.isLogged} />
+        <Footer isLogged={this.state.isLogged} logout={this.logout} />
       </div>
     )
   }
