@@ -18,6 +18,8 @@ export const DivInput = styled.div`
   &:hover Input {
     background: #8bc147;
   }
+  text-align: center;
+  overflow: hidden;
 `
 
 export const Input = styled.input`

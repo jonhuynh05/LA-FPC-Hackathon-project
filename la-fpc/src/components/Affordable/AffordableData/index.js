@@ -4,9 +4,7 @@ import Button from '@material-ui/core/Button';
 import PublishIcon from '@material-ui/icons/Publish';
 import { display } from '@material-ui/system';
 import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import Select from '@material-ui/core/Select';
-import FormControl from '@material-ui/core/FormControl';
+
 
 import {
   Container,
@@ -14,6 +12,7 @@ import {
   Input,
   DivInput,
 } from './style'
+
 
 class AffordableData extends Component {
 
@@ -128,15 +127,7 @@ class AffordableData extends Component {
             />
           </DivInput>
           <DivInput>
-            <FormControl>
-              <Select onChange={this.onInputChange} name="trend">
-                <MenuItem value={"Increase"}>Increase</MenuItem>
-                <MenuItem value={"Decrease"}>Decrease</MenuItem>
-                <MenuItem value={"No Change"}>No Change</MenuItem>
-              </Select>
-            </FormControl>
-
-            {/* <select name="trend" onChange={this.onInputChange}>
+            <select name="trend" onChange={this.onInputChange}>
               <option value="Increase" selected>
                 Increase
               </option>
@@ -146,7 +137,7 @@ class AffordableData extends Component {
               <option value="No Change">
                 No Change
               </option>
-            </select> */}
+            </select>
             {/* <Input
               type="text"
               placeholder="trend"
