@@ -6,11 +6,9 @@ import Affordable from '../Affordable';
 import Healthy from '../Healthy';
 import Fair from '../Fair';
 import Sustainable from '../Sustainable';
-import Navbar from '../Navbar';
 import SideNav from '../SideNav '
 import AdminHome from '../AdminHome';
 import SignIn from '../SignIn'
-import AdminButton from '../AdminButton';
 import Faq from "../Faq"
 import Container from '@material-ui/core/Container';
 import Footer from '../Footer'
@@ -267,9 +265,7 @@ class App extends Component {
       console.log(this.props)
         return (
           <div>
-            <AdminButton />
             <SideNav logout={this.logout} state={this.state} handleDataFilter={this.handleDataFilter} handleDataReset={this.handleDataReset}/>
-            {/* <Navbar logout={this.logout}/> */}
             <Switch>
               {
                 this.state.isLogged
