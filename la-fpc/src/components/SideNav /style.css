@@ -12,10 +12,12 @@
 }
 
 #logo{
+
     margin-top: 5px;
     width: 70px;
 }
 
 #center-header-container{
+    position: fixed; 
     text-align: center;
 }
