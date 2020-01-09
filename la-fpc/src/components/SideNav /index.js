@@ -348,10 +348,18 @@ export default function SideNav(props) {
         </List>
         <Divider />
         <List>
-          {['FAQ', 'Resources'].map((text, index) => (
+          {['About LAFPC', 'Resources'].map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InfoIcon /> : <AssignmentIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
+              <ListItemIcon>{index % 2 === 0 ? 
+                <LinkRoute to="/aboutlafpc">
+                    <InfoIcon/>
+                  </LinkRoute>
+
+              : 
+                <LinkRoute to="/resources">
+                  <AssignmentIcon />
+                </LinkRoute>}
+              </ListItemIcon>
             </ListItem>
           ))}
         </List>

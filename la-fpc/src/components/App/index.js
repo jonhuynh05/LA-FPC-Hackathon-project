@@ -12,6 +12,7 @@ import SignIn from '../SignIn'
 import Faq from "../Faq"
 import Container from '@material-ui/core/Container';
 import Footer from '../Footer'
+import AboutLAFPC from '../AboutLAFPC';
 import Resources from "../ResourceStudies"
 
 const My404 = () => {
@@ -348,7 +349,7 @@ class App extends Component {
           <Route exact path='/healthy' render={() => <Healthy isLogged={this.state.isLogged} groupFilter={this.state.groupFilter} handleUpdateNav={this.handleUpdateNav} />} />
           <Route exact path='/fair' render={() => <Fair isLogged={this.state.isLogged} groupFilter={this.state.groupFilter} handleUpdateNav={this.handleUpdateNav} />} />
           <Route exact path='/sustainable' render={() => <Sustainable isLogged={this.state.isLogged} groupFilter={this.state.groupFilter} handleUpdateNav={this.handleUpdateNav} />} />
-          <Route exact path="/faq" render={() => <Faq />} />
+          <Route exact path="/aboutLAFPC" render={() => <AboutLAFPC />} />
           <Route exact path="/resources" render={() => <Resources/>}/>
           <Route exact path='/signin' render={() => <SignIn login={this.login} />} />
           <Route component={My404} />
