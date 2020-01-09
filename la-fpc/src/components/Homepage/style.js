@@ -17,8 +17,22 @@ export const TileDiv = styled.div`
     margin: 0 10% 0 10%;
 `
 
-export const HeaderDiv = styled.div`
-    margin: 0 30% 0 30%;
+export const BannerDiv = styled.div`
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("");
+    height: 30%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+`
+
+export const BannerText = styled.div`
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
 `
 
 export const DescripDiv = styled.div`
