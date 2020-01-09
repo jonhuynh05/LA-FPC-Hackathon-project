@@ -1,0 +1,29 @@
+.case-study-link{
+    margin: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+}
+
+.case-study-link:hover{
+    font-weight: bold;
+}
+
+#resources-container{
+    flex-direction: column;
+    text-align: center;
+}
+
+#resources-header{
+    margin-top: 100px;
+    text-align: center;
+}
+
+#resources-description{
+    text-align: center;
+}
+
+.case-study-div{
+    margin: 20px;
+}
