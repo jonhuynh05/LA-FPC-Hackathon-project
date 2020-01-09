@@ -88,6 +88,11 @@ export default function SideNav(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const [expandHealth, setExpandHealth] = React.useState(false);
+  const [expandAffordable, setExpandAffordable] = React.useState(false);
+  const [expandSustainable, setExpandSustainable] = React.useState(false);
+  const [expandFair, setExpandFair] = React.useState(false);
+
   const [openSustainCollapse, setOpenSustainCollapse] = React.useState(false)
   const [openHealthCollapse, setOpenHealthCollapse] = React.useState(false)
   const [openAffordableCollapse, setOpenAffordableCollapse] = React.useState(false)
@@ -103,16 +108,34 @@ export default function SideNav(props) {
 
   const handleOpenSustainSettings = () => {
     setOpenSustainCollapse(!openSustainCollapse);
+    setExpandSustainable(!expandSustainable);
+    props.handleDataReset();
   };
   const handleOpenHealthSettings = () => {
     setOpenHealthCollapse(!openHealthCollapse);
+    setExpandHealth(!expandHealth);
+    props.handleDataReset();
   };
   const handleOpenAffordableSettings = () => {
     setOpenAffordableCollapse(!openAffordableCollapse);
+    setExpandAffordable(!expandAffordable);
+    props.handleDataReset();
   };
   const handleOpenFairnessSettings = () => {
     setOpenFairnessCollapse(!openFairnessCollapse);
+    setExpandFair(!expandFair);
+    props.handleDataReset();
   };
+
+  let healthExpand
+  const expandHealthIcon = () => {
+    if(expandHealth === false){
+      healthExpand = <ExpandMore />
+    }
+    else{
+      healthExpand = <ExpandLess />
+    }
+  }
 
   // const affordGroups = props.state.affordable.map((afford, i) => {
   //   return(
@@ -202,10 +225,10 @@ export default function SideNav(props) {
             <ListItemIcon>
               <EcoIcon />
             </ListItemIcon>
-            <LinkRoute to="/sustainable" onClick={props.handleDataReset}>
+            <LinkRoute to="/sustainable">
               <ListItemText primary="Sustainability" />
             </LinkRoute>
-            {open ? <ExpandLess /> : <ExpandMore />}
+            {expandSustainable ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
           <Collapse in={openSustainCollapse} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
@@ -230,10 +253,10 @@ export default function SideNav(props) {
             <ListItemIcon>
               <LocalHospitalIcon />
             </ListItemIcon>
-            <LinkRoute to="/healthy" onClick={props.handleDataReset}>
+            <LinkRoute to="/healthy">
               <ListItemText primary="Health" />
             </LinkRoute>
-              {open ? <ExpandLess /> : <ExpandMore />}
+              {expandHealth ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
 
           <Collapse in={openHealthCollapse} timeout="auto" unmountOnExit>
@@ -259,10 +282,10 @@ export default function SideNav(props) {
             <ListItemIcon>
               <MonetizationOnIcon />
             </ListItemIcon>
-            <LinkRoute to="/affordable" onClick={props.handleDataReset}>
+            <LinkRoute to="/affordable">
               <ListItemText className primary="Affordability" />
             </LinkRoute>
-              {open ? <ExpandLess /> : <ExpandMore />}
+              {expandAffordable ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
 
             <Collapse in={openAffordableCollapse} timeout="auto" unmountOnExit>
@@ -288,10 +311,10 @@ export default function SideNav(props) {
             <ListItemIcon>
               <GavelIcon />
             </ListItemIcon>
-            <LinkRoute to="/fair" onClick={props.handleDataReset}>
+            <LinkRoute to="/fair">
               <ListItemText primary="Fairness" />
             </LinkRoute>
-              {open ? <ExpandLess /> : <ExpandMore />}
+              {expandFair ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
 
           <Collapse in={openFairnessCollapse} timeout="auto" unmountOnExit>
