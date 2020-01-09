@@ -17,6 +17,7 @@ export const MainDiv = styled.div`
 
     h1 {
         text-align: left;
+        padding-left: 30px;
     }
 `
 

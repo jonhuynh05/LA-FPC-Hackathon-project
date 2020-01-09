@@ -38,19 +38,19 @@ class Home extends Component {
                     <h1>Pillars</h1>
                     <TileDiv>
                         <TileWrapper>
-                            <a href='/sustainable'><Tiles src={sus} alt={"logo"} green /></a>
+                            <Tiles src={sus} alt={"logo"} green />
                             <p>Food system is environmentally responsible, equitable, and economically viable</p>
                         </TileWrapper>
                         <TileWrapper>
-                            <a href='/healthy'><Tiles src={health} alt={"logo"} orange /></a>
+                            <Tiles src={health} alt={"logo"} orange />
                             <p>Food is integral to the health and quality of life of individuals and communities</p>
                         </TileWrapper>
                         <TileWrapper>
-                            <a href='/affordable'><Tiles src={afford} alt={"logo"} yellow /></a>
+                            <Tiles src={afford} alt={"logo"} yellow />
                             <p>All Angelenos, regardless of their income level, should have the ability to access Good Food</p>
                         </TileWrapper>
                         <TileWrapper>
-                            <a href='/fair'><Tiles src={fair} alt={"logo"} blue /></a>
+                            <Tiles src={fair} alt={"logo"} blue />
                             <p>Food is produced, manufactured, distributed, sold and recycled through fair labor practices and humane tratemnt of animals</p>
                         </TileWrapper>
                     </TileDiv>

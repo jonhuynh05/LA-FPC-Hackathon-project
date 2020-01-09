@@ -17,12 +17,11 @@ import TrendingFlatIcon from '@material-ui/icons/TrendingFlat';
 import TrendingUpIcon from '@material-ui/icons/TrendingUp';
 
 
-
 import {
   MainDiv,
-  TileDiv, 
+  TileDiv,
   TileWrapper,
-  Tiles, 
+  Tiles,
   Container,
   BannerDiv,
   BannerText,
@@ -254,7 +253,7 @@ class Affordable extends Component {
     const { isLogged } = this.props.isLogged
     console.log(this.props.isLogged, 'this is logged')
     return (
-    <Container>
+      <Container>
         {
           showEditModal
             ?
@@ -273,45 +272,45 @@ class Affordable extends Component {
             :
             null
         }
-         <BannerDiv>
-                    <BannerText>
-                      <DescribSec>
-                        <h1>AFFORDABLE</h1>
-                      </DescribSec> 
-                                  <p>   All Angelenos, regardless of their income level, should have the ability to access Good Food.
-                        Affordability is an essential component of access. Supplemental nutrition programs such as
-                        SNAP, formerly known as food stamps, and Women, Infants and Children (WIC) increase the
-                        accessibility of food by expanding the food budgets of program participants, most of whom are
-                        low-income children, families and seniors. Prioritizing affordability means ensuring that our most
-                        vulnerable populations can access Good Food through the acceptance of supplemental nutrition
+        <BannerDiv>
+          <BannerText>
+            <DescribSec>
+              <h1>AFFORDABLE</h1>
+            </DescribSec>
+            <p>   All Angelenos, regardless of their income level, should have the ability to access Good Food.
+  Affordability is an essential component of access. Supplemental nutrition programs such as
+  SNAP, formerly known as food stamps, and Women, Infants and Children (WIC) increase the
+  accessibility of food by expanding the food budgets of program participants, most of whom are
+  low-income children, families and seniors. Prioritizing affordability means ensuring that our most
+  vulnerable populations can access Good Food through the acceptance of supplemental nutrition
                         vouchers and other strategies.</p>
-                    </BannerText>
-          </BannerDiv>
+          </BannerText>
+        </BannerDiv>
         <DescribSec>
           <h1>FAST FACTS</h1>
-        </DescribSec> 
+        </DescribSec>
         <MainDiv>
 
           <TileDiv>
             <TileWrapper>
-              <Tiles src={FactOne} alt={"logo"}/>
+              <Tiles src={FactOne} alt={"logo"} />
             </TileWrapper>
 
-           
+
             <TileWrapper>
-              <Tiles src={FactTwo} alt={"logo"}/>
+              <Tiles src={FactTwo} alt={"logo"} />
             </TileWrapper>
             <TileWrapper>
-              <Tiles src={FactThree} alt={"logo"}/>
+              <Tiles src={FactThree} alt={"logo"} />
             </TileWrapper>
             <TileWrapper>
-              <Tiles src={FactFour} alt={"logo"}/>
+              <Tiles src={FactFour} alt={"logo"} />
             </TileWrapper>
           </TileDiv>
         </MainDiv>
 
-        
-      
+
+
         <Table>
           <HeaderRow isLogged={isLogged}>
             {
@@ -379,126 +378,126 @@ class Affordable extends Component {
                         </TableData>
                         <TableData onClick={(e) => this.showData(e)}>
                           <P>
-                          {
-                            data.trend.toLowerCase() === "increase"
-                            ?
-                            <select name="trend">
-                              <option value="Increase" selected>
-                                Increase
+                            {
+                              data.trend.toLowerCase() === "increase"
+                                ?
+                                <select name="trend">
+                                  <option value="Increase" selected>
+                                    Increase
                               </option>
-                              <option value="Decrease">
-                                Decrease
+                                  <option value="Decrease">
+                                    Decrease
                               </option>
-                              <option value="No Change">
-                                No Change
+                                  <option value="No Change">
+                                    No Change
                               </option>
-                            </select>
-                            :
-                            data.trend.toLowerCase() === "decrease"
-                            ?
-                            <select name="trend">
-                              <option value="Increase">
-                                Increase
+                                </select>
+                                :
+                                data.trend.toLowerCase() === "decrease"
+                                  ?
+                                  <select name="trend">
+                                    <option value="Increase">
+                                      Increase
                               </option>
-                              <option value="Decrease" selected>
-                                Decrease
+                                    <option value="Decrease" selected>
+                                      Decrease
                               </option>
-                              <option value="No Change">
-                                No Change
+                                    <option value="No Change">
+                                      No Change
                               </option>
-                            </select>
-                            :
-                            data.trend.toLowerCase() === "no change"
-                            ?
-                            <select name="trend">
-                              <option value="Increase">
-                                Increase
+                                  </select>
+                                  :
+                                  data.trend.toLowerCase() === "no change"
+                                    ?
+                                    <select name="trend">
+                                      <option value="Increase">
+                                        Increase
                               </option>
-                              <option value="Decrease">
-                                Decrease
+                                      <option value="Decrease">
+                                        Decrease
                               </option>
-                              <option value="No Change" selected>
-                                No Change
+                                      <option value="No Change" selected>
+                                        No Change
                               </option>
-                            </select>
-                            :
-                            null
-                          }
+                                    </select>
+                                    :
+                                    null
+                            }
                           </P>
                         </TableData>
                       </React.Fragment>
                       :
                       this.props.groupFilter === ""
-                      ?
-                      <React.Fragment>
-                        <TableData onClick={(e) => this.showData(e)}>
-                          <P>{data.indicator}</P>
-                        </TableData>
-                        <TableData onClick={(e) => this.showData(e)}>
-                          <P>{data.baseline}</P>
-                        </TableData>
-                        <TableData onClick={(e) => this.showData(e)}>
-                          <P>{data.firstUpdate}</P>
-                        </TableData>
-                        <TableData onClick={(e) => this.showData(e)}>
-                          <P>{data.secondUpdate}</P>
-                        </TableData>
-                        <TableData onClick={(e) => this.showData(e)}>
-                        {
-                            data.trend.toLowerCase() === "increase"
-                            ?
-                            <TrendingUpIcon />
-                            :
-                            data.trend.toLowerCase() === "decrease"
-                            ?
-                            <TrendingDownIcon />
-                            :
-                            data.trend.toLowerCase() === "no change"
-                            ?
-                            <TrendingFlatIcon />
-                            :
-                            null
-                          }
-                        </TableData>
-                      </React.Fragment>
-                      :
-                      data.group === this.props.groupFilter
-                      ?
-                      <React.Fragment>
-                      <TableData onClick={(e) => this.showData(e)}>
-                        <P>{data.indicator}</P>
-                      </TableData>
-                      <TableData onClick={(e) => this.showData(e)}>
-                        <P>{data.baseline}</P>
-                      </TableData>
-                      <TableData onClick={(e) => this.showData(e)}>
-                        <P>{data.firstUpdate}</P>
-                      </TableData>
-                      <TableData onClick={(e) => this.showData(e)}>
-                        <P>{data.secondUpdate}</P>
-                      </TableData>
-                      <TableData onClick={(e) => this.showData(e)}>
-                        <P>
-                          {
-                            data.trend.toLowerCase() === "increase"
-                            ?
-                            <TrendingUpIcon />
-                            :
-                            data.trend.toLowerCase() === "decrease"
-                            ?
-                            <TrendingDownIcon />
-                            :
-                            data.trend.toLowerCase() === "no change"
-                            ?
-                            <TrendingFlatIcon />
-                            :
-                            null
-                          }
-                        </P>
-                      </TableData>
-                    </React.Fragment>
-                    :
-                    null
+                        ?
+                        <React.Fragment>
+                          <TableData onClick={(e) => this.showData(e)}>
+                            <P>{data.indicator}</P>
+                          </TableData>
+                          <TableData onClick={(e) => this.showData(e)}>
+                            <P>{data.baseline}</P>
+                          </TableData>
+                          <TableData onClick={(e) => this.showData(e)}>
+                            <P>{data.firstUpdate}</P>
+                          </TableData>
+                          <TableData onClick={(e) => this.showData(e)}>
+                            <P>{data.secondUpdate}</P>
+                          </TableData>
+                          <TableData onClick={(e) => this.showData(e)}>
+                            {
+                              data.trend.toLowerCase() === "increase"
+                                ?
+                                <TrendingUpIcon />
+                                :
+                                data.trend.toLowerCase() === "decrease"
+                                  ?
+                                  <TrendingDownIcon />
+                                  :
+                                  data.trend.toLowerCase() === "no change"
+                                    ?
+                                    <TrendingFlatIcon />
+                                    :
+                                    null
+                            }
+                          </TableData>
+                        </React.Fragment>
+                        :
+                        data.group === this.props.groupFilter
+                          ?
+                          <React.Fragment>
+                            <TableData onClick={(e) => this.showData(e)}>
+                              <P>{data.indicator}</P>
+                            </TableData>
+                            <TableData onClick={(e) => this.showData(e)}>
+                              <P>{data.baseline}</P>
+                            </TableData>
+                            <TableData onClick={(e) => this.showData(e)}>
+                              <P>{data.firstUpdate}</P>
+                            </TableData>
+                            <TableData onClick={(e) => this.showData(e)}>
+                              <P>{data.secondUpdate}</P>
+                            </TableData>
+                            <TableData onClick={(e) => this.showData(e)}>
+                              <P>
+                                {
+                                  data.trend.toLowerCase() === "increase"
+                                    ?
+                                    <TrendingUpIcon />
+                                    :
+                                    data.trend.toLowerCase() === "decrease"
+                                      ?
+                                      <TrendingDownIcon />
+                                      :
+                                      data.trend.toLowerCase() === "no change"
+                                        ?
+                                        <TrendingFlatIcon />
+                                        :
+                                        null
+                                }
+                              </P>
+                            </TableData>
+                          </React.Fragment>
+                          :
+                          null
                   }
 
                 </Row>
@@ -532,7 +531,7 @@ class Affordable extends Component {
             <Donut affordableData={this.state.affordableData} />
           </ToolKit> */}
         </ChartDiv>
-    </Container>
+      </Container>
     )
   }
 }
