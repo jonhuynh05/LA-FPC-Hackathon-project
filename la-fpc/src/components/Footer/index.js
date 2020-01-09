@@ -43,7 +43,7 @@ class Footer extends Component {
                         </a>
                     </LeftDiv>
                     <MiddleDiv>
-                        <h3><a href="www.goodfoodla.org">www.goodfoodla.org</a></h3>
+                        <h3><a target="_blank" href="https://www.goodfoodla.org/">goodfoodla.org</a></h3>
                         <a style={{
                             textDecoration: "none"
                         }}
