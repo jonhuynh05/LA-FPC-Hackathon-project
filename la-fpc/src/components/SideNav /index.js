@@ -145,6 +145,7 @@ export default function SideNav() {
           </IconButton>
         </div>
         <Divider />
+
         <List>
           <ListItem button onClick={handleOpenSettings}>
             <ListItemIcon>
@@ -152,37 +153,28 @@ export default function SideNav() {
             </ListItemIcon>
             <LinkRoute to="/sustainable">
               <ListItemText primary="Sustainability" />
-              {open ? <ExpandLess /> : <ExpandMore />}
             </LinkRoute>
+            {open ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
           <Collapse in={openCollapse} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
               <ListItem button className={classes.nested}>
-                <ListItemText primary="Increased household food security" />
+                <ListItemText primary="LAND USE" />
               </ListItem>
               <ListItem button className={classes.nested}>
-                <ListItemText primary="Increased healthy food access and consumption among low-income populations" />
+                <ListItemText primary="FARMS" />
               </ListItem>
               <ListItem button className={classes.nested}>
-                <ListItemText primary="Improved participation rate by eligible residents in food assistance programs" />
+                <ListItemText primary="FARMERS MARKETS" />
               </ListItem>
               <ListItem button className={classes.nested}>
-                <ListItemText primary="Improved participation rate by eligible students in school meal programs" />
+                <ListItemText primary="GARDENS and NURSERIES" />
               </ListItem>
               <ListItem button className={classes.nested}>
-                <ListItemText primary="Increased healthy food retailers accepting food assistance programs" />
+                <ListItemText primary="PESTICIDES and EMISSIONS"/>
               </ListItem>
               <ListItem button className={classes.nested}>
-                <ListItemText primary="Decreased racial and ethnic disparities in food security" />
-              </ListItem>
-              <ListItem button className={classes.nested}>
-                <ListItemText primary="Decreased racial and ethnic disparities in food security" />
-              </ListItem>
-              <ListItem button className={classes.nested}>
-                <ListItemText primary="Decreased generational disparities in food security and health outcomes" />
-              </ListItem>
-              <ListItem button className={classes.nested}>
-                <ListItemText primary="Reduced overweight, obesity and nutrition-related disease among low-income populations" />
+                <ListItemText primary="FOOD WASTE" />
               </ListItem>
             </List>
           </Collapse>
@@ -193,37 +185,17 @@ export default function SideNav() {
             </ListItemIcon>
             <LinkRoute to="/healthy">
               <ListItemText primary="Health" />
-              {open ? <ExpandLess /> : <ExpandMore />}
             </LinkRoute>
+              {open ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
+
           <Collapse in={openCollapse} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
               <ListItem button className={classes.nested}>
-                <ListItemText primary="Increased household food security" />
+                <ListItemText primary="RETAIL OUTLETS" />
               </ListItem>
               <ListItem button className={classes.nested}>
-                <ListItemText primary="Increased healthy food access and consumption among low-income populations" />
-              </ListItem>
-              <ListItem button className={classes.nested}>
-                <ListItemText primary="Improved participation rate by eligible residents in food assistance programs" />
-              </ListItem>
-              <ListItem button className={classes.nested}>
-                <ListItemText primary="Improved participation rate by eligible students in school meal programs" />
-              </ListItem>
-              <ListItem button className={classes.nested}>
-                <ListItemText primary="Increased healthy food retailers accepting food assistance programs" />
-              </ListItem>
-              <ListItem button className={classes.nested}>
-                <ListItemText primary="Decreased racial and ethnic disparities in food security" />
-              </ListItem>
-              <ListItem button className={classes.nested}>
-                <ListItemText primary="Decreased racial and ethnic disparities in food security" />
-              </ListItem>
-              <ListItem button className={classes.nested}>
-                <ListItemText primary="Decreased generational disparities in food security and health outcomes" />
-              </ListItem>
-              <ListItem button className={classes.nested}>
-                <ListItemText primary="Reduced overweight, obesity and nutrition-related disease among low-income populations" />
+                <ListItemText primary="HEALTH OUTCOMES"/>
               </ListItem>
             </List>
           </Collapse>
@@ -233,19 +205,54 @@ export default function SideNav() {
               <MonetizationOnIcon />
             </ListItemIcon>
             <LinkRoute to="/affordable">
-              <ListItemText primary="Affordability" />
-              {open ? <ExpandLess /> : <ExpandMore />}
+              <ListItemText className primary="Affordability" />
             </LinkRoute>
+              {open ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
+
+            <Collapse in={openCollapse} timeout="auto" unmountOnExit>
+                <List component="div" disablePadding>
+                    <ListItem button className={classes.nested}>
+                        <ListItemText primary="HEALTH OUTCOMES"/>
+                    </ListItem>
+                <ListItem button className={classes.nested}>
+                    <ListItemText primary="FRUITS AND VEGETABLES"/>
+                </ListItem>
+                <ListItem button className={classes.nested}>
+                    <ListItemText primary="PARTICIPATION"/>
+                </ListItem>
+                <ListItem button className={classes.nested}>
+                    <ListItemText primary="FARMERS MARKETS"/>
+                </ListItem>
+                </List>
+            </Collapse>
+
           <ListItem button onClick={handleOpenSettings}>
             <ListItemIcon>
               <GavelIcon />
             </ListItemIcon>
             <LinkRoute to="/fair">
               <ListItemText primary="Fairness" />
-              {open ? <ExpandLess /> : <ExpandMore />}
             </LinkRoute>
+              {open ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
+
+          <Collapse in={openCollapse} timeout="auto" unmountOnExit>
+                <List component="div" disablePadding>
+                    <ListItem button className={classes.nested}>
+                        <ListItemText primary="OCCUPATION"/>
+                    </ListItem>
+                <ListItem button className={classes.nested}>
+                    <ListItemText primary="WAGES"/>
+                </ListItem>
+                <ListItem button className={classes.nested}>
+                    <ListItemText primary="ANIMAL WELFARE"/>
+                </ListItem>
+                <ListItem button className={classes.nested}>
+                    <ListItemText primary="WORKER WELL-BEING"/>
+                </ListItem>
+                </List>
+            </Collapse>
         </List>
 
 
