@@ -282,7 +282,7 @@ class Affordable extends Component {
                         vulnerable populations can access Good Food through the acceptance of supplemental nutrition
                         vouchers and other strategies.</p>
                     </BannerText>
-                </BannerDiv>
+          </BannerDiv>
         <DescribSec>
           <h1>FAST FACTS</h1>
         </DescribSec> 

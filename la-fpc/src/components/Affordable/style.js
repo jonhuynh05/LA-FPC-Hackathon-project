@@ -118,7 +118,7 @@ export const Button = styled.button`
   border-radius: 2px;
 `
 export const H1 = styled.h1`
-  font-size: 50px;
+  font-size: 1em;
   font-weight: normal;
   background: #d6d7ad;
   margin: 0px;
