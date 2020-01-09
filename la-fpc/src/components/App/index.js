@@ -239,7 +239,7 @@ class App extends Component {
           <div>
             <AdminButton />
             <SideNav logout={this.logout} state={this.state} handleDataFilter={this.handleDataFilter} handleDataReset={this.handleDataReset}/>
-            <Navbar logout={this.logout}/>
+            {/* <Navbar logout={this.logout}/> */}
             <Switch>
               {
                 this.state.isLogged
