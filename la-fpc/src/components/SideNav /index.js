@@ -15,8 +15,9 @@ import Collapse from '@material-ui/core/Collapse';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 
-import { Link as LinkRoute } from 'react-router-dom';
+import { LinkRoute } from './style';
 
+import HomeIcon from '@material-ui/icons/Home';
 import EcoIcon from '@material-ui/icons/Eco';
 import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
 import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
@@ -64,13 +65,6 @@ const useStyles = makeStyles(theme => ({
   },
   drawerPaper: {
     width: drawerWidth
-  },
-  drawerHeader: {
-    display: 'flex',
-    alignItems: 'center',
-    padding: theme.spacing(0, 1),
-    ...theme.mixins.toolbar,
-    justifyContent: 'flex-end',
   },
   content: {
     flexGrow: 1,
@@ -158,11 +152,18 @@ export default function SideNav(props) {
             <MenuIcon />
           </IconButton>
           <Typography 
-          variant="h2" 
+          variant="h4" 
           font="arial"
 
           noWrap>
-            LAFPC DashBoard
+            <LinkRoute to="/" onClick={props.handleDataReset}>
+                <IconButton
+                    color="white"
+                  colorPrimary="white"
+                >
+                    LAFPC DashBoard
+                </IconButton>
+            </LinkRoute>
           </Typography>
         </Toolbar>
       </AppBar>

@@ -3,6 +3,7 @@ import { Route, withRouter } from 'react-router-dom'
 import Button from '@material-ui/core/Button';
 import PublishIcon from '@material-ui/icons/Publish';
 import { display } from '@material-ui/system';
+import SustainableChart from '../SustainableChart'
 
 import {
   Container,
