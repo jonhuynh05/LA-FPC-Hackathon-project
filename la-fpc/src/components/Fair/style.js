@@ -1,5 +1,49 @@
 import styled from 'styled-components'
+import fairness from './img/ashkan-forouzani-1184935-unsplash.jpg'
 
+export const MainDiv = styled.div`
+    margin: 0 5% 0 5%;
+
+    h1 {
+        text-align: left;
+    }
+`
+export const BannerDiv = styled.div`
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${fairness});
+    height: 50vh;
+    width: 100%;
+    margin: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+`
+
+export const BannerText = styled.div`
+    text-align: center;
+    position: relative;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+`
+export const Tiles = styled.img`
+    height: 30vh;
+    border-color: ${props => props.green ? '#75b550' : props.orange ? '#f89235' : props.yellow ? '#fcd340' : props.blue ? '#156272' : null};
+    border-radius: 20px;
+`
+export const TileDiv = styled.div`
+    margin-top: 0 5% 0 5%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 3%;
+`
+
+export const TileWrapper = styled.div`
+    text-align: center;
+    padding: 3%;
+`
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -55,6 +99,7 @@ export const TableData = styled.div`
   }
 `
 
+
 export const TableDataHeader = styled.div`
   margin: 1px;
   width: 11%;
@@ -83,11 +128,12 @@ export const H1 = styled.h1`
   color: white;
 `
 export const P = styled.p`
-  font-size: .8em;
+  font-size: 20px;
   margin: 0px;
 `
 export const DescribSec = styled.div`
  text-align: center;
+ font-color: gray; 
  margin: 3% 10% 0 10%;
  font-size: 30px; 
 `
@@ -95,6 +141,7 @@ export const DescribPar = styled.p`
  text-align: center;
  font-size: 25px;
  margin: 2% 0 2% 0;
+ font-color: blue; 
  `
 
  export const ChartDiv = styled.div`
