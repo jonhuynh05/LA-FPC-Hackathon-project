@@ -94,7 +94,10 @@ export default function SideNav(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-  const [openCollapse, setOpenCollapse] = React.useState(false)
+  const [openSustainCollapse, setOpenSustainCollapse] = React.useState(false)
+  const [openHealthCollapse, setOpenHealthCollapse] = React.useState(false)
+  const [openAffordableCollapse, setOpenAffordableCollapse] = React.useState(false)
+  const [openFairnessCollapse, setOpenFairnessCollapse] = React.useState(false)
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -103,14 +106,24 @@ export default function SideNav(props) {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  const handleOpenSettings = () => {
-    setOpenCollapse(!openCollapse);
+
+  const handleOpenSustainSettings = () => {
+    setOpenSustainCollapse(!openSustainCollapse);
+  };
+  const handleOpenHealthSettings = () => {
+    setOpenHealthCollapse(!openHealthCollapse);
+  };
+  const handleOpenAffordableSettings = () => {
+    setOpenAffordableCollapse(!openAffordableCollapse);
+  };
+  const handleOpenFairnessSettings = () => {
+    setOpenFairnessCollapse(!openFairnessCollapse);
   };
 
   const affordGroups = props.state.affordable.map((afford, i) => {
     console.log(afford.group, "this is group")
     return(
-    <Collapse in={openCollapse} timeout="auto" unmountOnExit>
+    <Collapse in={openAffordableCollapse} timeout="auto" unmountOnExit>
       <List component="div" disablePadding>
         <ListItem key={i} button onClick={props.handleDataFilter} value={afford.group} className={classes.nested}>
           <ListItemText value={afford.group} primary={afford.group} />
@@ -163,7 +176,7 @@ export default function SideNav(props) {
         <Divider />
 
         <List>
-          <ListItem button onClick={handleOpenSettings}>
+          <ListItem button onClick={handleOpenSustainSettings}>
             <ListItemIcon>
               <EcoIcon />
             </ListItemIcon>
@@ -172,7 +185,7 @@ export default function SideNav(props) {
             </LinkRoute>
             {open ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
-          <Collapse in={openCollapse} timeout="auto" unmountOnExit>
+          <Collapse in={openSustainCollapse} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
               <ListItem button className={classes.nested}>
                 <ListItemText primary="LAND USE" />
@@ -195,9 +208,7 @@ export default function SideNav(props) {
             </List>
           </Collapse>
 
-          {affordGroups}
-
-          <ListItem button onClick={handleOpenSettings}>
+          <ListItem button onClick={handleOpenHealthSettings}>
             <ListItemIcon>
               <LocalHospitalIcon />
             </ListItemIcon>
@@ -207,7 +218,7 @@ export default function SideNav(props) {
               {open ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
 
-          <Collapse in={openCollapse} timeout="auto" unmountOnExit>
+          <Collapse in={openHealthCollapse} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
               <ListItem button className={classes.nested}>
                 <ListItemText primary="RETAIL OUTLETS" />
@@ -218,7 +229,7 @@ export default function SideNav(props) {
             </List>
           </Collapse>
 
-          <ListItem button onClick={handleOpenSettings}>
+          <ListItem button onClick={handleOpenAffordableSettings}>
             <ListItemIcon>
               <MonetizationOnIcon />
             </ListItemIcon>
@@ -228,7 +239,7 @@ export default function SideNav(props) {
               {open ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
 
-            <Collapse in={openCollapse} timeout="auto" unmountOnExit>
+            <Collapse in={openAffordableCollapse} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
                     <ListItem button className={classes.nested}>
                         <ListItemText primary="HEALTH OUTCOMES"/>
@@ -245,7 +256,10 @@ export default function SideNav(props) {
                 </List>
             </Collapse>
 
-          <ListItem button onClick={handleOpenSettings}>
+            {affordGroups}
+
+
+          <ListItem button onClick={handleOpenFairnessSettings}>
             <ListItemIcon>
               <GavelIcon />
             </ListItemIcon>
@@ -255,7 +269,7 @@ export default function SideNav(props) {
               {open ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
 
-          <Collapse in={openCollapse} timeout="auto" unmountOnExit>
+          <Collapse in={openFairnessCollapse} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
                     <ListItem button className={classes.nested}>
                         <ListItemText primary="OCCUPATION"/>
