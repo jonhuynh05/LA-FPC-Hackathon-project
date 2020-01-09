@@ -1,5 +1,47 @@
 import styled from 'styled-components'
+import affordable from './img/jake-gard-1344.jpg'
+export const MainDiv = styled.div`
+    margin: 0 5% 0 5%;
 
+    h1 {
+        text-align: left;
+    }
+`
+export const BannerDiv = styled.div`
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${affordable});
+    height: 50vh;
+    width: auto 0; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+`
+
+export const BannerText = styled.div`
+    text-align: center;
+    position: relative;
+    width: 70%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+`
+export const Tiles = styled.img`
+    height: 30vh;
+    border-color: ${props => props.green ? '#75b550' : props.orange ? '#f89235' : props.yellow ? '#fcd340' : props.blue ? '#156272' : null};
+    border-radius: 20px;
+`
+export const TileDiv = styled.div`
+    margin-top: 0 5% 0 5%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 3%;
+`
+
+export const TileWrapper = styled.div`
+    text-align: center;
+    padding: 3%;
+`
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -11,7 +53,7 @@ export const DivDataModal = styled.div`
   position: absolute;
   width: 100%;
   height: 60%;
-  background: #f39649d1;
+  background: #d6d7ad;
   display: flex;
   justify-content: center;
 `
@@ -42,6 +84,7 @@ export const HeaderRow = styled.div`
   justify-content: ${props => props.isLogged ? "space-evenly" : "center"};
   margin-bottom: 9px;
 `
+
 export const TableData = styled.div`
   margin: 1px;
   width: 11%;
@@ -49,10 +92,11 @@ export const TableData = styled.div`
   text-align: center;
   overflow: hidden;
   &:hover {
-    background: #f39649d1;
+    background: #d6d7ad;
     opacity: .8;
   }
 `
+
 
 export const TableDataHeader = styled.div`
   margin: 1px;
@@ -74,28 +118,31 @@ export const Button = styled.button`
   border-radius: 2px;
 `
 export const H1 = styled.h1`
-  font-size: 1em;
+  font-size: 50px;
   font-weight: normal;
-  background: rgb(244, 147, 77);
+  background: #d6d7ad;
   margin: 0px;
   margin-bottom: 2px;
   color: white;
 `
 export const P = styled.p`
-  font-size: .8em;
+  font-size: 20px;
   margin: 0px;
 `
-
 export const DescribSec = styled.div`
-  text-align: center;
-  margin: 0 10% 0 10%;
+ text-align: center;
+ font-color: gray; 
+ margin: 3% 10% 0 10%;
+ font-size: 30px; 
 `
 export const DescribPar = styled.p`
-  text-align: left;
-  margin: 2% 0 2% 0;
-`
+ text-align: center;
+ font-size: 25px;
+ margin: 2% 0 2% 0;
+ font-color: blue; 
+ `
 
-export const ChartDiv = styled.div`
+ export const ChartDiv = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-evenly;
