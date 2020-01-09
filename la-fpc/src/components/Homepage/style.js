@@ -1,25 +1,35 @@
 import styled from 'styled-components'
+import Hero from './img/Hero.png'
 
 
 export const HomeDiv = styled.div`
     text-align:center;
 `
 export const Tiles = styled.img`
-    height: 50vh;
+    height: 30vh;
+    border-width: 2px;
+    border-style: solid;
+    border-color: ${props => props.green ? '#75b550' : props.orange ? '#f89235' : props.yellow ? '#fcd340' : props.blue ? '#156272' : null};
+    border-radius: 20px;
+`
+export const MainDiv = styled.div`
+    margin: 0 10% 0 10%;
+
+    h1 {
+        text-align: left;
+    }
 `
 
 export const TileDiv = styled.div`
     margin-top: 3%;
     display: flex;
-    justify-content: center;
-    padding: 3%;
-    border-bottom: 2px solid #D1D1D1;
-    margin: 0 10% 0 10%;
+    justify-content: space-between;
+    padding-bottom: 3%;
 `
 
 export const BannerDiv = styled.div`
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("");
-    height: 30%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${Hero});
+    height: 50vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -28,7 +38,8 @@ export const BannerDiv = styled.div`
 
 export const BannerText = styled.div`
     text-align: center;
-    position: absolute;
+    position: relative;
+    width: 70%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
