@@ -106,6 +106,8 @@ export const TableDataHeader = styled.div`
 `
 
 export const TableDataButton = styled.div`
+  display: flex; 
+  flex-direction: row; 
   margin: 1px;
   width: 11%;
   height: 50px;
