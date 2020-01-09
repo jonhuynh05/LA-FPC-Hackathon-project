@@ -75,10 +75,6 @@ class Affordable extends Component {
 
   getData = async () => {
     try {
-      // const testData = await fetch("../test.json").then(res => res.json()).then(data => {
-      console.log(Data)
-      // })
-      // console.log(parsedData, "This is test data")
       const data = await fetch(`http://localhost:3030/data/get-data`, {
         method: 'GET',
         credentials: 'include',
@@ -339,6 +335,8 @@ class Affordable extends Component {
                         </TableData>
                       </React.Fragment>
                       :
+                      this.props.groupFilter === ""
+                      ?
                       <React.Fragment>
                         <TableData onClick={(e) => this.showData(e)}>
                           <P>{data.indicator}</P>
@@ -356,6 +354,28 @@ class Affordable extends Component {
                           <P>{data.trend}</P>
                         </TableData>
                       </React.Fragment>
+                      :
+                      data.group === this.props.groupFilter
+                      ?
+                      <React.Fragment>
+                      <TableData onClick={(e) => this.showData(e)}>
+                        <P>{data.indicator}</P>
+                      </TableData>
+                      <TableData onClick={(e) => this.showData(e)}>
+                        <P>{data.baseline}</P>
+                      </TableData>
+                      <TableData onClick={(e) => this.showData(e)}>
+                        <P>{data.firstUpdate}</P>
+                      </TableData>
+                      <TableData onClick={(e) => this.showData(e)}>
+                        <P>{data.secondUpdate}</P>
+                      </TableData>
+                      <TableData onClick={(e) => this.showData(e)}>
+                        <P>{data.trend}</P>
+                      </TableData>
+                    </React.Fragment>
+                    :
+                    null
                   }
 
                 </Row>
