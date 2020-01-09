@@ -13,7 +13,7 @@ import Faq from "../Faq"
 import Container from '@material-ui/core/Container';
 import Footer from '../Footer'
 import AboutLAFPC from '../AboutLAFPC';
-import Resources from '../Resources';
+import Resources from "../ResourceStudies"
 
 const My404 = () => {
   return (
