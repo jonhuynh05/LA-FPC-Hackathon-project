@@ -51,16 +51,31 @@ class Footer extends Component {
                             <Button variant="contained" style={{ backgroundColor: 'orange' }}>DONATE</Button>
                         </a>
                     </MiddleDiv>
-                    <RightDiv>
-                        <Button
-                            component={LinkRoute}
-                            to='/SignIn'
-                            color="inherit"
-                            style={{ color: 'white', fontWeight: 'bold', display: 'flex', flexWrap: 'wrap', textTransform: "capitalize" }}
-                        >
-                            Admin Login <span><PersonIcon /></span>
-                        </Button>
-                    </RightDiv>
+                    {
+                        this.props.isLogged ?
+                            <MiddleDiv>
+                                <h4>Admin Mode</h4>
+                                <Button
+                                    component={LinkRoute}
+                                    to='/SignIn'
+                                    color="inherit"
+                                    style={{ color: 'white', fontWeight: 'bold', textTransform: "capitalize" }}
+                                >
+                                    Logout
+                                    </Button>
+                            </MiddleDiv>
+                            :
+                            <RightDiv>
+                                <Button
+                                    component={LinkRoute}
+                                    to='/SignIn'
+                                    color="inherit"
+                                    style={{ color: 'white', fontWeight: 'bold', display: 'flex', flexWrap: 'wrap', textTransform: "capitalize" }}
+                                >
+                                    Admin Login <span><PersonIcon /></span>
+                                </Button>
+                            </RightDiv>
+                    }
                 </MainDiv>
                 <SecondDiv>
                     <p style={{ width: '100%', textAlign: 'center', marginTop: '0' }}>Copyright © 2020 Los Angeles Food Policy Council. All Rights Reserved</p>
