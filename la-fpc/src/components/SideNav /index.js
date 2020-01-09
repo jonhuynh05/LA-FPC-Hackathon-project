@@ -215,7 +215,7 @@ export default function SideNav(props) {
             <ListItemIcon>
               <LocalHospitalIcon />
             </ListItemIcon>
-            <LinkRoute to="/healthy">
+            <LinkRoute to="/healthy" onClick={props.handleDataReset}>
               <ListItemText primary="Health" />
             </LinkRoute>
               {open ? <ExpandLess /> : <ExpandMore />}
@@ -236,7 +236,7 @@ export default function SideNav(props) {
             <ListItemIcon>
               <MonetizationOnIcon />
             </ListItemIcon>
-            <LinkRoute to="/affordable">
+            <LinkRoute to="/affordable" onClick={props.handleDataReset}>
               <ListItemText className primary="Affordability" />
             </LinkRoute>
               {open ? <ExpandLess /> : <ExpandMore />}
@@ -252,7 +252,7 @@ export default function SideNav(props) {
             <ListItemIcon>
               <GavelIcon />
             </ListItemIcon>
-            <LinkRoute to="/fair">
+            <LinkRoute to="/fair" onClick={props.handleDataReset}>
               <ListItemText primary="Fairness" />
             </LinkRoute>
               {open ? <ExpandLess /> : <ExpandMore />}
