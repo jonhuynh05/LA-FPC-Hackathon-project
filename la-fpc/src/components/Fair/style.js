@@ -88,10 +88,12 @@ export const P = styled.p`
 `
 export const DescribSec = styled.div`
  text-align: center;
- margin: 0 10% 0 10%;
+ margin: 3% 10% 0 10%;
+ font-size: 30px; 
 `
 export const DescribPar = styled.p`
- text-align: left;
+ text-align: center;
+ font-size: 25px;
  margin: 2% 0 2% 0;
  `
 
