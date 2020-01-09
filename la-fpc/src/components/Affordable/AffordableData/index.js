@@ -31,6 +31,7 @@ class AffordableData extends Component {
     this.setState({ [e.target.name]: e.target.value })
   };
 
+
   validate = () => {
     if (
       (this.state.indicator.length < 1) ||
@@ -123,14 +124,14 @@ class AffordableData extends Component {
               onChange={this.onInputChange}
             />
           </DivInput>
-          <DivInput>
+          {/* <DivInput>
             <Input
               type="text"
               placeholder="trend"
               name="trend"
               onChange={this.onInputChange}
             />
-          </DivInput>
+          </DivInput> */}
         </Form>
       </Container>
     )

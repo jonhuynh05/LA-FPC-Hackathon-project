@@ -28,6 +28,10 @@ export const MiddleDiv = styled.div`
     a {
         color: white;
     }
+
+    h4 {
+        padding-top: 5px;
+    }
 `
 
 export const RightDiv = styled.div`

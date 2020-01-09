@@ -51,7 +51,7 @@ class Home extends Component {
                         </TileWrapper>
                         <TileWrapper>
                             <a href='/fair'><Tiles src={fair} alt={"logo"} blue /></a>
-                            <p>Food is produced, manufactured, distributed, sold and recycled through fair labor practices and humane tratemnt of animals</p>
+                            <p>Food is produced, manufactured, distributed, sold and recycled through fair labor practices and humane treatment of animals</p>
                         </TileWrapper>
                     </TileDiv>
                 </MainDiv>
