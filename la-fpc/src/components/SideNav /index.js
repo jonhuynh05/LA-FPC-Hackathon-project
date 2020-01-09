@@ -30,8 +30,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
-import "./style.css"
 import logo from "./img/Logo 2_hi res.png"
+import "./style.css"
 
 
 

@@ -8,7 +8,8 @@ import {
   Container,
   Form,
   H1,
-  Cancel
+  Cancel, 
+  DivInput
 } from './style'
 
 class EditAffordable extends Component{
@@ -123,17 +124,25 @@ class EditAffordable extends Component{
             />
           </div>
           <div>
-            <TextField 
-              label='trend'
-              type="text" 
-              placeholder="trend" 
+            <DivInput>
+            <select name="trend" onChange={this.onInputChange}>
+              <option value="Increase">
+                Increase
+              </option>
+              <option value="Decrease">
+                Decrease
+              </option>
+              <option value="No Change">
+                No Change
+              </option>
+            </select>
+            {/* <Input
+              type="text"
+              placeholder="trend"
               name="trend"
-              value={this.props.editData.trend} 
-              onChange={this.props.handleFormChange} 
-              margin="normal"
-              variant="outlined"
-              style={{margin: "10px"}}
-            />
+              onChange={this.onInputChange}
+            /> */}
+          </DivInput>
           </div>
               <small>{this.props.error}</small>
             </div>
