@@ -86,6 +86,7 @@ class Healthy extends Component {
       this.setState({
         healthyData: [...this.state.healthyData, parsedResponse.data]
       })
+      this.props.handleUpdateNav()
     } catch(err) {
       console.log(err, 'this is error from add data')
     }

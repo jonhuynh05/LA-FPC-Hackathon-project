@@ -122,29 +122,29 @@ export default function SideNav(props) {
   //   )
   // })
 
-  const fairGroups = props.state.fairness.map((fair, i) => {
-    return(
-      <ListItem key={i} button onClick={props.handleDataFilter} value={fair.group} className={classes.nested}>
-        <ListItemText value={fair.group} primary={fair.group} />
-      </ListItem>
-    )
-  })
+  // const fairGroups = props.state.fairness.map((fair, i) => {
+  //   return(
+  //     <ListItem key={i} button onClick={props.handleDataFilter} value={fair.group} className={classes.nested}>
+  //       <ListItemText value={fair.group} primary={fair.group} />
+  //     </ListItem>
+  //   )
+  // })
 
-  const healthyGroups = props.state.healthy.map((health, i) => {
-    return(
-      <ListItem key={i} button onClick={props.handleDataFilter} value={health.group} className={classes.nested}>
-        <ListItemText value={health.group} primary={health.group} />
-      </ListItem>
-    )
-  })
+  // const healthyGroups = props.state.healthy.map((health, i) => {
+  //   return(
+  //     <ListItem key={i} button onClick={props.handleDataFilter} value={health.group} className={classes.nested}>
+  //       <ListItemText value={health.group} primary={health.group} />
+  //     </ListItem>
+  //   )
+  // })
 
-  const sustainGroups = props.state.sustainability.map((sustain, i) => {
-    return(
-      <ListItem key={i} button onClick={props.handleDataFilter} value={sustain.group} className={classes.nested}>
-        <ListItemText value={sustain.group} primary={sustain.group} />
-      </ListItem>
-    )
-  })
+  // const sustainGroups = props.state.sustainability.map((sustain, i) => {
+  //   return(
+  //     <ListItem key={i} button onClick={props.handleDataFilter} value={sustain.group} className={classes.nested}>
+  //       <ListItemText value={sustain.group} primary={sustain.group} />
+  //     </ListItem>
+  //   )
+  // })
 
   return (
     <div className={classes.root}>
@@ -209,7 +209,20 @@ export default function SideNav(props) {
           </ListItem>
           <Collapse in={openSustainCollapse} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
-              {sustainGroups}
+              {/* {sustainGroups} */}
+              {
+                  props.state.sustainableGroup.length > 0
+                  ?
+                  props.state.sustainableGroup.map((data, i) => {
+                    return(
+                      <ListItem key={i} button onClick={props.handleDataFilter} value={data} className={classes.nested}>
+                        <ListItemText value={data} primary={data} />
+                      </ListItem>
+                    )
+                  })
+                  :
+                  null
+                }
             </List>
           </Collapse>
 
@@ -225,7 +238,20 @@ export default function SideNav(props) {
 
           <Collapse in={openHealthCollapse} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
-              {healthyGroups}
+              {/* {healthyGroups} */}
+              {
+                  props.state.healthyGroup.length > 0
+                  ?
+                  props.state.healthyGroup.map((data, i) => {
+                    return(
+                      <ListItem key={i} button onClick={props.handleDataFilter} value={data} className={classes.nested}>
+                        <ListItemText value={data} primary={data} />
+                      </ListItem>
+                    )
+                  })
+                  :
+                  null
+                }
             </List>
           </Collapse>
 
@@ -270,7 +296,20 @@ export default function SideNav(props) {
 
           <Collapse in={openFairnessCollapse} timeout="auto" unmountOnExit>
               <List component="div" disablePadding>
-                {fairGroups}
+                {/* {fairGroups} */}
+                {
+                  props.state.fairnessGroup.length > 0
+                  ?
+                  props.state.fairnessGroup.map((data, i) => {
+                    return(
+                      <ListItem key={i} button onClick={props.handleDataFilter} value={data} className={classes.nested}>
+                        <ListItemText value={data} primary={data} />
+                      </ListItem>
+                    )
+                  })
+                  :
+                  null
+                }
               </List>
           </Collapse>
 

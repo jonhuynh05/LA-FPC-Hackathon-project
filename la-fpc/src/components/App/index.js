@@ -67,7 +67,7 @@ class App extends Component {
     })
   }
 
-  handleUpdateAffordNav = async () => {
+  handleUpdateNav = async () => {
     try{
       const data = await fetch(`http://localhost:3030/data/get-data`, {
         method: 'GET',
@@ -77,6 +77,7 @@ class App extends Component {
         }
       })
       const oldData = await data.json()
+
       const affordData = oldData.data.filter(data => data.category === 'affordable')
       let affordableGroup = []
       let affordableSubgroup = []
@@ -86,11 +87,52 @@ class App extends Component {
         affordableSubgroup.push(data.subgroup)
         affordIndicators.push(data.indicator)
       })
+
+      const healthData = oldData.data.filter(data => data.category === 'healthy')
+      let healthyGroup = []
+      let healthySubgroup = []
+      let healthyIndicators = []
+      healthData.forEach(data => {
+        healthyGroup.push(data.group)
+        healthySubgroup.push(data.subgroup)
+        healthyIndicators.push(data.indicator)
+      })
+
+      const sustainData = oldData.data.filter(data => data.category === 'sustainable')
+      let sustainableGroup = []
+      let sustainableSubgroup = []
+      let sustainableIndicators = []
+      sustainData.forEach(data => {
+        sustainableGroup.push(data.group)
+        sustainableSubgroup.push(data.subgroup)
+        sustainableIndicators.push(data.indicator)
+      })
+
+      const fairData = oldData.data.filter(data => data.category === 'fairness')
+      let fairnessGroup = []
+      let fairnessSubgroup = []
+      let fairnessIndicators = []
+      fairData.forEach(data => {
+        fairnessGroup.push(data.group)
+        fairnessSubgroup.push(data.subgroup)
+        fairnessIndicators.push(data.indicator)
+      })
+
       this.setState({
         affordableGroup: affordableGroup,
         affordableSubgroup: affordableSubgroup,
         affordableIndicators: affordIndicators,
+        healthyGroup: healthyGroup,
+        healthySubgroup: healthySubgroup,
+        healthyIndicators: healthyIndicators,
+        sustainableGroup: sustainableGroup,
+        sustainableSubgroup: sustainableSubgroup,
+        sustainableIndicators: sustainableIndicators,
+        fairnessGroup: fairnessGroup,
+        fairnessSubgroup: fairnessSubgroup,
+        fairnessIndicators: fairnessIndicators,
       })
+
     }
     catch(err){
       console.log(err)
@@ -277,10 +319,10 @@ class App extends Component {
               <Route exact path='/addadmin' render={(props) =>  <AddAdmin register={this.register}  {...props} />} />
               <Route exact path='/' render={(props) =>  <Homepage {...props} />}  />
               <Route exact path='/home' render={(props) =>  <Homepage {...props} />}  />
-              <Route exact path='/affordable' render={() => <Affordable  isLogged={this.state.isLogged} groupFilter={this.state.groupFilter} handleUpdateAffordNav={this.handleUpdateAffordNav}/>}/>
-              <Route exact path='/healthy' render={() => <Healthy isLogged={this.state.isLogged} groupFilter={this.state.groupFilter}/>}/>
-              <Route exact path='/fair' render={() => <Fair isLogged={this.state.isLogged} groupFilter={this.state.groupFilter}/>}/>
-              <Route exact path='/sustainable' render={() => <Sustainable isLogged={this.state.isLogged} groupFilter={this.state.groupFilter}/>}/>
+              <Route exact path='/affordable' render={() => <Affordable  isLogged={this.state.isLogged} groupFilter={this.state.groupFilter} handleUpdateNav={this.handleUpdateNav}/>}/>
+              <Route exact path='/healthy' render={() => <Healthy isLogged={this.state.isLogged} groupFilter={this.state.groupFilter} handleUpdateNav={this.handleUpdateNav}/>}/>
+              <Route exact path='/fair' render={() => <Fair isLogged={this.state.isLogged} groupFilter={this.state.groupFilter} handleUpdateNav={this.handleUpdateNav}/>}/>
+              <Route exact path='/sustainable' render={() => <Sustainable isLogged={this.state.isLogged} groupFilter={this.state.groupFilter} handleUpdateNav={this.handleUpdateNav}/>}/>
               <Route exact path="/faq" render={() => <Faq />}/>
               <Route exact path='/signin' render={() => <SignIn login={this.login}/>} />
               <Route component={ My404 } />
