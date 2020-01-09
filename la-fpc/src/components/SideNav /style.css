@@ -1,6 +1,8 @@
 #header-container{
     display: flex;
     justify-content: center;
+    background-color: #156272;
+    padding-bottom: 5px;
 }
 
 #hamburger-container{

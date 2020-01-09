@@ -1,14 +1,14 @@
 import styled from 'styled-components'
 
 export const MainDiv = styled.div`
-    background-color: #2e6472;
+    background-color: #156272;
     color: #fff;
     display: flex;
     justify-content: center;
     padding: 10px 20px 10px 20px;
 `
 export const SecondDiv = styled.div`
-    background-color: #2e6472;
+    background-color: #156272;
     color: #fff;
     display: flex;
     justify-content: center;
