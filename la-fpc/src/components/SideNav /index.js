@@ -6,7 +6,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
-import ListSubheader from '@material-ui/core/ListSubheader';
+
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -17,13 +17,12 @@ import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import { Link as LinkRoute } from 'react-router-dom';
 
-import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
+
 import EcoIcon from '@material-ui/icons/Eco';
 import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
 import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
 import GavelIcon from '@material-ui/icons/Gavel';
-import InfoIcon from '@material-ui/icons/Info';
-import AssignmentIcon from '@material-ui/icons/Assignment';
+import Banner from "."
 
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -32,7 +31,7 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 
-const drawerWidth = 240;
+const drawerWidth = 300;
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -67,6 +66,7 @@ const useStyles = makeStyles(theme => ({
   },
   drawerHeader: {
     display: 'flex',
+    backgroundImage: `url(${Banner})`,
     alignItems: 'center',
     padding: theme.spacing(0, 1),
     ...theme.mixins.toolbar,
@@ -94,7 +94,10 @@ export default function SideNav() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-  const [openCollapse, setOpenCollapse] = React.useState(false)
+  const [openSustainCollapse, setOpenSustainCollapse] = React.useState(false)
+  const [openHealthCollapse, setOpenHealthCollapse] = React.useState(false)
+  const [openAffordableCollapse, setOpenAffordableCollapse] = React.useState(false)
+  const [openFairnessCollapse, setOpenFairnessCollapse] = React.useState(false)
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -103,8 +106,17 @@ export default function SideNav() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  const handleOpenSettings = () => {
-    setOpenCollapse(!openCollapse);
+  const handleOpenSustainSettings = () => {
+    setOpenSustainCollapse(!openSustainCollapse);
+  };
+  const handleOpenHealthSettings = () => {
+    setOpenHealthCollapse(!openHealthCollapse);
+  };
+  const handleOpenAffordableSettings = () => {
+    setOpenAffordableCollapse(!openAffordableCollapse);
+  };
+  const handleOpenFairnessSettings = () => {
+    setOpenFairnessCollapse(!openFairnessCollapse);
   };
   return (
     <div className={classes.root}>
@@ -115,7 +127,9 @@ export default function SideNav() {
           [classes.appBarShift]: open,
         })}
       >
-        <Toolbar>
+        <Toolbar
+    
+        >
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -147,7 +161,7 @@ export default function SideNav() {
         <Divider />
 
         <List>
-          <ListItem button onClick={handleOpenSettings}>
+          <ListItem button onClick={handleOpenSustainSettings}>
             <ListItemIcon>
               <EcoIcon />
             </ListItemIcon>
@@ -156,40 +170,40 @@ export default function SideNav() {
             </LinkRoute>
             {open ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
-          <Collapse in={openCollapse} timeout="auto" unmountOnExit>
+          <Collapse in={openSustainCollapse} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
-              <ListItem button className={classes.nested}>
-                <ListItemText primary="LAND USE" />
-              </ListItem>
-              <ListItem button className={classes.nested}>
-                <ListItemText primary="FARMS" />
-              </ListItem>
-              <ListItem button className={classes.nested}>
-                <ListItemText primary="FARMERS MARKETS" />
-              </ListItem>
-              <ListItem button className={classes.nested}>
-                <ListItemText primary="GARDENS and NURSERIES" />
-              </ListItem>
-              <ListItem button className={classes.nested}>
-                <ListItemText primary="PESTICIDES and EMISSIONS"/>
-              </ListItem>
-              <ListItem button className={classes.nested}>
-                <ListItemText primary="FOOD WASTE" />
-              </ListItem>
+                <ListItem button className={classes.nested}>
+                    <ListItemText primary="LAND USE" />
+                </ListItem>
+                <ListItem button className={classes.nested}>
+                    <ListItemText primary="FARMS" />
+                </ListItem>
+                <ListItem button className={classes.nested}>
+                    <ListItemText primary="FARMERS MARKETS" />
+                </ListItem>
+                <ListItem button className={classes.nested}>
+                    <ListItemText primary="GARDENS and NURSERIES" />
+                </ListItem>
+                <ListItem button className={classes.nested}>
+                    <ListItemText primary="PESTICIDES and EMISSIONS"/>
+                </ListItem>
+                <ListItem button className={classes.nested}>
+                    <ListItemText primary="FOOD WASTE" />
+                </ListItem>
             </List>
           </Collapse>
 
-          <ListItem button onClick={handleOpenSettings}>
+          <ListItem button onClick={handleOpenHealthSettings}>
             <ListItemIcon>
               <LocalHospitalIcon />
             </ListItemIcon>
             <LinkRoute to="/healthy">
-              <ListItemText primary="Health" />
+              <ListItemText class="sidebar-link" primary="Health" />
             </LinkRoute>
               {open ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
 
-          <Collapse in={openCollapse} timeout="auto" unmountOnExit>
+          <Collapse in={openHealthCollapse} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
               <ListItem button className={classes.nested}>
                 <ListItemText primary="RETAIL OUTLETS" />
@@ -200,7 +214,7 @@ export default function SideNav() {
             </List>
           </Collapse>
 
-          <ListItem button onClick={handleOpenSettings}>
+          <ListItem button onClick={handleOpenAffordableSettings}>
             <ListItemIcon>
               <MonetizationOnIcon />
             </ListItemIcon>
@@ -210,7 +224,7 @@ export default function SideNav() {
               {open ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
 
-            <Collapse in={openCollapse} timeout="auto" unmountOnExit>
+            <Collapse in={openAffordableCollapse} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
                     <ListItem button className={classes.nested}>
                         <ListItemText primary="HEALTH OUTCOMES"/>
@@ -227,7 +241,7 @@ export default function SideNav() {
                 </List>
             </Collapse>
 
-          <ListItem button onClick={handleOpenSettings}>
+          <ListItem button onClick={handleOpenFairnessSettings}>
             <ListItemIcon>
               <GavelIcon />
             </ListItemIcon>
@@ -237,7 +251,7 @@ export default function SideNav() {
               {open ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
 
-          <Collapse in={openCollapse} timeout="auto" unmountOnExit>
+          <Collapse in={openFairnessCollapse} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
                     <ListItem button className={classes.nested}>
                         <ListItemText primary="OCCUPATION"/>
