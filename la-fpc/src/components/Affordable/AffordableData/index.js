@@ -124,12 +124,23 @@ class AffordableData extends Component {
             />
           </DivInput>
           <DivInput>
-            <Input
+            <select name="trend" onChange={this.onInputChange}>
+              <option value="Increase">
+                Increase
+              </option>
+              <option value="Decrease">
+                Decrease
+              </option>
+              <option value="No Change">
+                No Change
+              </option>
+            </select>
+            {/* <Input
               type="text"
               placeholder="trend"
               name="trend"
               onChange={this.onInputChange}
-            />
+            /> */}
           </DivInput>
         </Form>
       </Container>

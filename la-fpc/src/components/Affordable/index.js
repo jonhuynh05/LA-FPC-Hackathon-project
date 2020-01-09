@@ -374,7 +374,8 @@ class Affordable extends Component {
                           <P>{data.secondUpdate}</P>
                         </TableData>
                         <TableData onClick={(e) => this.showData(e)}>
-                          <P>{data.trend}</P>
+                          <P>{
+                          }</P>
                         </TableData>
                       </React.Fragment>
                       :
