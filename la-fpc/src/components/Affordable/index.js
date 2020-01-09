@@ -15,6 +15,7 @@ import {
   ContainModal,
   Table,
   Row,
+  HeaderRow,
   TableData,
   TableDataHeader,
   TableDataButton,
@@ -264,41 +265,35 @@ class Affordable extends Component {
           <DescribPar>In this section, we explore progress towards improving the health of ALL Angelenos by evaluating disparities and change over time in the following categories: Increased healthy food access, Improved eating habits amongst adults & children, Rates of obesity, Rates of diet-related diseases.</DescribPar>
         </DescribSec>
         <Table>
-          <Row>
+          <HeaderRow isLogged={isLogged}>
             {
               this.props.isLogged
                 ?
-                <TableDataHeader>ADMIN</TableDataHeader>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                <React.Fragment>
+                  <TableDataHeader>ADMIN</TableDataHeader>
+                  <TableDataHeader><H1>Group</H1></TableDataHeader>
+                  <TableDataHeader><H1>Subgroup</H1></TableDataHeader>
+                  <TableDataHeader><H1>Indicator</H1></TableDataHeader>
+                  <TableDataHeader><H1>Sources</H1></TableDataHeader>
+                  <TableDataHeader><H1>2013</H1></TableDataHeader>
+                  <TableDataHeader><H1>2017</H1></TableDataHeader>
+                  <TableDataHeader><H1>2020</H1></TableDataHeader>
+                  <TableDataHeader><H1>Trend</H1></TableDataHeader>
+                </React.Fragment>
                 :
-                null
+                <React.Fragment>
+                  <TableDataHeader><H1>Indicator</H1></TableDataHeader>
+                  <TableDataHeader><H1>2013</H1></TableDataHeader>
+                  <TableDataHeader><H1>2017</H1></TableDataHeader>
+                  <TableDataHeader><H1>2020</H1></TableDataHeader>
+                  <TableDataHeader><H1>Trend</H1></TableDataHeader>
+                </React.Fragment>
             }
-            <TableDataHeader><H1>Group</H1></TableDataHeader>
-            <TableDataHeader><H1>Subgroup</H1></TableDataHeader>
-            <TableDataHeader><H1>Indicator</H1></TableDataHeader>
-            <TableDataHeader><H1>Sources</H1></TableDataHeader>
-            <TableDataHeader><H1>2013</H1></TableDataHeader>
-            <TableDataHeader><H1>2017</H1></TableDataHeader>
-            <TableDataHeader><H1>2020</H1></TableDataHeader>
-            <TableDataHeader><H1>Trend</H1></TableDataHeader>
-          </Row>
+          </HeaderRow>
           {
             affordableData.map((data, i) => {
               return (
-                <Row key={i}>
+                <Row key={i} isLogged={isLogged}>
                   {
                     this.props.isLogged
                       ?
@@ -309,30 +304,55 @@ class Affordable extends Component {
                       :
                       null
                   }
-                  <TableData onClick={(e) => this.showData(e)}>
-                    <P>{data.group}</P>
-                  </TableData>
-                  <TableData onClick={(e) => this.showData(e)}>
-                    <P>{data.subgroup}</P>
-                  </TableData>
-                  <TableData onClick={(e) => this.showData(e)}>
-                    <P>{data.indicator}</P>
-                  </TableData>
-                  <TableData onClick={(e) => this.showData(e)}>
-                    <P>{data.sources}</P>
-                  </TableData>
-                  <TableData onClick={(e) => this.showData(e)}>
-                    <P>{data.baseline}</P>
-                  </TableData>
-                  <TableData onClick={(e) => this.showData(e)}>
-                    <P>{data.firstUpdate}</P>
-                  </TableData>
-                  <TableData onClick={(e) => this.showData(e)}>
-                    <P>{data.secondUpdate}</P>
-                  </TableData>
-                  <TableData onClick={(e) => this.showData(e)}>
-                    <P>{data.trend}</P>
-                  </TableData>
+                  {
+                    this.props.isLogged
+                      ?
+                      <React.Fragment>
+                        <TableData onClick={(e) => this.showData(e)}>
+                          <P>{data.group}</P>
+                        </TableData>
+                        <TableData onClick={(e) => this.showData(e)}>
+                          <P>{data.subgroup}</P>
+                        </TableData>
+                        <TableData onClick={(e) => this.showData(e)}>
+                          <P>{data.indicator}</P>
+                        </TableData>
+                        <TableData onClick={(e) => this.showData(e)}>
+                          <P>{data.sources}</P>
+                        </TableData>
+                        <TableData onClick={(e) => this.showData(e)}>
+                          <P>{data.baseline}</P>
+                        </TableData>
+                        <TableData onClick={(e) => this.showData(e)}>
+                          <P>{data.firstUpdate}</P>
+                        </TableData>
+                        <TableData onClick={(e) => this.showData(e)}>
+                          <P>{data.secondUpdate}</P>
+                        </TableData>
+                        <TableData onClick={(e) => this.showData(e)}>
+                          <P>{data.trend}</P>
+                        </TableData>
+                      </React.Fragment>
+                      :
+                      <React.Fragment>
+                        <TableData onClick={(e) => this.showData(e)}>
+                          <P>{data.indicator}</P>
+                        </TableData>
+                        <TableData onClick={(e) => this.showData(e)}>
+                          <P>{data.baseline}</P>
+                        </TableData>
+                        <TableData onClick={(e) => this.showData(e)}>
+                          <P>{data.firstUpdate}</P>
+                        </TableData>
+                        <TableData onClick={(e) => this.showData(e)}>
+                          <P>{data.secondUpdate}</P>
+                        </TableData>
+                        <TableData onClick={(e) => this.showData(e)}>
+                          <P>{data.trend}</P>
+                        </TableData>
+                      </React.Fragment>
+                  }
+
                 </Row>
               )
             })
