@@ -32,6 +32,7 @@ class App extends Component {
     isLogged: true,
     data: [],
     affordable: [],
+    groupFilter: "",
     indicatorFilter: "",
     affordableGroup: [],
     affordableSubgroup: [],
@@ -50,6 +51,12 @@ class App extends Component {
   handleIndicator = (e) => {
     this.setState({
       indicator: e.currentTarget.value
+    })
+  }
+
+  handleDataFilter = (e) => {
+    this.setState({
+      groupFilter: e.currentTarget.textContent
     })
   }
 
@@ -110,6 +117,7 @@ class App extends Component {
       })
 
       this.setState({
+        affordable: affordData,
         affordableGroup: affordableGroup,
         affordableSubgroup: affordableSubgroup,
         affordableIndicators: affordIndicators,
@@ -218,7 +226,7 @@ class App extends Component {
         return (
           <div>
             <AdminButton />
-            <SideNav logout={this.logout} state={this.state}/>
+            <SideNav logout={this.logout} state={this.state} handleDataFilter={this.handleDataFilter}/>
             <Navbar logout={this.logout}/>
             <Switch>
               {
