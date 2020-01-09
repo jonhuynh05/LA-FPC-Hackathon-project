@@ -136,7 +136,21 @@ export default function SideNav(props) {
     )
   })
 
-  console.log(props)
+  const healthyGroups = props.state.healthy.map((health, i) => {
+    return(
+      <ListItem key={i} button onClick={props.handleDataFilter} value={health.group} className={classes.nested}>
+        <ListItemText value={health.group} primary={health.group} />
+      </ListItem>
+    )
+  })
+
+  const sustainGroups = props.state.sustainability.map((sustain, i) => {
+    return(
+      <ListItem key={i} button onClick={props.handleDataFilter} value={sustain.group} className={classes.nested}>
+        <ListItemText value={sustain.group} primary={sustain.group} />
+      </ListItem>
+    )
+  })
 
   return (
     <div className={classes.root}>
@@ -190,24 +204,7 @@ export default function SideNav(props) {
           </ListItem>
           <Collapse in={openSustainCollapse} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
-              <ListItem button className={classes.nested}>
-                <ListItemText primary="LAND USE" />
-              </ListItem>
-              <ListItem button className={classes.nested}>
-                <ListItemText primary="FARMS" />
-              </ListItem>
-              <ListItem button className={classes.nested}>
-                <ListItemText primary="FARMERS MARKETS" />
-              </ListItem>
-              <ListItem button className={classes.nested}>
-                <ListItemText primary="GARDENS and NURSERIES" />
-              </ListItem>
-              <ListItem button className={classes.nested}>
-                <ListItemText primary="PESTICIDES and EMISSIONS"/>
-              </ListItem>
-              <ListItem button className={classes.nested}>
-                <ListItemText primary="FOOD WASTE" />
-              </ListItem>
+              {sustainGroups}
             </List>
           </Collapse>
 
@@ -223,12 +220,7 @@ export default function SideNav(props) {
 
           <Collapse in={openHealthCollapse} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
-              <ListItem button className={classes.nested}>
-                <ListItemText primary="RETAIL OUTLETS" />
-              </ListItem>
-              <ListItem button className={classes.nested}>
-                <ListItemText primary="HEALTH OUTCOMES"/>
-              </ListItem>
+              {healthyGroups}
             </List>
           </Collapse>
 
