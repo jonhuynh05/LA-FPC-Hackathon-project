@@ -29,9 +29,12 @@ class App extends Component {
   state = {
     user: null,
     laoding: true,
-    isLogged: true,
+    isLogged: false,
     data: [],
     affordable: [],
+    fairness: [],
+    healthy: [],
+    sustainability: [],
     groupFilter: "",
     indicatorFilter: "",
     affordableGroup: [],
@@ -127,12 +130,15 @@ class App extends Component {
         affordableGroup: affordableGroup,
         affordableSubgroup: affordableSubgroup,
         affordableIndicators: affordIndicators,
+        healthy: healthData,
         healthyGroup: healthyGroup,
         healthySubgroup: healthySubgroup,
         healthyIndicators: healthyIndicators,
+        sustainability: sustainData,
         sustainableGroup: sustainableGroup,
         sustainableSubgroup: sustainableSubgroup,
         sustainableIndicators: sustainableIndicators,
+        fairness: fairData,
         fairnessGroup: fairnessGroup,
         fairnessSubgroup: fairnessSubgroup,
         fairnessIndicators: fairnessIndicators,
@@ -245,7 +251,7 @@ class App extends Component {
               <Route exact path='/addadmin' render={(props) =>  <AddAdmin register={this.register}  {...props} />} />
               <Route exact path='/' render={(props) =>  <Homepage {...props} />}  />
               <Route exact path='/home' render={(props) =>  <Homepage {...props} />}  />
-              <Route exact path='/affordable' render={() => <Affordable  isLogged={this.state.isLogged}/>}/>
+              <Route exact path='/affordable' render={() => <Affordable  isLogged={this.state.isLogged} groupFilter={this.state.groupFilter}/>}/>
               <Route exact path='/healthy' render={() => <Healthy isLogged={this.state.isLogged}/>}/>
               <Route exact path='/fair' render={() => <Fair isLogged={this.state.isLogged}/>}/>
               <Route exact path='/sustainable' render={() => <Sustainable isLogged={this.state.isLogged}/>}/>

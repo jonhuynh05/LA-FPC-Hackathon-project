@@ -121,15 +121,18 @@ export default function SideNav(props) {
   };
 
   const affordGroups = props.state.affordable.map((afford, i) => {
-    console.log(afford.group, "this is group")
     return(
-    <Collapse in={openAffordableCollapse} timeout="auto" unmountOnExit>
-      <List component="div" disablePadding>
-        <ListItem key={i} button onClick={props.handleDataFilter} value={afford.group} className={classes.nested}>
-          <ListItemText value={afford.group} primary={afford.group} />
-        </ListItem>
-      </List>
-    </Collapse>
+      <ListItem key={i} button onClick={props.handleDataFilter} value={afford.group} className={classes.nested}>
+        <ListItemText value={afford.group} primary={afford.group} />
+      </ListItem>
+    )
+  })
+
+  const fairGroups = props.state.fairness.map((fair, i) => {
+    return(
+      <ListItem key={i} button onClick={props.handleDataFilter} value={fair.group} className={classes.nested}>
+        <ListItemText value={fair.group} primary={fair.group} />
+      </ListItem>
     )
   })
 
@@ -212,7 +215,7 @@ export default function SideNav(props) {
             <ListItemIcon>
               <LocalHospitalIcon />
             </ListItemIcon>
-            <LinkRoute to="/healthy">
+            <LinkRoute to="/healthy" onClick={props.handleDataReset}>
               <ListItemText primary="Health" />
             </LinkRoute>
               {open ? <ExpandLess /> : <ExpandMore />}
@@ -233,69 +236,35 @@ export default function SideNav(props) {
             <ListItemIcon>
               <MonetizationOnIcon />
             </ListItemIcon>
-            <LinkRoute to="/affordable">
+            <LinkRoute to="/affordable" onClick={props.handleDataReset}>
               <ListItemText className primary="Affordability" />
             </LinkRoute>
               {open ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
 
             <Collapse in={openAffordableCollapse} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                    <ListItem button className={classes.nested}>
-                        <ListItemText primary="HEALTH OUTCOMES"/>
-                    </ListItem>
-                <ListItem button className={classes.nested}>
-                    <ListItemText primary="FRUITS AND VEGETABLES"/>
-                </ListItem>
-                <ListItem button className={classes.nested}>
-                    <ListItemText primary="PARTICIPATION"/>
-                </ListItem>
-                <ListItem button className={classes.nested}>
-                    <ListItemText primary="FARMERS MARKETS"/>
-                </ListItem>
-                </List>
+              <List component="div" disablePadding>
+                {affordGroups}
+              </List>
             </Collapse>
-
-            {affordGroups}
-
 
           <ListItem button onClick={handleOpenFairnessSettings}>
             <ListItemIcon>
               <GavelIcon />
             </ListItemIcon>
-            <LinkRoute to="/fair">
+            <LinkRoute to="/fair" onClick={props.handleDataReset}>
               <ListItemText primary="Fairness" />
             </LinkRoute>
               {open ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
 
           <Collapse in={openFairnessCollapse} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                    <ListItem button className={classes.nested}>
-                        <ListItemText primary="OCCUPATION"/>
-                    </ListItem>
-                <ListItem button className={classes.nested}>
-                    <ListItemText primary="WAGES"/>
-                </ListItem>
-                <ListItem button className={classes.nested}>
-                    <ListItemText primary="ANIMAL WELFARE"/>
-                </ListItem>
-                <ListItem button className={classes.nested}>
-                    <ListItemText primary="WORKER WELL-BEING"/>
-                </ListItem>
-                </List>
-            </Collapse>
+              <List component="div" disablePadding>
+                {fairGroups}
+              </List>
+          </Collapse>
+
         </List>
-
-
-
-
-        {/* {['Sustainability', 'Health', 'Affordability', 'Fairness'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{<EcoIcon />  <LocalHospitalIcon/> : <MonetizationOnIcon/>}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))} */}
         <Divider />
         <List>
           {['FAQ', 'Resources'].map((text, index) => (

@@ -61,7 +61,12 @@ class Affordable extends Component {
     // for (let i = 0; i < this.state.affordableData.length; i++){
     //   filterButtons.push(this.state.affordableData[i].indicator)
     // }
-    this.state.affordableData.forEach(data => filterButtons.push(data.indicator))
+    // this.state.affordableData.forEach(data => filterButtons.push(data.indicator))
+    // this.setState({
+    //   buttons: filterButtons
+    // })
+    console.log(this.props.groupFilter, "THIS IS GROUPFILTER")
+    this.props.groupFilter.forEach(data => filterButtons.push(data))
     this.setState({
       buttons: filterButtons
     })
@@ -70,10 +75,6 @@ class Affordable extends Component {
 
   getData = async () => {
     try {
-      // const testData = await fetch("../test.json").then(res => res.json()).then(data => {
-      console.log(Data)
-      // })
-      // console.log(parsedData, "This is test data")
       const data = await fetch(`http://localhost:3030/data/get-data`, {
         method: 'GET',
         credentials: 'include',
@@ -334,6 +335,8 @@ class Affordable extends Component {
                         </TableData>
                       </React.Fragment>
                       :
+                      this.props.groupFilter === ""
+                      ?
                       <React.Fragment>
                         <TableData onClick={(e) => this.showData(e)}>
                           <P>{data.indicator}</P>
@@ -351,6 +354,28 @@ class Affordable extends Component {
                           <P>{data.trend}</P>
                         </TableData>
                       </React.Fragment>
+                      :
+                      data.group === this.props.groupFilter
+                      ?
+                      <React.Fragment>
+                      <TableData onClick={(e) => this.showData(e)}>
+                        <P>{data.indicator}</P>
+                      </TableData>
+                      <TableData onClick={(e) => this.showData(e)}>
+                        <P>{data.baseline}</P>
+                      </TableData>
+                      <TableData onClick={(e) => this.showData(e)}>
+                        <P>{data.firstUpdate}</P>
+                      </TableData>
+                      <TableData onClick={(e) => this.showData(e)}>
+                        <P>{data.secondUpdate}</P>
+                      </TableData>
+                      <TableData onClick={(e) => this.showData(e)}>
+                        <P>{data.trend}</P>
+                      </TableData>
+                    </React.Fragment>
+                    :
+                    null
                   }
 
                 </Row>
@@ -384,18 +409,6 @@ class Affordable extends Component {
             <Donut affordableData={this.state.affordableData} />
           </ToolKit>
         </ChartDiv>
-        <div>
-          THIS IS THE AFFORDABLE DATA
-              {
-            this.state.affordableData.map((data, i) => {
-              return (
-                <div key={i}>
-                  {data.value}
-                </div>
-              )
-            })
-          }
-        </div>
       </Container>
     )
   }
