@@ -271,7 +271,7 @@ class Fair extends Component {
                       :
                       null
                       }
-                                        {
+                    {
                     this.props.isLogged
                       ?
                       <React.Fragment>

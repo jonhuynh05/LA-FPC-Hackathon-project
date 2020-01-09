@@ -14,15 +14,16 @@ import {
 class HealthyData extends Component{
 
   state = {
-    value: 'healthy',
-    indicator: '',
-    baseline: '',
-    update: '',
-    sources: '',
-    change: '',
-    notes: '',
-    dataStatus: '',
+    category: 'healthy',
     group: '',
+    subgroup: '',
+    indicator: '',
+    sources: '',
+    baseline: '',
+    firstUpdate: '',
+    secondUpdate: '',
+    trend: '',
+    notes: '',
     error: ''
   }
 
@@ -33,12 +34,9 @@ class HealthyData extends Component{
     if(
       (this.state.indicator.length < 1) ||
       (this.state.baseline.length < 1) ||
-      (this.state.update.length < 1) ||
-      (this.state.sources.length < 1) ||
-      (this.state.change.length < 1) ||
-      (this.state.notes.length < 1) ||
-      (this.state.dataStatus.length < 1) ||
-      (this.state.group.length < 1) 
+      (this.state.firstUpdate.length < 1) ||
+      (this.state.secondUpdate.length < 1) ||
+      (this.state.trend.length < 1)
       ) {
       this.setState({
         error: 'must fill out form, put N/A in empty spaces'
@@ -69,67 +67,67 @@ class HealthyData extends Component{
             <Button onClick={this.submit} style={{width: '100%'}}><PublishIcon /></Button>
           </DivInput>
           <DivInput>
-            <Input 
-              type="text" 
-              placeholder="indicator" 
-              name="indicator" 
-              onChange={this.onInputChange} 
-            />
-          </DivInput>
-          <DivInput>
-            <Input 
-              type="text" 
-              placeholder="baseline" 
-              name="baseline" 
+            <Input
+              type="text"
+              placeholder="group"
+              name="group"
               onChange={this.onInputChange}
             />
           </DivInput>
           <DivInput>
             <Input
-              type="text" 
-              placeholder="update" 
-              name="update" 
+              type="text"
+              placeholder="subgroup"
+              name="subgroup"
               onChange={this.onInputChange}
             />
           </DivInput>
           <DivInput>
             <Input
-              type="text" 
-              placeholder="sources" 
-              name="sources" 
-              onChange={this.onInputChange} 
+              type="text"
+              placeholder="indicator"
+              name="indicator"
+              onChange={this.onInputChange}
             />
           </DivInput>
           <DivInput>
-            <Input 
-              type="text" 
-              placeholder="change" 
-              name="change" 
-              onChange={this.onInputChange} 
+            <Input
+              type="text"
+              placeholder="sources"
+              name="sources"
+              onChange={this.onInputChange}
             />
           </DivInput>
           <DivInput>
-            <Input 
-              type="text" 
-              placeholder="notes" 
-              name="notes" 
-              onChange={this.onInputChange} 
+            <Input
+              type="text"
+              placeholder="2013 value"
+              name="baseline"
+              onChange={this.onInputChange}
             />
           </DivInput>
           <DivInput>
-            <Input 
-              type="text" 
-              placeholder="data status" 
-              name="dataStatus" 
-              onChange={this.onInputChange} 
+            <Input
+              type="text"
+              placeholder="2017 value"
+              name="firstUpdate"
+              onChange={this.onInputChange}
             />
           </DivInput>
           <DivInput>
-            <Input 
-              type="text" 
-              placeholder="group" 
-              name="group" 
-              onChange={this.onInputChange} 
+            <Input
+              type="text"
+              placeholder="2020 value"
+              name="secondUpdate"
+              onChange={this.onInputChange}
+            />
+          </DivInput>
+          <DivInput>
+            <Input
+              type="text"
+              placeholder="trend"
+              name="trend"
+              onChange={this.onInputChange}
             />
           </DivInput>
         </Form>
