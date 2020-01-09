@@ -133,6 +133,19 @@ export default function SideNav(props) {
     )
   })
 
+  const sustainGroups = props.state.affordable.map((afford, i) => {
+    console.log(afford.group, "this is group")
+    return(
+    <Collapse in={openAffordableCollapse} timeout="auto" unmountOnExit>
+      <List component="div" disablePadding>
+        <ListItem key={i} button onClick={props.handleDataFilter} value={afford.group} className={classes.nested}>
+          <ListItemText value={afford.group} primary={afford.group} />
+        </ListItem>
+      </List>
+    </Collapse>
+    )
+  })
+
   console.log(props)
 
   return (
@@ -286,16 +299,6 @@ export default function SideNav(props) {
                 </List>
             </Collapse>
         </List>
-
-
-
-
-        {/* {['Sustainability', 'Health', 'Affordability', 'Fairness'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{<EcoIcon />  <LocalHospitalIcon/> : <MonetizationOnIcon/>}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))} */}
         <Divider />
         <List>
           {['FAQ', 'Resources'].map((text, index) => (
