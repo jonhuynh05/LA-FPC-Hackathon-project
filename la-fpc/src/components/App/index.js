@@ -32,15 +32,120 @@ class App extends Component {
     isLogged: true,
     data: [],
     affordable: [],
+    groupFilter: "",
+    indicatorFilter: "",
+    affordableGroup: [],
+    affordableSubgroup: [],
+    affordableIndicators: [],
+    healthyGroup: [],
+    healthySubgroup: [],
+    healthyIndicators: [],
+    sustainableGroup: [],
+    sustainableSubgroup: [],
+    sustainableIndicators: [],
+    fairnessGroup: [],
+    fairnessSubgroup: [],
+    fairnessIndicators: []
   }
 
+  handleIndicator = (e) => {
+    this.setState({
+      indicator: e.currentTarget.value
+    })
+  }
+
+  handleDataFilter = (e) => {
+    this.setState({
+      groupFilter: e.currentTarget.textContent
+    })
+  }
+
+  handleDataReset = () => {
+    this.setState({
+      groupFilter: ""
+    })
+  }
+
+  getData = async () => {
+    try {
+      const data = await fetch(`http://localhost:3030/data/get-data`, {
+        method: 'GET',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      const oldData = await data.json()
+      console.log(oldData, "this is old data - app")
+
+      const affordData = oldData.data.filter(data => data.category === 'affordable')
+      console.log(affordData, "this is afford data - app")
+      let affordableGroup = []
+      let affordableSubgroup = []
+      let affordIndicators = []
+      affordData.forEach(data => {
+        affordableGroup.push(data.group)
+        affordableSubgroup.push(data.subgroup)
+        affordIndicators.push(data.indicator)
+      })
+
+      const healthData = oldData.data.filter(data => data.category === 'healthy')
+      console.log(healthData, "this is healthy data - app")
+      let healthyGroup = []
+      let healthySubgroup = []
+      let healthyIndicators = []
+      healthData.forEach(data => {
+        healthyGroup.push(data.group)
+        healthySubgroup.push(data.subgroup)
+        healthyIndicators.push(data.indicator)
+      })
+
+      const sustainData = oldData.data.filter(data => data.category === 'sustainable')
+      console.log(sustainData, "this is sustainable data - app")
+      let sustainableGroup = []
+      let sustainableSubgroup = []
+      let sustainableIndicators = []
+      sustainData.forEach(data => {
+        sustainableGroup.push(data.group)
+        sustainableSubgroup.push(data.subgroup)
+        sustainableIndicators.push(data.indicator)
+      })
+
+      const fairData = oldData.data.filter(data => data.category === 'fairness')
+      console.log(fairData, "this is afford data - app")
+      let fairnessGroup = []
+      let fairnessSubgroup = []
+      let fairnessIndicators = []
+      fairData.forEach(data => {
+        fairnessGroup.push(data.group)
+        fairnessSubgroup.push(data.subgroup)
+        fairnessIndicators.push(data.indicator)
+      })
+
+      this.setState({
+        affordable: affordData,
+        affordableGroup: affordableGroup,
+        affordableSubgroup: affordableSubgroup,
+        affordableIndicators: affordIndicators,
+        healthyGroup: healthyGroup,
+        healthySubgroup: healthySubgroup,
+        healthyIndicators: healthyIndicators,
+        sustainableGroup: sustainableGroup,
+        sustainableSubgroup: sustainableSubgroup,
+        sustainableIndicators: sustainableIndicators,
+        fairnessGroup: fairnessGroup,
+        fairnessSubgroup: fairnessSubgroup,
+        fairnessIndicators: fairnessIndicators,
+      })
+      
+    }catch (err) {
+      console.log(err)
+    }
+  }
+
+
   componentDidMount() {
-    // const user = JSON.parse(localStorage.getItem('admin'))
-    // if(user) {
-    //   this.setState({
-    //     user: user
-    //   })
-    // }
+    this.getData()
   }
 
   register = async (data) => {
@@ -127,7 +232,7 @@ class App extends Component {
         return (
           <div>
             <AdminButton />
-            <SideNav logout={this.logout}/>
+            <SideNav logout={this.logout} state={this.state} handleDataFilter={this.handleDataFilter} handleDataReset={this.handleDataReset}/>
             <Navbar logout={this.logout}/>
             <Switch>
               {
