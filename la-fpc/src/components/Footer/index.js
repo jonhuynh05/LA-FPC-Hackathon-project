@@ -56,8 +56,7 @@ class Footer extends Component {
                             <MiddleDiv>
                                 <h4>Admin Mode</h4>
                                 <Button
-                                    component={LinkRoute}
-                                    to='/SignIn'
+                                    onClick={(e) => this.props.logout()}
                                     color="inherit"
                                     style={{ color: 'white', fontWeight: 'bold', textTransform: "capitalize" }}
                                 >
