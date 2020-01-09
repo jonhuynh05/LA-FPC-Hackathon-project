@@ -14,6 +14,7 @@ import {
   ContainModal,
   Table,
   Row,
+  HeaderRow,
   TableData,
   TableDataHeader,
   TableDataButton,
@@ -37,15 +38,16 @@ class Fair extends Component {
     dataModalProperty: '',
     editData: {
       _id: null,
-      value:'fair',
-      indicator: '',
-      baseline: '',
-      update: '',
-      sources: '',
-      change: '',
-      notes: '',
-      dataStatus: '',
+      category: 'fairness',
       group: '',
+      subgroup: '',
+      indicator: '',
+      sources: '',
+      baseline: '',
+      firstUpdate: '',
+      secondUpdate: '',
+      trend: '',
+      notes: '',
       error: ''
     },
   }
@@ -64,8 +66,9 @@ class Fair extends Component {
         }
       })
       const oldData = await data.json()
-      console.log(oldData.data)
-      const fairData = oldData.data.filter(data => data.value === 'fair')
+      console.log(oldData, "THIS IS OLD FAIR DATA")
+      const fairData = oldData.data.filter(data => data.category === 'fairness')
+      console.log(fairData, "THIS IS FAIR DATA")
       this.setState({
         fairData: fairData
       })
@@ -185,14 +188,6 @@ class Fair extends Component {
       const { isLogged } = this.props.isLogged
         return(
           <Container>
-            <DescribSec>
-              <h1>Fairness</h1>
-              <DescribPar>Food is integral to the health and quality of life of individuals and communities. Healthy food is nutritious, delicious and safe. Healthy food meets recommended dietary guidelines and supports the body’s ability to fight disease and heal. All people deserve access to healthy food that is affordable, conveniently availability and culturally relevant.</DescribPar>
-              
-              <DescribPar>Not all communities live in neighborhoods where “the healthy choice is the easy choice,” and instead are surrounded by unhealthy food retail such as liquor stores, convenience stores and fast food restaurants. Through the numerous policy, systems and environmental changes led by stakeholders throughout the LAFPC network, we are collectively innovating solutions for overcoming systemic barriers to healthy food access— tailoring these innovations to the unique dynamics of the communities that we serve.</DescribPar>
-              
-              <DescribPar>In this section, we explore progress towards improving the health of ALL Angelenos by evaluating disparities and change over time in the following categories: Increased healthy food access, Improved eating habits amongst adults & children, Rates of obesity, Rates of diet-related diseases.</DescribPar>
-            </DescribSec>
             {
               showEditModal
               ?
@@ -211,8 +206,16 @@ class Fair extends Component {
               :
               null
             }
+            <DescribSec>
+              <h1>Fairness</h1>
+              <DescribPar>Food is integral to the health and quality of life of individuals and communities. Healthy food is nutritious, delicious and safe. Healthy food meets recommended dietary guidelines and supports the body’s ability to fight disease and heal. All people deserve access to healthy food that is affordable, conveniently availability and culturally relevant.</DescribPar>
+              
+              <DescribPar>Not all communities live in neighborhoods where “the healthy choice is the easy choice,” and instead are surrounded by unhealthy food retail such as liquor stores, convenience stores and fast food restaurants. Through the numerous policy, systems and environmental changes led by stakeholders throughout the LAFPC network, we are collectively innovating solutions for overcoming systemic barriers to healthy food access— tailoring these innovations to the unique dynamics of the communities that we serve.</DescribPar>
+              
+              <DescribPar>In this section, we explore progress towards improving the health of ALL Angelenos by evaluating disparities and change over time in the following categories: Increased healthy food access, Improved eating habits amongst adults & children, Rates of obesity, Rates of diet-related diseases.</DescribPar>
+            </DescribSec>
             <Table>
-              <Row>
+              {/* <Row>
                 {
                   this.props.isLogged
                   ?
@@ -228,7 +231,32 @@ class Fair extends Component {
                 <TableDataHeader><H1>Notes</H1></TableDataHeader>
                 <TableDataHeader><H1>Data Status</H1></TableDataHeader>
                 <TableDataHeader><H1>Group</H1></TableDataHeader>
-              </Row>
+              </Row> */}
+              <HeaderRow isLogged={isLogged}>
+            {
+              this.props.isLogged
+                ?
+                <React.Fragment>
+                  <TableDataHeader>ADMIN</TableDataHeader>
+                  <TableDataHeader><H1>Group</H1></TableDataHeader>
+                  <TableDataHeader><H1>Subgroup</H1></TableDataHeader>
+                  <TableDataHeader><H1>Indicator</H1></TableDataHeader>
+                  <TableDataHeader><H1>Sources</H1></TableDataHeader>
+                  <TableDataHeader><H1>2013</H1></TableDataHeader>
+                  <TableDataHeader><H1>2017</H1></TableDataHeader>
+                  <TableDataHeader><H1>2020</H1></TableDataHeader>
+                  <TableDataHeader><H1>Trend</H1></TableDataHeader>
+                </React.Fragment>
+                :
+                <React.Fragment>
+                  <TableDataHeader><H1>Indicator</H1></TableDataHeader>
+                  <TableDataHeader><H1>2013</H1></TableDataHeader>
+                  <TableDataHeader><H1>2017</H1></TableDataHeader>
+                  <TableDataHeader><H1>2020</H1></TableDataHeader>
+                  <TableDataHeader><H1>Trend</H1></TableDataHeader>
+                </React.Fragment>
+            }
+          </HeaderRow>
               {
                 fairData.map((data, i) => {
                   return (
@@ -243,6 +271,59 @@ class Fair extends Component {
                       :
                       null
                       }
+                                        {
+                    this.props.isLogged
+                      ?
+                      <React.Fragment>
+                        <TableData onClick={(e) => this.showData(e)}>
+                          <P>{data.group}</P>
+                        </TableData>
+                        <TableData onClick={(e) => this.showData(e)}>
+                          <P>{data.subgroup}</P>
+                        </TableData>
+                        <TableData onClick={(e) => this.showData(e)}>
+                          <P>{data.indicator}</P>
+                        </TableData>
+                        <TableData onClick={(e) => this.showData(e)}>
+                          <P>{data.sources}</P>
+                        </TableData>
+                        <TableData onClick={(e) => this.showData(e)}>
+                          <P>{data.baseline}</P>
+                        </TableData>
+                        <TableData onClick={(e) => this.showData(e)}>
+                          <P>{data.firstUpdate}</P>
+                        </TableData>
+                        <TableData onClick={(e) => this.showData(e)}>
+                          <P>{data.secondUpdate}</P>
+                        </TableData>
+                        <TableData onClick={(e) => this.showData(e)}>
+                          <P>{data.trend}</P>
+                        </TableData>
+                      </React.Fragment>
+                      :
+                      this.props.groupFilter === ""
+                      ?
+                      <React.Fragment>
+                        <TableData onClick={(e) => this.showData(e)}>
+                          <P>{data.indicator}</P>
+                        </TableData>
+                        <TableData onClick={(e) => this.showData(e)}>
+                          <P>{data.baseline}</P>
+                        </TableData>
+                        <TableData onClick={(e) => this.showData(e)}>
+                          <P>{data.firstUpdate}</P>
+                        </TableData>
+                        <TableData onClick={(e) => this.showData(e)}>
+                          <P>{data.secondUpdate}</P>
+                        </TableData>
+                        <TableData onClick={(e) => this.showData(e)}>
+                          <P>{data.trend}</P>
+                        </TableData>
+                      </React.Fragment>
+                      :
+                      data.group === this.props.groupFilter
+                      ?
+                      <React.Fragment>
                       <TableData onClick={(e) => this.showData(e)}>
                         <P>{data.indicator}</P>
                       </TableData>
@@ -250,27 +331,23 @@ class Fair extends Component {
                         <P>{data.baseline}</P>
                       </TableData>
                       <TableData onClick={(e) => this.showData(e)}>
-                        <P>{data.update}</P>
+                        <P>{data.firstUpdate}</P>
                       </TableData>
                       <TableData onClick={(e) => this.showData(e)}>
-                        <P>{data.sources}</P>
+                        <P>{data.secondUpdate}</P>
                       </TableData>
                       <TableData onClick={(e) => this.showData(e)}>
-                        <P>{data.change}</P>
+                        <P>{data.trend}</P>
                       </TableData>
-                      <TableData onClick={(e) => this.showData(e)}>
-                        <P>{data.notes}</P>
-                      </TableData>
-                      <TableData onClick={(e) => this.showData(e)}>
-                        <P>{data.dataStatus}</P>
-                      </TableData>
-                      <TableData onClick={(e) => this.showData(e)}>
-                        <P>{data.group}</P>
-                      </TableData>
-                    </Row>
-                  )
-                })
-              }
+                    </React.Fragment>
+                    :
+                    null
+                  }
+
+                </Row>
+              )
+            })
+          }
             </Table>
             {
                   this.props.isLogged
@@ -281,15 +358,24 @@ class Fair extends Component {
               }
             <ChartDiv>
               <ToolKit>
-                  <Button style={{backgroundColor:'#D6D7AD', marginTop:"10px"}} fullWidth>Number of Properties</Button>
+                  {/* <Button style={{backgroundColor:'#D6D7AD', marginTop:"10px"}} fullWidth>Number of Properties</Button>
                   <Button style={{backgroundColor:'#D6D7AD', marginTop:"10px"}} fullWidth>Grocery Stores</Button>
                   <Button style={{backgroundColor:'#D6D7AD', marginTop:"10px"}} fullWidth>Food Consumption</Button>
                   <Button style={{backgroundColor:'#D6D7AD', marginTop:"10px"}} fullWidth>Obesity Percentage</Button>
-                  <Button style={{backgroundColor:'#D6D7AD', marginTop:"10px"}} fullWidth>Health Diagnosis Percentage</Button>
+                  <Button style={{backgroundColor:'#D6D7AD', marginTop:"10px"}} fullWidth>Health Diagnosis Percentage</Button> */}
+                  {/* {
+                    this.state.buttons.map((indicator, i) => {
+                      return (
+                        <Button key={i} value={indicator} onClick={this.handleFilter} style={{ backgroundColor: '#F4934D', marginTop: "10px" }} fullWidth>
+                          {indicator}
+                        </Button>
+                      )
+                    })
+                  } */}
               </ToolKit>
-              <ToolKit>
+              {/* <ToolKit>
                 <Donut fairData={this.state.fairData} />
-              </ToolKit>
+              </ToolKit> */}
             </ChartDiv>
             
           </Container>

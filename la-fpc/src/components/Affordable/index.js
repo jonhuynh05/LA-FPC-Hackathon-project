@@ -392,7 +392,7 @@ class Affordable extends Component {
         }
         <ChartDiv>
           <ToolKit>
-            {
+            {/* {
               this.state.buttons.map((indicator, i) => {
                 return (
                   <Button key={i} value={indicator} onClick={this.handleFilter} style={{ backgroundColor: '#F4934D', marginTop: "10px" }} fullWidth>
@@ -400,7 +400,7 @@ class Affordable extends Component {
                   </Button>
                 )
               })
-            }
+            } */}
             {/* <Button value="" onClick={this.handleFilter} style={{ backgroundColor: '#F4934D', marginTop: "10px" }} fullWidth>
               Reset Filter
             </Button> */}

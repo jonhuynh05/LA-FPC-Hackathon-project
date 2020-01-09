@@ -32,9 +32,17 @@ export const Table = styled.div`
 export const Row = styled.div`
   display: flex;
   width: 100%;
-  justify-content: space-evenly;
+  justify-content: ${props => props.isLogged ? "space-evenly" : "center"};
   margin-bottom: 9px;
 `
+
+export const HeaderRow = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: ${props => props.isLogged ? "space-evenly" : "center"};
+  margin-bottom: 9px;
+`
+
 export const TableData = styled.div`
   margin: 1px;
   width: 11%;
