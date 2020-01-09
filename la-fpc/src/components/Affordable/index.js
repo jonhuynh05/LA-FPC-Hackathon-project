@@ -409,33 +409,6 @@ class Affordable extends Component {
             <Donut affordableData={this.state.affordableData} />
           </ToolKit>
         </ChartDiv>
-        <div>
-          THIS IS THE AFFORDABLE DATA
-              {
-            this.state.affordableData.map((data, i) => {
-
-              if(this.props.groupFilter === ""){
-                return(
-                  <div key={i}>
-                    {data.baseline}
-                  </div>
-                )
-              }
-              else{
-                if(data.group === this.props.groupFilter){
-                  return(
-                    <div key={i}>
-                      {data.baseline}
-                    </div>
-                  )
-                }
-                else{
-                  return null
-                }
-              }
-            })
-          }
-        </div>
       </Container>
     )
   }
