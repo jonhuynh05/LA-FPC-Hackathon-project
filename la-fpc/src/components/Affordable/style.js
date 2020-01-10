@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import affordable from './img/jake-gard-1344.jpg'
+
 export const MainDiv = styled.div`
     margin: 0 5% 0 5%;
 

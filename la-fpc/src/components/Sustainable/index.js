@@ -9,7 +9,10 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import TrendingDownIcon from '@material-ui/icons/TrendingDown';
 import TrendingFlatIcon from '@material-ui/icons/TrendingFlat';
 import TrendingUpIcon from '@material-ui/icons/TrendingUp';
-
+import FactOne from './img/image (13).png'
+import FactTwo from './img/image (14).png'
+import FactThree from './img/image (15).png'
+import FactFour from './img/image (16).png'
 
 import {
   MainDiv,
@@ -227,16 +230,17 @@ class Sustainable extends Component {
         <MainDiv>
           <TileDiv>
             <TileWrapper>
-              <Tiles />
-            </TileWrapper> 
-            <TileWrapper>
-              <Tiles />
+              <Tiles src={FactOne} alt={"logo"} />
+              
             </TileWrapper>
             <TileWrapper>
-              <Tiles />
+              <Tiles src={FactTwo} alt={"logo"} />
             </TileWrapper>
             <TileWrapper>
-              <Tiles />
+              <Tiles src={FactThree} alt={"logo"} />
+            </TileWrapper>
+            <TileWrapper>
+              <Tiles src={FactFour} alt={"logo"} />
             </TileWrapper>
           </TileDiv>
         </MainDiv>
