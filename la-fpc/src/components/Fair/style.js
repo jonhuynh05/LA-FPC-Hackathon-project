@@ -11,8 +11,7 @@ export const MainDiv = styled.div`
 export const BannerDiv = styled.div`
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${fairness});
     height: 50vh;
-    width: 100%;
-    margin: 0;
+    width: 100%; 
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -22,7 +21,7 @@ export const BannerDiv = styled.div`
 export const BannerText = styled.div`
     text-align: center;
     position: relative;
-    width: 100%;
+    width: 70%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);

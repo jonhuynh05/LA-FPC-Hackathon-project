@@ -46,6 +46,6 @@ export const RightDiv = styled.div`
     }
 
     span {
-        padding: 0 5px;
+        padding: 5px 5px 0 5px;
     }
 `
